@@ -1,0 +1,38 @@
+//Enemy Non Attacking
+signed int __fastcall sub_8F6654(int a1, int a2)
+{
+  int v2; // r4
+
+  dword_107006C = a1;
+  v2 = a2;
+  (*(void (__fastcall **)(int, const char *, signed int, int (*)(), _DWORD, int))(*(_DWORD *)a2 + 32))(
+    a2,
+    "AttackNpc",
+    75,
+    sub_8F68D8,
+    0,
+    a2);
+  (*(void (__fastcall **)(int, const char *, const char *, int (*)(), _DWORD))(*(_DWORD *)v2 + 24))(
+    v2,
+    "AttackNpc",
+    "OnLoad",
+    sub_8F6878,
+    0);
+  (*(void (__fastcall **)(int, const char *, const char *, int (*)(), _DWORD))(*(_DWORD *)v2 + 24))(
+    v2,
+    "PetNpc",
+    "OnLoad",
+    sub_8F6878,
+    0);
+  (*(void (__fastcall **)(int, const char *, const char *, int (*)(), _DWORD))(*(_DWORD *)v2 + 24))(
+    v2,
+    "HeroNpc",
+    "OnLoad",
+    sub_8F6878,
+    0);
+  (*(void (__fastcall **)(int, const char *, int (*)()))(*(_DWORD *)v2 + 52))(
+    v2,
+    "NpcFightPackModule::C_OnFightIDChanged",
+    sub_8F6950);
+  return 1;
+}

@@ -1,0 +1,13 @@
+The program counter (PC or R15 in ARM) holds the memory address of the next instruction to be executed.
+The idea here is to arbitrarily modify this value to make it behave like an unconditional branch.
+
+.text 1C4EB4: CMP R4, R6
+.text 1C4EB6: BGE loc_1C4ED8
+
+0x1C4ED8 - 0x1C4EB6 = 0x22 so increasing the PC register by this number of bytes should have the same effect as branching to loc_1C4ED8.
+
+However one thing I didn't consider in my initial answer is the default 0x2 bytes that would be incremented by the processor, so you should actually only add 0x20. I'm not sure if PC-arithmetic is treated specially as branches and returns are, but intuitively 0x20 should be correct if it is treated like a regular ADD operator.
+
+And this converter works fine.
+MOV R0, #0x20 is 2020
+ADD PC, PC, R0 is 8744

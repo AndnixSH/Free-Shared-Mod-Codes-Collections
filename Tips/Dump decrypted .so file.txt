@@ -1,0 +1,16 @@
+.dll in memory stay same as on disk. But .so - no. ELF consist from many parts. Some loaded into memory, some not. Some rewritten with relocation info. You can not get valid ELF file from dump memory, because some info lost on load into memory.
+But you not need any tool for dump .so from memory. All .so files listed in maps file. You can follow guide for how to dump deleted file. You need only select .so file. You need executable region (.code section of ELF) + next writable after it (it is .data section of ELF).
+For example part of maps:
+Code:
+00008000-0000a000 rw-p 00000000 00:00 0
+04000000-14000000 ---p 00000000 00:00 0
+14000000-14007000 r-xp 00000000 08:13 629567     /data/app-lib/com.raongames.growcastle-1/libmain.so
+14007000-14008000 rw-p 00006000 08:13 629567     /data/app-lib/com.raongames.growcastle-1/libmain.so
+14008000-14100000 ---p 00000000 00:00 0
+14100000-14163000 r-xp 00000000 08:06 523        /system/lib/arm/libc.so
+14163000-1416b000 r-xp 00000000 00:00 0
+You need 
+Code:
+14000000-14007000 r-xp 00000000 08:13 629567     /data/app-lib/com.raongames.growcastle-1/libmain.so
+14007000-14008000 rw-p 00006000 08:13 629567     /data/app-lib/com.raongames.growcastle-1/libmain.so
+Then you need specify 14000000-14007000 as range for dump. You get .bin file with .so representation in memory. But it is not same as on disk.

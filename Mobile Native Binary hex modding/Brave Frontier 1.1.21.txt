@@ -1,0 +1,12 @@
+zel - 0x14DB6E
+karma - 0x14DB76
+honor - 0x1F4E34
+no key for vortex - 0x1DA91E bytes : 01 20 70 47
+1 energy cost - 0x229A5A bytes : 01 20 70 47
+0x229A66 bytes : FF 20 70 47
+instant bb - 0x165052 bytes : 64 20 70 47
+monster atk - 0x1681FC
+monster def - 0x1681F4
+monster hp - 0x168204
+unit cost - 0x1F4E34
+item slot - 0x1F4FDE

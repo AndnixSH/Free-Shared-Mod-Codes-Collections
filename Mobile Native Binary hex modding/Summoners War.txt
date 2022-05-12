@@ -1,0 +1,216 @@
+11130909021E1E020C051B051F
+
+--------------[ threadExitApplication ]--------------
+.text:0020ADC4                 PUSH    {R4,LR}
+.text:0020ADC6                 BLX     sleep
+.text:0020ADCA                 BLX     getpid
+.text:0020ADCE                 MOVS    R1, #9          ; sig
+.text:0020ADD0                 BLX     kill
+.text:0020ADD4                 BLX     pthread_self
+.text:0020ADD8                 BLX     pthread_detach
+.text:0020ADDC                 MOVS    R0, #0          ; retval
+.text:0020ADDE                 BLX     pthread_exit
+.text:0020ADE2                 POP     {R4,PC}
+
+--------------[ SBgamehacker ]--------------
+Search this = EFE7C0469BFFFFFF
+
+MOVS    R0, #0	=> 00 20
+BX      LR		=> 70 47
+
+CS_knlExit
+
+Original v1.4.1*:
+.text:0012FA30                 PUSH    {LR}
+.text:0012FA32                 SUB     SP, SP, #0xC
+.text:0012FA34                 BL      sub_61D00
+.text:0012FA38                 MOVS    R3, #0
+.text:0012FA3A                 CMP     R0, #1
+.text:0012FA3C                 BEQ     loc_12FA44
+
+.text:00119B18                 PUSH    {LR} => 00 B5
+.text:00119B1A                 SUB     SP, SP, #0xC => 83 B0
+.text:00119B1C                 BL      sub_61C80 => 48 F7 B0 F8
+.text:00119B20                 MOVS    R3, #0 => 00 23
+.text:00119B22                 CMP     R0, #1 => 01 28
+.text:00119B24                 BEQ     loc_119B2C => 02 D0
+
+
+--------------[ GetIsTerminateIfCracked ]--------------
+EXPORT jWD_GetIsTerminateIfCracked
+
+.text:00209DB8                 LDR     R3, =(unk_88AA5C - 0x209DC0)
+.text:00209DBA                 MOVS    R2, #0x58
+.text:00209DBC                 ADD     R3, PC ; unk_88AA5C
+.text:00209DBE                 LDRB    R0, [R3,R2]
+.text:00209DC0                 BX      LR
+
+--------------[ GetMemoryHackCheckType ]--------------
+EXPORT jWD_GetMemoryHackCheckType
+
+.text:00209DC8                 LDR     R3, =(unk_88AA5C - 0x209DCE)
+.text:00209DCA                 ADD     R3, PC ; unk_88AA5C
+.text:00209DCC                 LDR     R0, [R3,#(dword_88AABC - 0x88AA5C)]
+.text:00209DCE                 BX      LR
+
+--------------[ isRooted ]--------------
+.text:0020AC7C                 PUSH    {R4-R7,LR}
+.text:0020AC7E                 MOV     R7, R9
+.text:0020AC80                 MOV     R6, R8
+
+--------------[ Protection::isRunningMemoryHack(void) ]--------------
+F0 B5 5F 46 56 46 4D 46  44 46 F0 B4 86 49 87 4A
+
+.text:0020C7C0                 PUSH    {R4-R7,LR}
+.text:0020C7C2                 MOV     R7, R11
+
+MOV R0, R7 	= 38 1C
+BX LR 		= 70 47
+
+--------------[ startCheckSpeedHack ]--------------
+01 20 70 47 01 20 70 47  F0 B5 4F 46 46 46 C0 B4
+
+.text:0020ABA4                 MOVS    R0, #1
+.text:0020ABA6                 BX      LR
+
+--------------[ Protection::checkSpeedHack ]--------------
+; Protection::checkSpeedHack(void *)
+_ZN10Protection14checkSpeedHackEPv
+
+.text:0020B748                 PUSH    {R4-R7,LR}
+.text:0020B74A                 MOV     R7, R11
+.text:0020B74C                 MOV     R6, R10
+
+--------------[ getInstalledHackingTool ]--------------
+.text:0001B468                 PUSH    {R4-R6,LR}
+.text:0001B46A                 SUB     SP, SP, #8
+
+PUSH    {R4-R6,LR} = 70 B5
+POP     {R4-R6,PC} = 70 BD
+
+--------------[ getRunningHackingTool ]--------------
+.text:0001B660                 PUSH    {R4-R6,LR}
+.text:0001B662                 SUB     SP, SP, #8
+
+PUSH    {R4-R6,LR} = 70 B5
+POP     {R4-R6,PC} = 70 BD
+
+--------------[ GetbattleUnitSpeed ]--------------
+sub_14A128
+
+Original:
+
+v1.4.1
+.text:00186AF8                 PUSH    {R4-R6,LR}
+.text:00186AFA                 SUB     SP, SP, #0x40
+.text:00186AFC                 CMP     R0, #0x13
+.text:00186AFE                 BHI     loc_186B38
+.text:00186B00                 MOVS    R2, #0xA3
+
+v1.3.1
+.text:001529D4                 PUSH    {R4-R6,LR}						=> 70 B5
+.text:001529D6                 SUB     SP, SP, #0x40					=> 90 B0
+.text:001529D8                 CMP     R0, #0x13						=> 13 28
+.text:001529DA                 BHI     loc_14A166						=> 1B D8
+.text:001529DC                 MOVS    R2, #0xA3					=> A3 22
+
+.text:00144E3E                 LDR     R3, =(word_305A58 - 0x144E48)	=> 0F 4B
+.text:00144E40                 MOVS    R4, R2							=> 14 1C
+.text:00144E42                 MULS    R4, R0							=> 44 43
+.text:00144E44                 ADD     R3, PC ; word_305A58		=> 7B 44
+.text:00144E46                 ADDS    R4, R3, R4						=> 1C 19
+.text:00144E48                 CMP     R4, #0							=> 00 2C
+.text:00144E4A                 BEQ     loc_144E72						=> 12 D0
+.text:00144E4C                 MOVS    R3, #0x1B0					=> D8 23 5B 00
+.text:00144E50                 ADDS    R5, R4, R3						=> E5 18
+.text:00144E52                 MOVS    R6, #0xD8						=> D8 26
+.text:00144E54                 ADDS    R3, #0x10						=> 10 33
+.text:00144E56                 ADDS    R1, R4, R3      ; src			=> E1 18
+.text:00144E58                 MOVS    R2, #0x3C       ; n			=> 3C 22
+.text:00144E5A                 LSLS    R6, R6, #1						=> 76 00
+.text:00144E5C                 MOV     R0, SP          ; dest			=> 68 46
+.text:00144E5E                 BLX     memcpy							=> D5 F6 08 EB
+.text:00144E62                 LDR     R0, [R4,R6]						=> A0 59
+.text:00144E64                 LDR     R1, [R5,#4]						=> 69 68
+.text:00144E66                 LDR     R2, [R5,#8]						=> AA 68
+.text:00144E68                 LDR     R3, [R5,#0xC]					=> EB 68
+.text:00144E6A                 BL      sub_192BB4						=> 4D F0 A3 FE
+
+Hacked:
+.text:00144E36                 MOVS    R0, #0xFF						=> FF 20
+.text:00144E38                 MOVS    R1, #0xFF						=> FF 21
+.text:00144E3A                 MULS    R0, R1							=> 48 43
+.text:00144E3C                 POP     {R4-R6,PC}						=> 70 BD
+
+* 001459C4 sub_1459C4
+* 
+
+
+--------------[ GetBattleUnitDef ]--------------
+.text:00186B40                 PUSH    {R4-R6,LR}
+.text:00186B42                 SUB     SP, SP, #0x40
+.text:00186B44                 CMP     R0, #0x13
+.text:00186B46                 BHI     loc_186B80
+.text:00186B48                 MOVS    R2, #0xA3
+.text:00186B4A                 LDR     R3, =(word_3BCA10 - 0x186B56)
+.text:00186B4C                 LSLS    R2, R2, #5
+.text:00186B4E                 MOVS    R4, R2
+.text:00186B50                 MULS    R4, R0
+.text:00186B52                 ADD     R3, PC ; word_3BCA10
+.text:00186B54                 ADDS    R4, R3, R4
+.text:00186B56                 CMP     R4, #0
+.text:00186B58                 BEQ     loc_186B80
+.text:00186B5A                 MOVS    R3, #0x164
+.text:00186B5E                 ADDS    R5, R4, R3
+.text:00186B60                 MOVS    R6, #0xB2
+.text:00186B62                 ADDS    R3, #0x10
+.text:00186B64                 ADDS    R1, R4, R3      ; src
+.text:00186B66                 MOVS    R2, #0x3C       ; n
+.text:00186B68                 LSLS    R6, R6, #1
+.text:00186B6A                 MOV     R0, SP          ; dest
+.text:00186B6C                 BLX     memcpy
+.text:00186B70                 LDR     R0, [R4,R6]
+.text:00186B72                 LDR     R1, [R5,#4]
+.text:00186B74                 LDR     R2, [R5,#8]
+.text:00186B76                 LDR     R3, [R5,#0xC]
+.text:00186B78                 BL      sub_1E45B8
+
+--------------[ GetBattleUnitAtk ]--------------
+sub_14A1C0
+
+Original:
+
+v1.3.8
+.text:00186B88                 PUSH    {R4-R6,LR}
+.text:00186B8A                 SUB     SP, SP, #0x40
+.text:00186B8C                 CMP     R0, #0x13
+.text:00186B8E                 BHI     loc_186BC8
+.text:00186B90                 MOVS    R2, #0xA3
+
+.text:00144ED6                 LDR     R3, =(word_305A58 - 0x144E48)	=> 0F 4B
+.text:00144ED8                 MOVS    R4, R2							=> 14 1C
+.text:00144EDA				 MULS    R4, R0							=> 44 43
+.text:00144EDC                 ADD     R3, PC ; word_305A58		=> 7B 44
+.text:00144EDE                 ADDS    R4, R3, R4						=> 1C 19
+.text:00144EE0                 CMP     R4, #0							=> 00 2C
+.text:00144EE2                 BEQ     loc_144E72						=> 12 D0
+.text:00144EE4                 MOVS    R3, #0x118					=> 8C 23 5B 00
+.text:00144EE8                 ADDS    R5, R4, R3						=> E5 18
+.text:00144EEA                 MOVS    R6, #0x8C						=> 8C 26
+.text:00144EEC                 ADDS    R3, #0x10						=> 10 33
+.text:00144EEE                 ADDS    R1, R4, R3      ; src			=> E1 18
+.text:00144EF0                 MOVS    R2, #0x3C       ; n			=> 3C 22
+.text:00144EF2                 LSLS    R6, R6, #1						=> 76 00
+.text:00144EF4                 MOV     R0, SP          ; dest			=> 68 46
+.text:00144EF6                 BLX     memcpy							=> D5 F6 08 EB
+.text:00144EFA                 LDR     R0, [R4,R6]						=> A0 59
+.text:00144EFC                 LDR     R1, [R5,#4]						=> 69 68
+.text:00144EFE                 LDR     R2, [R5,#8]						=> AA 68
+.text:00144F00                 LDR     R3, [R5,#0xC]					=> EB 68
+.text:00144F02                 BL      sub_192BB4						=> 4D F0 A3 FE
+
+Hacked:
+.text:00144ECE                 MOVS    R0, #0xFF						=> FF 20
+.text:00144ED0                 MOVS    R1, #0xFF						=> FF 21
+.text:00144ED2                 MULS    R0, R1							=> 48 43
+.text:00144ED4                 POP     {R4-R6,PC}						=> 70 BD

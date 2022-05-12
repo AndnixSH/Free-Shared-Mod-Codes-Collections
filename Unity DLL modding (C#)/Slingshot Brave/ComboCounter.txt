@@ -1,0 +1,78 @@
+public class ComboCounter : MonoBehaviour
+{
+    private int _comboCount;
+
+    public event EventHandler ComboCountChanged;
+
+    public event EventHandler<ComboCountInheritEventArgs> ComboCountInheritFrom;
+
+    public event EventHandler<ComboCountInheritEventArgs> ComboCountInheritTo;
+
+    public void AddComboCount(int count = 1)
+    {
+//modded
+        this._comboCount = (this._comboCount + count) + 0x13;
+        this.OnComboCountChanged(EventArgs.Empty);
+        Singleton<BattleManager>.I.achievementParams.MaxComboNum = this._comboCount;
+    }
+
+    public void ClearComboCount()
+    {
+        this._comboCount = 0;
+        this.OnComboCountChanged(EventArgs.Empty);
+    }
+
+    public void InheritComboCount(ComboCounter otherCounter)
+    {
+        if (this == otherCounter)
+        {
+            Debug.LogError("A combo counter cannot inherit combo count from itself.");
+        }
+        else if (otherCounter.ComboCount != 0)
+        {
+            this._comboCount = this.ComboCount + otherCounter.ComboCount;
+            int comboCount = otherCounter.ComboCount;
+            otherCounter.ClearComboCount();
+            otherCounter.OnComboCountInheritTo(new ComboCountInheritEventArgs(this, comboCount));
+            this.OnComboCountInheritFrom(new ComboCountInheritEventArgs(otherCounter, comboCount));
+        }
+    }
+
+    protected virtual void OnComboCountChanged(EventArgs e)
+    {
+        if (this.ComboCountChanged != null)
+        {
+            this.ComboCountChanged(this, e);
+        }
+    }
+
+    protected virtual void OnComboCountInheritFrom(ComboCountInheritEventArgs e)
+    {
+        if (this.ComboCountInheritFrom != null)
+        {
+            this.ComboCountInheritFrom(this, e);
+        }
+    }
+
+    protected virtual void OnComboCountInheritTo(ComboCountInheritEventArgs e)
+    {
+        if (this.ComboCountInheritTo != null)
+        {
+            this.ComboCountInheritTo(this, e);
+        }
+    }
+
+    public void SetComboCount(int comboCount)
+    {
+        this._comboCount = comboCount;
+        this.OnComboCountChanged(EventArgs.Empty);
+    }
+
+    public int ComboCount
+    {
+        get
+        {
+            return this._comboCount;
+        }
+    }
+}

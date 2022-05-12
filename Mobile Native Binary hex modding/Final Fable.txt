@@ -1,0 +1,126 @@
+.text:0046C42A ; _DWORD __fastcall BattleManager::EnableAutoBattle(BattleManager *__hidden this, bool)
+.text:0046C42A                 EXPORT _ZN13BattleManager16EnableAutoBattleEb
+.text:0046C42A _ZN13BattleManager16EnableAutoBattleEb  ; CODE XREF: LevelManager::setAutoBattle(bool)+10p
+.text:0046C42A                                         ; LevelManager::PVELevelContinue(void)+2CAp ...
+.text:0046C42A                 LDRB    R3, [R0,#8]
+.text:0046C42C                 PUSH    {R4,LR}
+.text:0046C42E                 CMP     R3, R1
+.text:0046C430                 BEQ     locret_46C44A
+.text:0046C432                 MOVS    R3, R0
+.text:0046C434                 ADDS    R3, #0x88
+.text:0046C436                 LDR     R2, [R3]
+.text:0046C438                 SUBS    R3, #0x80
+.text:0046C43A                 LDR     R3, [R3,#0x7C]
+.text:0046C43C
+.text:0046C43C loc_46C43C                              ; CODE XREF: BattleManager::EnableAutoBattle(bool)+1Cj
+.text:0046C43C                 CMP     R3, R2
+.text:0046C43E                 BEQ     loc_46C448
+.text:0046C440                 LDMIA   R3!, {R4}
+.text:0046C442                 ADDS    R4, #0x98
+.text:0046C444                 STRB    R1, [R4]
+.text:0046C446                 B       loc_46C43C
+
+-----------------------------------
+
+.text:004A12D8 ; _DWORD Actor::GetPierceMagAtkVal(Actor *__hidden this)
+.text:004A12D8                 EXPORT _ZN5Actor18GetPierceMagAtkValEv
+.text:004A12D8 _ZN5Actor18GetPierceMagAtkValEv         ; CODE XREF: MagParam(Actor *,Actor *)+14p
+.text:004A12D8                                         ; GetActorBattlePt(Actor *)+128p ...
+.text:004A12D8                 PUSH    {R4,LR}
+.text:004A12DA                 MOVS    R1, #0xF        ; int
+.text:004A12DC                 LDRH    R4, [R0,#0x2C]
+.text:004A12DE                 BL      _ZN5Actor21GetRtBattleChangePropEi ; Actor::GetRtBattleChangeProp(int)
+.text:004A12E2                 ADDS    R0, R4, R0
+.text:004A12E4                 MVNS    R3, R0
+.text:004A12E6                 ASRS    R3, R3, #0x1F
+.text:004A12E8                 ANDS    R0, R3
+.text:004A12EA                 LSLS    R0, R0, #0x10
+.text:004A12EC                 LSRS    R0, R0, #
+
+.text:004A11C8 ; _DWORD Actor::GetAtkSpeed(Actor *__hidden this)
+.text:004A11C8                 EXPORT _ZN5Actor11GetAtkSpeedEv
+.text:004A11C8 _ZN5Actor11GetAtkSpeedEv                ; CODE XREF: ActionTargetSelector::SelectMostAtkSpeedEnemy(BattleUnitProtocol *,int)+58p
+.text:004A11C8                                         ; ActionTargetSelector::SelectMostAtkSpeedEnemy(BattleUnitProtocol *,int)+60p ...
+.text:004A11C8                 PUSH    {R4,LR}
+.text:004A11CA                 MOVS    R1, #0x18       ; int
+.text:004A11CC                 LDR     R4, [R0,#0x54]
+.text:004A11CE                 BL      _ZN5Actor21GetRtBattleChangePropEi ; Actor::GetRtBattleChangeProp(int)
+.text:004A11D2                 LDR     R3, =0x9C3
+.text:004A11D4                 SUBS    R0, R4, R0
+.text:004A11D6                 CMP     R0, R3
+.text:004A11D8                 BHI     locret_4A11DC
+.text:004A11DA                 LDR     R0, =0x9C4
+
+.text:004A1290 ; _DWORD Actor::GetCriticalMagAtkVal(Actor *__hidden this)
+.text:004A1290                 EXPORT _ZN5Actor20GetCriticalMagAtkValEv
+.text:004A1290 _ZN5Actor20GetCriticalMagAtkValEv       ; CODE XREF: PropMagCritRate(Actor *,Actor *,SkillInfo *)+10p
+.text:004A1290                                         ; GetActorBattlePt(Actor *)+A6p ...
+.text:004A1290                 PUSH    {R4,LR}
+.text:004A1292                 MOVS    R1, #0xA        ; int
+.text:004A1294                 LDRH    R4, [R0,#0x1E]
+.text:004A1296                 BL      _ZN5Actor21GetRtBattleChangePropEi ; Actor::GetRtBattleChangeProp(int)
+.text:004A129A                 ADDS    R0, R4, R0
+.text:004A129C                 MVNS    R3, R0
+.text:004A129E                 ASRS    R3, R3, #0x1F
+.text:004A12A0                 ANDS    R0, R3
+.text:004A12A2                 LSLS    R0, R0, #0x10
+.text:004A12A4                 LSRS    R0, R0, #0x10
+.text:004A12A6                 POP     {R4,PC}
+
+.text:004A1278 ; _DWORD Actor::GetCriticalPhyAtkVal(Actor *__hidden this)
+.text:004A1278                 EXPORT _ZN5Actor20GetCriticalPhyAtkValEv
+.text:004A1278 _ZN5Actor20GetCriticalPhyAtkValEv       ; CODE XREF: PropPhyCritRate(Actor *,Actor *,SkillInfo *)+10p
+.text:004A1278                                         ; GetActorBattlePt(Actor *)+8Cp ...
+.text:004A1278                 PUSH    {R4,LR}
+.text:004A127A                 MOVS    R1, #9          ; int
+.text:004A127C                 LDRH    R4, [R0,#0x1C]
+.text:004A127E                 BL      _ZN5Actor21GetRtBattleChangePropEi ; Actor::GetRtBattleChangeProp(int)
+.text:004A1282                 ADDS    R0, R4, R0
+.text:004A1284                 MVNS    R3, R0
+.text:004A1286                 ASRS    R3, R3, #0x1F
+.text:004A1288                 ANDS    R0, R3
+.text:004A128A                 LSLS    R0, R0, #0x10
+.text:004A128C                 LSRS    R0, R0, #0x10
+.text:004A128E                 POP     {R4,PC}
+
+
+
+.text:004AD038 ; _DWORD __fastcall Hero::SetCriticalMagAtkVal(Hero *__hidden this, unsigned __int16)
+.text:004AD038                 EXPORT _ZN4Hero20SetCriticalMagAtkValEt
+.text:004AD038 _ZN4Hero20SetCriticalMagAtkValEt        ; DATA XREF: .data.rel.ro:00BCD0BCo
+.text:004AD038                 PUSH    {R4,LR}
+.text:004AD03A                 MOVS    R4, R0
+
+
+.text:004AD01C ; _DWORD __fastcall Hero::SetCriticalPhyAtkVal(Hero *__hidden this, unsigned __int16)
+.text:004AD01C                 EXPORT _ZN4Hero20SetCriticalPhyAtkValEt
+.text:004AD01C _ZN4Hero20SetCriticalPhyAtkValEt        ; DATA XREF: .data.rel.ro:00BCD0B8o
+.text:004AD01C                 PUSH    {R4,LR}
+.text:004AD01E                 MOVS    R4, R0
+
+
+
+.text:004ACFC8 ; _DWORD __fastcall Hero::SetMagicAtk(Hero *__hidden this, unsigned __int16)
+.text:004ACFC8                 EXPORT _ZN4Hero11SetMagicAtkEt
+.text:004ACFC8 _ZN4Hero11SetMagicAtkEt                 ; DATA XREF: .data.rel.ro:00BCD0ACo
+.text:004ACFC8                 PUSH    {R4,LR}
+.text:004ACFCA                 MOVS    R4, R0
+
+
+.text:004ACFAC ; _DWORD __fastcall Hero::SetPhysicAtk(Hero *__hidden this, unsigned __int16)
+.text:004ACFAC                 EXPORT _ZN4Hero12SetPhysicAtkEt
+.text:004ACFAC _ZN4Hero12SetPhysicAtkEt                ; DATA XREF: .data.rel.ro:00BCD0A8o
+.text:004ACFAC                 PUSH    {R4,LR}
+.text:004ACFAE                 MOVS    R4, R0
+
+.text:004ACF90 ; _DWORD __fastcall Hero::SetMaxHp(Hero *__hidden this, unsigned int)
+.text:004ACF90                 EXPORT _ZN4Hero8SetMaxHpEj
+.text:004ACF90 _ZN4Hero8SetMaxHpEj                     ; DATA XREF: .data.rel.ro:00BCD0A4o
+.text:004ACF90                 PUSH    {R4,LR}
+.text:004ACF92                 MOVS    R4, R0
+
+.text:004AD1AC ; _DWORD __fastcall Hero::SetAtkSpeed(Hero *__hidden this, unsigned int)
+.text:004AD1AC                 EXPORT _ZN4Hero11SetAtkSpeedEj
+.text:004AD1AC _ZN4Hero11SetAtkSpeedEj                 ; DATA XREF: .data.rel.ro:00BCD0FCo
+.text:004AD1AC                 PUSH    {R4,LR}
+.text:004AD1AE                 MOVS    R4, R0

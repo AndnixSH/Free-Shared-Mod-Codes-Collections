@@ -1,0 +1,23 @@
+if you like this product, you may consider purchasing a license
+the hamsters fuelling our equipment need food
+purchase license
+enter license continue trial
+
+sub_52F1C0
+sub_52FBD0 12efd0
+c20400
+
+52A100 129500
+
+*129500 (c3) sub_52A100  "name" "key"
+
+12968c (00) cmp     al, 1 
+
+**12e5c0 (90 c2 00 00)sub_52F1C0  "2clicked()" "1accept()" "ctrial" "license"
+
+12efd0 (C2 00 00) sub_52FBD0 "NagDlg", "Profiler Trial" "NagDlg", "Wikipedia Link" "NagDlg",
+                                 "If you like this product, you may consider purchasing a license.\n"
+                                 "\n"
+                                 "The hamsters fuelling our equipment need food!",
+
+12f715 (c3)  jmp     short loc_530319

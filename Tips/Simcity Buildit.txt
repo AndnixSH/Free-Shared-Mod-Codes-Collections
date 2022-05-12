@@ -1,0 +1,11 @@
+
+Gold / XP / Keys
+After adding resources to a building and it shows the payout, search the amount of Gold (simoleons) it will pay you. This is a dword known value search. Edit all results by just adding +1 increasing so every value is different (you'll see in video). Click off the building and click back. See which value it matches and edit everything back to its original value except the one you want to hack. Directly below that value when you goto address is cash (don't bother editing, won't reward you) next 2 values are keys. A little further down (see video) you'll find XP. DO NOT HACK XP DURING TUTORIAL. You'll break the game and have to clear data and start over. Don't Freeze any values and claim rewards.
+
+**when you go do XP hack and do like 200000000 all at once. Game will crash. Reopen, you'll level up like 6 times and game crashes. Keep doing this until it stops leveling. I would recommend not doing that and maybe give yourself like 2000 xp at a time or something.
+
+Bypass Population Restriction
+Dword known value search how many sims you need to unlock a building. Edit all results by +1 increasing all values to be different. Click back on building too see which value it matches. Edit all other values back and edit the population restriction value to 1. You can now unlock the building.
+
+Cash
+Have to get to the achievements screen. Once their dword union search qty of task and reward. Easiest for me was the 1500000 and 32. Edit the 1500000 to 1 and 32 to something big like 2123456789. Claim another reward to make sure it changes to hacked value. If it does, claim it.

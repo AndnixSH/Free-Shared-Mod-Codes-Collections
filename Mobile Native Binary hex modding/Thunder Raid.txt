@@ -1,0 +1,15 @@
+star_def::ShopBuyItemS::pack(tsf4g_tdr::TdrWriteBuf &,uint)
+.text:002665E8                 SUB     R3, R2, #1		=> 01 30 42 E2
+
+.text:002665F0                 SUB     SP, SP, #0xC		=> 0C D0 4D E2
+
+star_def::ShopBuyItemS::pack(star_def::ShopBuyItemS *this, char *, unsigned int, unsigned int *, unsigned int)
+.text:00266750                 SUBS    R5, R1, #0		=> 00 50 51 E2
+.text:00266754                 SUB     SP, SP, #0x14		=> 14 D0 4D E2
+
+.text:00267FA0                 SUB     R3, R2, #1		=> 01 30 42 E2
+
+star_def::ShopBuyItemS::unpack(star_def::ShopBuyItemS *__hidden this, tsf4g_tdr::TdrReadBuf *, unsigned int)
+_ZN8star_def12ShopBuyItemS6unpackERN9tsf4g_tdr10TdrReadBufEj
+
+.text:002667D0                 SUB     R3, R2, #1

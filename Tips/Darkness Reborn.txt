@@ -1,0 +1,125 @@
+
+1) First you need to have gdb installed on your phone/tablet
+https://www.dropbox.com/s/yw23pmqfkr2iazv/gdb
+
+2) copy this to your /data/temp and give it execute rights via root explorer
+
+3) adb shell to your device
+
+4) As a example were using clash of clans, so start that up
+
+5) In adb shell "ps | grep clash" you should get the pid (process id)
+
+6) run "./gdb --pid 1234" where 1234 is the pid
+
+7) You will get access denied. But this is a muti threaded app so...
+
+8) "ls /proc/1234/task" this will give you the pid's of all the threads
+
+9) Typically i go for the 9th pid down "./gdb --pid 1238" 1238 is the 9th thread down in this example.
+
+10) use the command "gcore" in gdb
+
+11) this will produce a 1238.gcore in your data/temp folder. It take a long time. ABout 20-30 mins. And the file is huge up to 3-4gb.
+
+12) Download this file to your pc. gcore is a memory snapshot of the games memory
+
+13) Next you will need a hex editor. You need to search the gcore for dex.035 the string. This is the header of the dex file.
+
+14) At offset 0x20 you will have the dex size. It stored in little-endian format. There can be up to 20 dex files in the gcore.
+
+15) Cutout the dex and call it classes.dex and open it with ida
+
+16) Should have some info about the app in it if its correct.
+
+17) next remove the odex info from it
+
+This is a sample bad odex commands"
+poss remove invoke-direct {p0},
+
+invoke-object-init/range {p0 .. p0},
+invoke-direct {p0},
+or
+invoke-direct {v0}, if it is the start(.this)
+
+invoke-object-init/range {v0 .. v0},
+invoke-direct {v0},
+
+invoke-static/range {p0 .. p0},
+invoke-static {p0},
+
+return-void-barrier
+return-void
+
+iput-volatile
+iput
+iput-boolean
+
+iget-volatile
+iget
+
+iget-volatile
+iget-boolean
+
+sget-object-volatile
+
+sput-object-volatile
+
+move-object/from16
+
+iget-object-volatile
+
+iput-object-volatile
+"
+18) Resave it and pack it back into app. Should run with out encription now ;-)
+
+Whole process take about 30mins - without the gcore time.
+
+
+
+
+
+
+
+
+
+
+
+Evolve 
+
+GS 58 - 13
+GS 59 - 14
+GS 60 - 15
+GS 61 - 16
+GS 62 - 18 
+GS 63 - 22
+GS 64 - 29
+GS 65 - 36
+
+
+
+Sols = 22,410
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

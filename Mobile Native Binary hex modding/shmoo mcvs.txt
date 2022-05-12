@@ -1,0 +1,29 @@
+MCVS Offsets
+
+//Aimbot, the MOVW and MOVT instructions are used to construct the integer representation of approximately 2e19, which is 0x5f8ac723
+0xfe61a0  VLDR            S16, [R0] ---> VMOV.F32 S16, #31.0 (expands aim assist range *width*)
+0xfe6244  BLX             R9        ---> MOV R0, #1 (tricks the game into *always* checking for someone to aim at instead of only when you see someone)
+0xfe67e4  MOV             R1, R5    ---> MOVW R0, #0xc723 
+0xfe67e8  BL              sub_FE71C0 --> MOVT R0, #0x5f8a (this one and the one above - increase aim assist detection range)
+0xfe682c  VMOV            S18, R0   ---> VMOV.F32 S18, #31.0 (increase aim assist detection range)
+0xfe6874  BL              sub_FE7528 --> MOVW R0, #0xc723
+0xfe6878  MOV             R1, R6    ---> MOVT R0, #0x5f8a (this one and the one above - increase aim assist snap on speed)
+
+//Infinite Ammo
+0x1175e38  SUB             R1, R10, #1 ---> NOP
+
+//No Recoil
+sub_117868c BX LR
+
+//Better Aim
+0x17f788c VMOV            S2, R2 ---> VMOV.F32 S2, #0.5 (this produces the better aim result, but doesn't modify the crosshairs)
+sub_1d19a48 BX LR (this shrinks the crosshairs for a better visual)
+
+//Faster Kills
+0x1175978  VMOV            S0, R1 ---> VMOV.F32 S0, #31.0 (shoot three rounds per shot)
+
+//No Flinch
+sub_f75fd0 BX LR
+
+//Bots Don't Move
+sub_11ad090 BX LR

@@ -1,0 +1,22 @@
+//Game: 波可龍迷宮
+//Version: 7.10.1
+//APK: https://play.google.com/store/apps/details?id=com.gameone.pokoron
+
+; _DWORD EnemyMonsterLogic::getPower(EnemyMonsterLogic *__hidden this)
+EXPORT _ZNK17EnemyMonsterLogic8getPowerEv
+_ZNK17EnemyMonsterLogic8getPowerEv
+; __unwind {
+MOVS            R0, #1
+BX              LR
+
+Arm hex: 01 00 B0 E3 1E FF 2F E1
+Thumb hex: 01 20 70 47
+
+; _DWORD PlayerData::getPower(PlayerData *__hidden this)
+WEAK _ZNK10PlayerData8getPowerEv
+_ZNK10PlayerData8getPowerEv
+MOVS.W          R0, #0x40000
+BX              LR
+
+Arm hex: 01 07 B0 E3 1E FF 2F E1
+Thumb hex: 5F F4 80 20 70 47

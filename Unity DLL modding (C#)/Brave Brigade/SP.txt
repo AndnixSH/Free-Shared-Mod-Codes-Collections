@@ -1,0 +1,32 @@
+public float SP
+    {
+        get
+        {
+            return 100f;
+        }
+        set
+        {
+            this._SP = value;
+            if (this._SP <= 0f)
+            {
+                this._SP = 0f;
+            }
+            else if (this._SP > 100f)
+            {
+                this._SP = 100f;
+            }
+        }
+    }
+
+    public int SP_SPEED
+    {
+        get
+        {
+            int b = ((int) this._SP_SPEED) * ((int) this.additive.SP_SPEED);
+            return Mathf.Max(0, b);
+        }
+        set
+        {
+            this._SP_SPEED = value;
+        }
+    }

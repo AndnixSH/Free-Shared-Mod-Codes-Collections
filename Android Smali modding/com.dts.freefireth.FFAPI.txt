@@ -1,0 +1,23 @@
+.method public static getTelephonyManagerIMEI()Ljava/lang/String;
+    .locals 6
+
+    sget-object v2, Lcom/dts/freefireth/FFAPI;->MainActivity:Lcom/dts/freefireth/FFMainActivity;
+
+    invoke-static {v2}, Luk/lglteam/FakeIMEI;->GetIMEI(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object v1
+
+    return-object v1
+.end method
+
+.method public static getTelephonyManagerMEID()Ljava/lang/String;
+    .locals 6
+
+    sget-object v2, Lcom/dts/freefireth/FFAPI;->MainActivity:Lcom/dts/freefireth/FFMainActivity;
+
+    invoke-static {v2}, Luk/lglteam/FakeIMEI;->GetIMEI(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object v1
+
+    return-object v1
+.end method

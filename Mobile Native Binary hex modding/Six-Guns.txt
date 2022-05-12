@@ -1,0 +1,20 @@
+//From iOSGods?
+
+guard variable for
+__text:0015BD18 (157D18)                SUBS            R1, R4, #1 (original)= 61
+__text:0015BD18 (157D18)                SUBS            R1, R0, #0 (hacked) = 01
+
+cash_amount
+__text:0017F99E (17B99E)                ADDS            R1, R0, R4 (original) = 01 19
+__text:0017F99E (17B99E)                MOV             R1, PC (hacked) = 79 46
+
+coins_amount?
+__text:0017FA5A (17BA5A)                ADDS            R1, R0, R4 (original) = 01 19
+__text:0017FA5A (17BA5A)                MOV             R1, PC (hacked) = 79 46
+
+cash_amount
+__text:00185662 (181662)                ADDS            R1, R0, R4 (original) = 01 19
+__text:00185662 (181662)                MOV             R1, PC (hacked) = 79 46
+
+__text:001856FE (1816FE)                ADDS            R1, R0, R4 (original) = 01 19
+__text:001856FE (1816FE)                MOV             R1, PC (hacked) = 79 46

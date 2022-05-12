@@ -1,0 +1,19 @@
+ConfigMonster::getHP(void)
+_ZN13ConfigMonster5getHPEv
+
+; QuestMonster::getHPValue(void)const
+_ZNK12QuestMonster10getHPValueEv  
+
+; QuestMonster::getDefense(void)
+_ZN12QuestMonster10getDefenseEv 
+
+01 20 70 47
+
+; ConfigQuestBattle::getTotalPlayerHP(void)
+_ZN17ConfigQuestBattle16getTotalPlayerHPEv
+
+; QuestPlayer::getHPMaxValue(void)
+_ZN11QuestPlayer13getHPMaxValueEv
+
+5F F4 80 20 70 47
+

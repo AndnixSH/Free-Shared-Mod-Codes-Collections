@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:amazon="http://schemas.amazon.com/apk/res/android" xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="preferExternal" package="net.supercat.stone" platformBuildVersionCode="23" platformBuildVersionName="6.0-2438415">
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <application android:debuggable="false" android:icon="@drawable/app_icon" android:isGame="true" android:label="@string/app_name" android:largeHeap="true" android:name="net.supercat.MainApplication" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:hardwareAccelerated="true" android:label="@string/app_name" android:launchMode="singleTask" android:name="net.supercat.stone.MainActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="start" android:scheme="stone"/>
+            </intent-filter>
+            <meta-data android:name="unityplayer.UnityActivity" android:value="true"/>
+            <meta-data android:name="unityplayer.ForwardNativeEventsToDalvik" android:value="true"/>
+        </activity>
+        <receiver android:name="com.tapjoy.GCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.gcm.intent.RETRY"/>
+                <category android:name="net.supercat.stone"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="net.supercat.GCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="net.supercat.stone"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="net.supercat.GCMIntentService"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:name="com.facebook.unity.FBUnityLoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.facebook.LoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:exported="true" android:name="com.facebook.unity.FBUnityDeepLinkingActivity"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/e741157c-e730-4279-a977-b1f8df15d5ca"/>
+        <activity android:name="com.soundcloud.android.crop.CropImageActivity"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:name="com.facebook.unity.FBUnityDialogsActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:exported="true" android:name="com.facebook.unity.FBUnityAppLinkActivity"/>
+        <activity android:name="com.facebook.unity.FBUnityGameRequestActivity"/>
+        <activity android:name="com.facebook.unity.FBUnityCreateGameGroupActivity"/>
+        <activity android:name="com.facebook.unity.FBUnityJoinGameGroupActivity"/>
+        <activity android:name="com.facebook.unity.AppInviteDialogActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:name="com.tapjoy.TJAdUnitActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tapjoy.mraid.view.ActionHandler"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tapjoy.mraid.view.Browser"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tapjoy.TJContentActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.tapjoy.appstore" android:value="Google"/>
+        <meta-data android:name="com.tapjoy.notification.icon" android:resource="@drawable/app_icon"/>
+        <meta-data android:name="igaworks_app_key" android:value="@string/e520ffe8-7c8d-432f-aed5-7d21203c2530"/>
+        <meta-data android:name="igaworks_hash_key" android:value="@string/4e89b47e-0feb-477a-95ca-742f1e3fb243"/>
+        <meta-data android:name="igaworks_market_info" android:value="google"/>
+        <meta-data android:name="igaworks_reward_server_type" android:value="server"/>
+        <activity android:name="com.igaworks.adpopcorn.activity.ApOfferWallActivity_NT" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.igaworks.adpopcorn.activity.ApCSActivity_NT" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar"/>
+        <receiver android:exported="true" android:name="com.igaworks.IgawReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+            <meta-data android:name="forward" android:value="com.tapjoy.InstallReferrerReceiver"/>
+        </receiver>
+        <activity android:name="com.igaworks.adpopcorn.activity.ApVideoAdActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar"/>
+        <receiver android:name="com.tapjoy.TapjoyReceiver"/>
+        <provider android:authorities="com.facebook.app.FacebookContentProvider1424424261189446" android:exported="true" android:name="com.facebook.FacebookContentProvider"/>
+        <meta-data android:name="iap:api_version" android:value="4"/>
+        <activity android:label="@string/app_name" android:name="com.onestore.iap.unity.MainActivity"/>
+        <activity android:name="com.google.games.bridge.NativeBridgeActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <meta-data android:name="com.google.android.gms.nearby.connection.SERVICE_ID" android:value=""/>
+        <meta-data android:name="com.google.android.gms.games.APP_ID" android:value="@string/d879ee5f-b564-4815-99ee-0e235c31b713"/>
+        <meta-data android:name="com.google.android.gms.appstate.APP_ID" android:value="@string/e7beca8f-5249-48a9-a46b-590e9eba5c71"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:hardwareAccelerated="true" android:name="com.unity3d.ads.adunit.AdUnitActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:hardwareAccelerated="false" android:name="com.unity3d.ads.adunit.AdUnitSoftwareActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.facebook.FacebookActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="AppGuardRptType" android:value="1"/>
+        <meta-data android:name="AppGuardMsgShow" android:value="0"/>
+        <meta-data android:name="AppGuardLicense" android:value="TAMCBwc="/>
+        <meta-data android:name="AppGuardHashKey" android:value="b3c58bf572d70c7a50699a0c40afe7bb"/>
+        <meta-data android:name="AppGuardConnect" android:value="korea"/>
+    </application>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-feature android:glEsVersion="0x00020000"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-feature android:name="android.hardware.touchscreen.multitouch" android:required="false"/>
+    <uses-feature android:name="android.hardware.touchscreen.multitouch.distinct" android:required="false"/>
+</manifest>

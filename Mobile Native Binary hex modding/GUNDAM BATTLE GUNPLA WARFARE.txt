@@ -1,0 +1,6 @@
+.text:00AEA786 ; cCharacterSkill::getCoolTime(void)const
+.text:00AEA786                 EXPORT _ZNK15cCharacterSkill11getCoolTimeEv
+.text:00AEA786 _ZNK15cCharacterSkill11getCoolTimeEv    ; CODE XREF: cCharacterSkill::getCoolTime(void)+8↑j
+.text:00AEA786                                         ; DATA XREF: LOAD:0006CEC0↑o
+.text:00AEA786                 MOVS            R0, #0
+.text:00AEA788                 BX              LR

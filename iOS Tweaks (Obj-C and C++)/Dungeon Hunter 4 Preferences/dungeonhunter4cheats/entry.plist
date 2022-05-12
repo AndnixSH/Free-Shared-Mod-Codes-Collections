@@ -1,0 +1,10 @@
+{
+    entry = {
+	bundle = DungeonHunter4Cheats;
+	cell = PSLinkCell;
+	detail = DungeonHunter4CheatsListController;
+	icon = DungeonHunter4Cheats.png;
+	isController = 1;
+	label = DungeonHunter4Cheats;
+    };
+}

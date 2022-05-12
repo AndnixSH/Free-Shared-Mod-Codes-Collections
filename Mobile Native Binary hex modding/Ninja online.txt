@@ -1,0 +1,57 @@
+38 1C 70 47
+-------------------------------------------------------
+CPlayerArmor::AddExp(CPlayerArmor *__hidden this, int)
+EXPORT _ZN12CPlayerArmor6AddExpEi
+
+
+.text:0024F2C0                 PUSH    {R4-R7,LR}
+.text:0024F2C2                 LDR     R3, [R0,#0x20]
+.text:0024F2C4                 MOVS    R4, R0
+
+-------------------------------------------------------
+CPlayerEquipPiece::AddExp(CPlayerEquipPiece *__hidden this, int)
+EXPORT _ZN17CPlayerEquipPiece6AddExpEi
+
+.text:0024FF10                 PUSH    {R4-R7,LR}
+.text:0024FF12                 LDR     R3, [R0,#0x20]
+.text:0024FF14                 MOVS    R4, R0
+
+-------------------------------------------------------
+CPlayerMark::AddExp(CPlayerMark *__hidden this, int)
+EXPORT _ZN11CPlayerMark6AddExpEi
+
+.text:00250EB8                 PUSH    {R4-R6,LR}
+.text:00250EBA                 LDR     R3, [R0,#0x20]
+.text:00250EBC                 MOVS    R4, R0
+
+-------------------------------------------------------
+CPlayerWeapon::AddExp(CPlayerWeapon *__hidden this, int)
+EXPORT _ZN13CPlayerWeapon6AddExpEi
+
+.text:002520B4                 PUSH    {R4-R7,LR}
+.text:002520B6                 LDR     R3, [R0,#0x20]
+.text:002520B8                 MOVS    R4, R0
+
+-------------------------------------------------------
+CPlayerNinja::AddExp(CPlayerNinja *__hidden this, int)
+EXPORT _ZN12CPlayerNinja6AddExpEi
+
+.text:00267FA8                 PUSH    {R4-R7,LR}
+.text:00267FAA                 LDR     R3, [R0,#0x24]
+.text:00267FAC                 MOVS    R4, R0
+
+-------------------------------------------------------
+CPlayerNinjaPiece::AddExp(CPlayerNinjaPiece *__hidden this, int)
+EXPORT _ZN17CPlayerNinjaPiece6AddExpEi
+
+.text:00269868                 PUSH    {R4-R7,LR}
+.text:0026986A                 LDR     R3, [R0,#0x24]
+.text:0026986C                 MOVS    R4, R0
+
+-------------------------------------------------------
+CPlayerNinjutsu::AddExp(CPlayerNinjutsu *__hidden this, int)
+EXPORT _ZN15CPlayerNinjutsu6AddExpEi
+
+.text:0026AB70                 PUSH    {R4-R6,LR}
+.text:0026AB72                 LDR     R3, [R0,#0x24]
+.text:0026AB74                 MOVS    R4, R0

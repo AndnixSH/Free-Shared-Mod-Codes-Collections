@@ -1,0 +1,29 @@
+cocos2d::AvatarObject::getSouls(cocos2d::AvatarObject *__hidden this)
+_ZNK7cocos2d12AvatarObject8getSoulsEv
+
+cocos2d::AvatarObject::getCoins(cocos2d::AvatarObject *__hidden this)
+_ZNK7cocos2d12AvatarObject8getCoinsEv
+
+cocos2d::AvatarObject::getRewardCoins(cocos2d::AvatarObject *__hidden this)
+_ZNK7cocos2d12AvatarObject14getRewardCoinsEv
+
+MOVS.W          R0, #0x400000
+BX              LR
+
+5F F4 80 00 70 47
+
+TreeSpider::GameDB::MonsterObjectData::Life(TreeSpider::GameDB::MonsterObjectData *__hidden this)
+_ZNK10TreeSpider6GameDB17MonsterObjectData4LifeEv
+
+MOVS            R0, #1
+BX              LR
+
+01 20 70 47
+
+TreeSpider::GameDB::MonsterObjectData::AttackRange(TreeSpider::GameDB::MonsterObjectData *__hidden this)
+_ZNK10TreeSpider6GameDB17MonsterObjectData11AttackRangeEv
+
+MOVS            R0, #0
+BX              LR
+
+00 20 70 47

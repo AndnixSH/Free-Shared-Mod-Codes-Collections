@@ -1,0 +1,33 @@
+ARM:
+
+1.No Recoil             Keyword: ApplyRecoilIncrease  | Class: vp_Shooter : vp_MSWeaponBehavior  | Hex: 00 00 A0 E3 1E FF 2F E1   | Offset: 0x2063BA8
+2.No Spread             Keyword: ApplySpreadIncrease  | Class: vp_Shooter : vp_MSWeaponBehavior  | Hex: 00 00 A0 E3 1E FF 2F E1   | Offset: 0x2063A50
+3.No Scatter            Keyword: get_CurrentScatter   | Class: vp_FPController : vp_Component    | Hex: 00 00 A0 E3 1E FF 2F E1   | Offset: 0x126E360
+4.Admin Panel           Keyword: CanShow              | Class: LobbyCheats                       | Hex: 01 00 A0 E3 1E FF 2F E1   | Offset: 0x11D56A0
+5.No Cheater            Keyword: get_IsCheater        | Class: UserData : IAttributeHolder       | Hex: 00 00 A0 E3 1E FF 2F E1   | Offset: 0xBCEEA8
+6.                      Keyword:                   | Class:                   | Hex:                     | Offset:
+7.                      Keyword:                   | Class:                   | Hex:                     | Offset:
+8.                      Keyword:                   | Class:                   | Hex:                     | Offset:
+9.                      Keyword:                   | Class:                   | Hex:                     | Offset:
+10.                     Keyword:                   | Class:                   | Hex:                     | Offset:       
+
+x86:
+
+1.                      Keyword:                   | Class:                   | Hex:                     | Offset:        
+2.                      Keyword:                   | Class:                   | Hex:                     | Offset:
+3.                      Keyword:                   | Class:                   | Hex:                     | Offset:
+4.                      Keyword:                   | Class:                   | Hex:                     | Offset:
+5.                      Keyword:                   | Class:                   | Hex:                     | Offset:
+6.                      Keyword:                   | Class:                   | Hex:                     | Offset:
+7.                      Keyword:                   | Class:                   | Hex:                     | Offset:
+8.                      Keyword:                   | Class:                   | Hex:                     | Offset:
+9.                      Keyword:                   | Class:                   | Hex:                     | Offset:
+10.                     Keyword:                   | Class:                   | Hex:                     | Offset:  
+
+Package: app:Guns of Boom
+         package:com.gameinsight.gobandroid
+         Launcher:com.gameinsight.gobandroid.GunsOfBoomActivity
+
+Binary: libil2cpp.so
+
+ 

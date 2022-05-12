@@ -1,0 +1,4 @@
+playAdFromLink
+adsViewModel
+shouldPlayAds
+initWithSession adController

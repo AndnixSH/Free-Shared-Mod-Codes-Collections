@@ -1,0 +1,61 @@
+* Unlimited Silver:
+- Use Some:
+1.Offset: 0x001365f0
+
+Old Function: str r0, [r6, #12]
+New Function: str lr, [r6, #12]
+
+Old Hex: 0C0086E5
+New Hex: 0CE086E5 
+
+- Get Some:
+1.Offset: 0x136498:
+
+Old Function: str r0, [r6, #24] 
+New Function: str lr, [r6, #24]
+
+Old Hex: 180086E5
+New Hex: 18E086E5
+ 
+* Unlimited Gold:
+- Use Some:
+1. Offset: 0x00142570
+
+Old Function: str r1, [r6, #16]
+New Function: str lr, [r6, #16] ;48
+
+Old Hex: 1000086E5
+New Hex: 10E086E5
+
+1.Offset: 0x00142498
+
+Old Function:  str r1, [r0, #0x34] ;52
+New Function: str lr, [r0, #0x34] ;52
+
+Old Hex: 341080E5
+New Hex: 34E080E5
+
+* Unlimited Energy (never lose any) (might work:
+1.Offset: 0x002d568c
+Old Function: str r1, [r0, #24]
+New Function: NOP
+Old Hex: 181080E5
+New Hex: 0000A0E1
+
+* Unlimited Health:
+1.Offset: 0x002E9B6C
+
+Old Function: vsub.f64 d2, d2, d3
+New Function: NOP
+
+Old Hex: 187F77E3
+New Hex: 0000A0E1
+
+* One Hit Kill:
+1.Offset: 0x2e9b50
+
+Old Function: vsub.f64 d2, d2, d3
+New Function: vsub.f64 d2, d2, d7
+
+Old Hex: 187F77E3
+New Hex: 472B32EE

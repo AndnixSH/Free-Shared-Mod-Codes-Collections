@@ -1,0 +1,47 @@
+[BEGIN]
+
+<<< Brothers in Arms 3 1.2.1 and up >>>
+
+<<< Hacks >>>
+- God mode / invincible
+- Full DRM bypass
+- Full file check bypass
+
+<<< Instructions >>>
+1. Install Brothers in Arms 3 From Play Store.
+2. Open Lucky Patcher and patch the game
+3. If done then run the game
+
+If Any Problem, Reboot your device, Reinstall The Game And Patch it Again.
+
+<< Credits >>>
+- Andnix
+
+[LIB]
+{"name":"libBIA3.so"}
+
+{"original":"91 00 00 1A 70 90 8D E2"}
+{"replaced":"00 00 A0 E1 ?? ?? ?? ??"}
+
+{"original":"00 00 50 E3 56 00 00 0A 08 00 A0 E1 09 10 A0 E1 BD 94 1B EB 00 00 50 E3 51 00 00 1A"}
+{"replaced":"FF ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 00 00 A0 E1"}
+
+{"original":"43 00 00 DA 03 C0 51 E2 E8"}
+{"replaced":"00 00 A0 E1 ?? ?? ?? ?? ??"}
+
+{"original":"9A B0 BD 9F E5"}
+{"replaced":"EA ?? ?? ?? ??"}
+
+{"original":"0A 80 5B 9F E5"}
+{"replaced":"EA ?? ?? ?? ??"}
+
+{"original":"C8 A4 F9 EB 00 20 50 E2"}
+{"replaced":"01 00 A0 E3 ?? ?? ?? ??"}
+
+{"original":"5C A3 F9 EB 00 20 50 E2"}
+{"replaced":"01 00 A0 E3 ?? ?? ?? ??"}
+
+[END]
+Patched!
+Cheers!
+By Andnix

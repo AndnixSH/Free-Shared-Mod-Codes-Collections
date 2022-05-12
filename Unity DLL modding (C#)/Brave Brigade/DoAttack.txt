@@ -1,0 +1,116 @@
+public bool DoAttack(bool isBurning)
+    {
+-------------
+        if (base.isEnemy)
+        {
+            return false;
+        }
+-----------
+        if (base.isDead)
+        {
+            return false;
+        }
+        if ((base.additive.CanTurn != 0) || (base.additive.CanAttack != 0))
+        {
+            if (!isBurning)
+            {
+                base.additive.OnTurnEnded();
+            }
+            return false;
+        }
+        base.isBurringAttack = isBurning;
+        if (!base.isBurringAttack)
+        {
+            this._action = this._attack;
+        }
+        else
+        {
+            this._action = new AttackBurning();
+        }
+        if (!this._action.RunAttack(this))
+        {
+            return false;
+        }
+        base.TURN_STATE = ActorState.ATTACK;
+        return true;
+    }
+
+
+
+
+
+public bool DoAttack(bool isBurning)
+{
+    if (base.isEnemy)
+    {
+        return false;
+    }
+    if (base.isDead)
+    {
+        return false;
+    }
+    if ((base.additive.CanTurn != 0) || (base.additive.CanAttack != 0))
+    {
+        if (!isBurning)
+        {
+            base.additive.OnTurnEnded();
+        }
+        return false;
+    }
+    base.isBurringAttack = isBurning;
+    if (!base.isBurringAttack)
+    {
+        this._action = this._attack;
+    }
+    else
+    {
+        this._action = new AttackBurning();
+    }
+    if (!this._action.RunAttack(this))
+    {
+        return false;
+    }
+    base.TURN_STATE = ActorState.ATTACK;
+    return true;
+}
+
+ 
+
+ 
+  public bool DoAttack(bool isBurning)
+{
+    if (base.isEnemy)
+    {
+        return false;
+    }
+    if (base.isDead)
+    {
+        return false;
+    }
+    if ((base.additive.CanTurn != 0) || (base.additive.CanAttack != 0))
+    {
+        if (!isBurning)
+        {
+            base.additive.OnTurnEnded();
+        }
+        return false;
+    }
+    base.isBurringAttack = isBurning;
+    if (!base.isBurringAttack)
+    {
+        this._action = this._attack;
+    }
+    else
+    {
+        this._action = new AttackBurning();
+    }
+    if (!this._action.RunAttack(this))
+    {
+        return false;
+    }
+    base.TURN_STATE = ActorState.ATTACK;
+    return true;
+}
+
+ 
+

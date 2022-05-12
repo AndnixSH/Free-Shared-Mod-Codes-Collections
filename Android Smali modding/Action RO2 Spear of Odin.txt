@@ -1,0 +1,29 @@
+//com/lockincomp/liapp/LiappAlert
+.method public onCreate(Landroid/os/Bundle;)V
+    .locals 4
+
+    return-void
+.end method
+
+//com/lockincomp/liapp/LiappAlert$1
+.method public onClick(Landroid/content/DialogInterface;I)V
+    .locals 2
+
+    const/4 v1, 0x1
+
+    iget-object v0, p0, Lcom/lockincomp/liapp/LiappAlert$1;->this$0:Lcom/lockincomp/liapp/LiappAlert;
+
+    iput-boolean v1, v0, Lcom/lockincomp/liapp/LiappAlert;->bUserClicked:Z
+
+    invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
+
+    iget-object v0, p0, Lcom/lockincomp/liapp/LiappAlert$1;->this$0:Lcom/lockincomp/liapp/LiappAlert;
+
+    invoke-virtual {v0, v1}, Lcom/lockincomp/liapp/LiappAlert;->moveTaskToBack(Z)Z
+
+    iget-object v0, p0, Lcom/lockincomp/liapp/LiappAlert$1;->this$0:Lcom/lockincomp/liapp/LiappAlert;
+
+    invoke-virtual {v0}, Lcom/lockincomp/liapp/LiappAlert;->finish()V
+
+    return-void
+.end method

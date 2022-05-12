@@ -1,0 +1,134 @@
+LuaSetDeathTimer 00207047 (Mark of Death Removed)
+_Z16LuaSetDeathTimerP9lua_State
+
+.text:00287A28                 PUSH    {R4-R7,LR}
+.text:00287A2A                 SUB     SP, SP, #0x14
+.text:00287A2C                 MOVS    R1, #1
+.text:00287A2E                 MOVS    R4, R0
+.text:00287A30                 BLX     luaL_checknumber
+.text:00287A34                 MOVS    R6, R0
+.text:00287A36                 MOVS    R7, R1
+.text:00287A38                 MOVS    R0, R4
+.text:00287A3A                 MOVS    R1, #2
+.text:00287A3C                 BLX     luaL_checknumber
+.text:00287A40                 STR     R0, [SP,#0x28+var_28]
+.text:00287A42                 STR     R1, [SP,#0x28+var_24]
+.text:00287A44                 MOVS    R0, #0x20       ; this
+.text:00287A46                 BL      _ZN13cMemoryPoolednwEj ; cMemoryPooled::operator new(uint)
+.text:00287A4A                 MOVS    R1, R7
+.text:00287A4C                 MOVS    R4, R0
+.text:00287A4E                 MOVS    R0, R6
+.text:00287A50                 BLX     __fixdfsi
+.text:00287A54                 MOVS    R5, R0
+.text:00287A56                 LDR     R0, [SP,#0x28+var_28]
+.text:00287A58                 LDR     R1, [SP,#0x28+var_24]
+.text:00287A5A                 BLX     __fixdfsi
+.text:00287A5E                 MOVS    R1, R5
+.text:00287A60                 MOVS    R2, R0
+.text:00287A62                 MOVS    R0, R4
+.text:00287A64                 BL      _ZN17cDeathTimerEffectC2Eii ; cDeathTimerEffect::cDeathTimerEffect(int,int)
+.text:00287A68                 LDR     R3, [R4,#8]
+.text:00287A6A                 CMP     R3, #0
+.text:00287A6C                 BNE     loc_287A78
+.text:00287A6E                 LDR     R3, [R4]
+.text:00287A70                 MOVS    R0, R4
+.text:00287A72                 LDR     R3, [R3,#4]
+.text:00287A74                 BLX     R3
+.text:00287A76                 B       loc_287A88
+
+
+.text:002269A0 ; _DWORD __fastcall cBaseChar::GetDamage(cBaseChar *this, cBaseUnit *, int, int, int, int, unsigned int)
+.text:002269A0                 EXPORT _ZN9cBaseChar9GetDamageEP9cBaseUnitiiiij
+.text:002269A0 _ZN9cBaseChar9GetDamageEP9cBaseUnitiiiij ; DATA XREF: .data.rel.ro:006AF798o
+
+.text:002269A0                 PUSH    {R4-R7,LR}
+.text:002269A2                 SUB     SP, SP, #0x1C
+.text:002269A4                 LDR     R7, [SP,#0x30+arg_8]
+.text:002269A6                 MOVS    R4, R0
+.text:002269A8                 MOVS    R6, R1
+.text:002269AA                 MOVS    R5, R2
+.text:002269AC                 STR     R3, [SP,#0x30+var_1C]
+.text:002269AE                 LSLS    R3, R7, #0x1A
+.text:002269B0                 BMI     loc_2269BC
+.text:002269B2                 MOVS    R1, #2          ; __int16
+.text:002269B4                 MOVS    R2, R6          ; cBaseUnit *
+.text:002269B6                 MOVS    R3, R5          ; int
+.text:002269B8                 BL      _ZN9cBaseChar16AdditionalActionEsP9cBaseUniti ; cBaseChar::AdditionalAction(short,cBaseUnit *,int)
+.text:002269BC
+.text:002269BC loc_2269BC
+
+.text:002697AC ; _DWORD __fastcall cBaseUnit::GetDamage(cBaseUnit *this, cBaseUnit *, int, int, int, int, unsigned int)
+.text:002697AC                 EXPORT _ZN9cBaseUnit9GetDamageEPS_iiiij
+.text:002697AC _ZN9cBaseUnit9GetDamageEPS_iiiij        ; CODE XREF: cBaseEnemy::GetDamage(cBaseUnit *,int,int,int,int,uint)+124p
+
+.text:002697AC                 PUSH    {R4-R7,LR}
+.text:002697AE                 SUB     SP, SP, #0x3C
+.text:002697B0                 MOVS    R5, R0
+.text:002697B2                 STR     R1, [SP,#0x50+var_30]
+.text:002697B4                 LDR     R0, =(_GLOBAL_OFFSET_TABLE_ - 0x2697BE)
+.text:002697B6                 STR     R2, [SP,#0x50+var_38]
+.text:002697B8                 LDR     R2, [SP,#0x50+var_30]
+.text:002697BA                 ADD     R0, PC ; _GLOBAL_OFFSET_TABLE_
+.text:002697BC                 STR     R0, [SP,#0x50+var_34]
+.text:002697BE                 STR     R3, [SP,#0x50+var_3C]
+.text:002697C0                 LDR     R7, [SP,#0x50+arg_0]
+.text:002697C2                 LDR     R4, [SP,#0x50+arg_4]
+.text:002697C4                 LDR     R6, [SP,#0x50+arg_8]
+.text:002697C6                 LDR     R1, [R5,#0x78]
+.text:002697C8                 CMP     R2, #0
+.text:002697CA                 BEQ     loc_2697D0
+.text:002697CC                 LDR     R2, [R2,#0x78]
+.text:002697CE                 B       loc_2697D4
+
+.text:0026710E ; cBaseUnit::DoDamage(cBaseUnit*, Rect2d<int> &, E_ATTACK_TYPE, bool)
+.text:0026710E                 EXPORT _ZN9cBaseUnit8DoDamageEPS_R6Rect2dIiE13E_ATTACK_TYPEb
+.text:0026710E _ZN9cBaseUnit8DoDamageEPS_R6Rect2dIiE13E_ATTACK_TYPEb
+.text:0026710E                                         ; DATA XREF: .data.rel.ro:006B7820o
+.text:0026710E                                         ; .data.rel.ro:006B9EB0o
+.text:0026710E                 MOVS    R2, #0x1F8
+.text:00267112                 LDR     R2, [R1,R2]
+.text:00267114                 MOVS    R0, #0
+.text:00267116                 CMP     R2, R0
+.text:00267118                 BGT     locret_26712C
+.text:0026711A                 ADDS    R1, #0x90
+.text:0026711C                 LDR     R1, [R1]
+.text:0026711E                 MOVS    R2, #0x38
+.text:00267120                 TST     R1, R2
+.text:00267122                 BNE     locret_26712C
+.text:00267124                 MOVS    R0, R3
+.text:00267126                 SUBS    R0, #0xB
+.text:00267128                 SUBS    R3, R0, #1
+.text:0026712A                 SBCS    R0, R3
+.text:0026712C
+
+.text:00219610 ; _DWORD cGameMgr::IsAutoBattleDungeon(cGameMgr *__hidden this)
+.text:00219610                 EXPORT _ZN8cGameMgr19IsAutoBattleDungeonEv
+.text:00219610 _ZN8cGameMgr19IsAutoBattleDungeonEv     ; CODE XREF: cBattleUI::DoInput(Vector2d<int> &,int)+128p
+.text:00219610                                         ; cBattleUI::Draw(void)+1428p ...
+.text:00219610                 LDR     R3, =0x91B9C
+.text:00219612                 LDR     R3, [R0,R3]
+.text:00219614                 MOVS    R0, #0
+.text:00219616                 CMP     R3, #1
+.text:00219618                 BNE     locret_219646
+.text:0021961A                 LDR     R3, =(g_pGameMgr_ptr - 0x219620)
+.text:0021961C                 ADD     R3, PC ; g_pGameMgr_ptr
+.text:0021961E                 LDR     R3, [R3] ; g_pGameMgr
+.text:00219620                 LDR     R2, [R3]
+.text:00219622                 LDR     R3, =0x91C3C
+.text:00219624                 LDR     R0, [R2,R3]
+.text:00219626                 SUBS    R3, R0, #0
+.text:00219628                 BEQ     locret_219646
+.text:0021962A                 MOVS    R2, #0
+.text:0021962C                 LDRSB   R2, [R0,R2]
+.text:0021962E                 MOVS    R0, #0
+.text:00219630                 CMP     R2, #1
+.text:00219632                 BNE     locret_219646
+.text:00219634                 LDRH    R3, [R3,#2]
+.text:00219636                 MOVS    R2, #0x63
+.text:00219638                 SUBS    R3, #0x64
+.text:0021963A                 LSLS    R3, R3, #0x10
+.text:0021963C                 LSRS    R3, R3, #0x10
+.text:0021963E                 CMP     R2, R3
+.text:00219640                 ADCS    R0, R0
+.text:00219642                 LSLS    R0, R0, #0x18
+.text:00219644                 LSRS    R0, R0, #0x18

@@ -1,0 +1,30 @@
+The Sandbox Evolution v1.5.5
+Function						x86			ARM
+Profile::IsElementUnlocked		12B1C50		C23FC0
+Profile::isCreateModeUnlocked	12B1B00		C23F78
+Profile::isCampaignUnlocked		12BEC10		C289EC
+Profile::getManaBalance			12AF5D0		C22F94
+Profile::giveMana				12CD640		C2E0CC
+Profile::takeMana(uint)			12CDD20		C2E240
+Profile::hasBoughtPromoPack		12B20B0		C2417C
+
+Bypass fake update screen
+UpdateWarningScreen::create
+ZN19UpdateWarningScreen6createEv
+A63C02: change BNE loc_A63C16 to NOP
+A63C06: change BNE loc_A63C16 to NOP
+
+ARM	(THUMB)		Raw hex
+mov r0, #0x0 	00 20
+mov r0, #0x1	01 20
+
+mov r0, #0xff	FF 20
+mov r1, #0xff	FF 21
+mul r0, r1		48 43
+nop				C0 46
+bx lr			70 47
+
+x86				Raw hex
+mov eax, 0		B8 00 00 00 00
+mov eax, 999999 B8 3F 42 0F 00
+ret/retn		c3

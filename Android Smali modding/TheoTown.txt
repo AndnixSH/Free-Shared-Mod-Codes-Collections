@@ -1,0 +1,8 @@
+\info\flowersoft\theotown\theotown\GameHandler.smali
+.method public final declared-synchronized getDiamonds()I
+    .locals 6
+
+    const v0, 0x835
+
+    return v0
+.end method

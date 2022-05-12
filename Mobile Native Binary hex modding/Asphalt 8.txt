@@ -1,0 +1,122 @@
+CarDefEntity::IsAvailableInGame(CarDefEntity *__hidden this)
+ZNK12CarDefEntity17IsAvailableInGameEv
+
+.text:00676840                 MOV             R0, #1			=> 01 00 A0 E3
+.text:00676844                 BX              LR			=> 1E FF 2F E1
+
+CarDefEntity::IsAvailableForPlayer(CarDefEntity *__hidden this)
+_ZNK12CarDefEntity20IsAvailableForPlayerEv
+
+.text:00676848                 MOV             R0, #1			=> 01 00 A0 E3
+.text:0067684C                 BX              LR			=> 1E FF 2F E1
+
+LocalPlayerProfile::IsBannedJailbrokenDevices(LocalPlayerProfile *__hidden this)
+_ZNK18LocalPlayerProfile25IsBannedJailbrokenDevicesEv
+
+.text:00B10808                 STMFD           SP!, {R3,LR}
+.text:00B1080C                 ADD             R0, R0, #0x1DC
+.text:00B10810                 BL              sub_B31B94
+.text:00B10814                 MOVS            R0, R0
+.text:00B10818                 MOV             R0, #0			=> 00 00 A0 E3
+.text:00B1081C                 LDMFD           SP!, {R3,PC}
+
+LocalPlayerProfile::IsBannedCrackedGame(LocalPlayerProfile *__hidden this)
+_ZNK18LocalPlayerProfile19IsBannedCrackedGameEv
+
+.text:00B10860                 STMFD           SP!, {R3,LR}
+.text:00B10864                 ADD             R0, R0, #0x208
+.text:00B10868                 BL              sub_B31B94
+.text:00B1086C                 MOVS            R0, R0
+.text:00B10870                 MOV             R0, #0			=> 00 00 A0 E3
+.text:00B10874                 LDMFD           SP!, {R3,PC}
+
+Product::GetPriceType(Product *__hidden this)
+_ZNK7Product12GetPriceTypeEv
+
+.text:00BBD778                 MOV             R0, #0			=> 00 00 A0 E3
+.text:00BBD77C                 BX              LR			=> 1E FF 2F E1
+
+Product::IsActive(Product *__hidden this)
+_ZNK7Product8IsActiveEv
+
+.text:00BBD7DC                 MOV             R0, #1			=> 01 00 A0 E3
+.text:00BBD7E0                 BX              LR			=> 1E FF 2F E1
+
+PlayerProfile::GetMoney(PlayerProfile *__hidden this)
+_ZNK13PlayerProfile8GetMoneyEv
+
+.text:00C2773C                 MOV             R0, #0x8000000		=> 08 04 A0 E3
+.text:00C27740                 BX              LR			=> 1E FF 2F E1
+
+PlayerProfile::GetLevel(PlayerProfile *__hidden this)
+_ZNK13PlayerProfile8GetLevelEv
+
+.text:00C27ABC                 MOV             R0, #0x64		=> 64 00 A0 E3
+.text:00C27AC0                 BX              LR			=> 1E FF 2F E1
+
+PlayerProfile::GetLevelExperienceLength(PlayerProfile *__hidden this)
+_ZNK13PlayerProfile24GetLevelExperienceLengthEv
+
+.text:00C27AC4                 ADD             R0, R0, #0x22C		=> 
+.text:00C27AC8                 B               sub_C62F34
+
+PlayerProfile::GetExperienceInCurrentLevel(PlayerProfile *__hidden this)
+_ZNK13PlayerProfile27GetExperienceInCurrentLevelEv
+
+.text:00C27ACC                 ADD             R0, R0, #0x258
+.text:00C27AD0                 B               sub_C62F34
+
+PlayerProfile::GetStars(PlayerProfile *__hidden this)
+_ZNK13PlayerProfile8GetStarsEv
+
+.text:00C27AD4                 MOV             R0, #0x5A0
+.text:00C27AD8                 BX              LR
+
+PlayerProfile::IsBannedFromSocialFeatures(PlayerProfile *__hidden this)
+.text:00C34A34 _ZNK13PlayerProfile26IsBannedFromSocialFeaturesEv
+
+.text:00C34A34                 ADD             R0, R0, #0x11C0
+.text:00C34A38                 STMFD           SP!, {R3,LR}
+.text:00C34A3C                 ADD             R0, R0, #4
+.text:00C34A40                 BL              sub_C62FDC
+.text:00C34A44                 MOVS            R0, R0
+.text:00C34A48                 MOV             R0, #0			=> 00 00 A0 E3
+.text:00C34A4C                 LDMFD           SP!, {R3,PC}
+
+PlayerProfile::IsBannedFromGame(PlayerProfile *__hidden this)
+_ZNK13PlayerProfile16IsBannedFromGameEv
+
+.text:00C34AF8                 ADD             R0, R0, #0x11C0
+.text:00C34AFC                 STMFD           SP!, {R3,LR}
+.text:00C34B00                 ADD             R0, R0, #0x30
+.text:00C34B04                 BL              sub_C62FDC
+.text:00C34B08                 MOVS            R0, R0
+.text:00C34B0C                 MOV             R0, #0			=> 00 00 A0 E3
+.text:00C34B10                 LDMFD           SP!, {R3,PC}
+
+
+
+Orignal:
+.text:00C40130                 BEQ             loc_C401D8
+
+Hacked:
+.text:00C40130                 B               loc_C401D8
+
+PriceMgr::IsCarOnlyPurchasableThroughCarPack(int)
+Original:
+.text:00C401D8                 MOV             R0, R5
+.text:00C401DC                 ADD             SP, SP, #0x14
+.text:00C401E0                 LDMFD           SP!, {R4-R7,PC}
+
+.text:00C401E4 loc_C401E4                              ; CODE XREF: PriceMgr::IsCarOnlyPurchasableThroughCarPack(int)+A0j
+.text:00C401E4                 MOV             R5, #1
+.text:00C401E8                 B               loc_C401D0
+
+Hacked:
+.text:00C401D8                 MOV             R0, #0
+.text:00C401DC                 ADD             SP, SP, #0x14
+.text:00C401E0                 LDMFD           SP!, {R4-R7,PC}
+
+.text:00C401E4 loc_C401E4                              ; CODE XREF: PriceMgr::IsCarOnlyPurchasableThroughCarPack(int)+A0j
+.text:00C401E4                 MOV             R5, #0
+.text:00C401E8                 B               loc_C401D0

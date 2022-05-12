@@ -1,0 +1,84 @@
+
+
+game::multiplayer::FriendTourneyManager::GetGoldWinReward(game::multiplayer::FriendTourneyManager
+_ZN4game11multiplayer20FriendTourneyManager16GetGoldWinRewardEi
+
+.text:0094E4AC                 STMFD           SP!, {R3-R5,LR}			=> 38 40 2D E9
+.text:0094E4B0                 ADD             R4, R0, #0x110			=> 11 4E 80 E2
+.text:0094E4B4                 MOV             R5, R1				=> 01 50 A0 E1
+.text:0094E4B8                 MOV             R0, R4  ; this			=> 04 00 A0 E1
+.text:0094E4BC                 BL              _ZNK4Json5Value5emptyEv ; Json::Value::empty(void)	=> 14 4F 26 EB
+.text:0094E4C0                 CMP             R0, #0				=> 00 00 50 E3
+.text:0094E4C4                 BEQ             loc_94E4D0			=> 01 00 00 0A
+.text:0094E4C8                 MOV             R0, #0				=> 00 00 A0 E3
+.text:0094E4CC                 LDMFD           SP!, {R3-R5,PC}			=> 38 80 BD E8
+
+.text:0094E4D0 loc_94E4D0                              ; CODE XREF: game::multiplayer::FriendTourneyManager::GetGoldWinReward(int)+18j
+.text:0094E4D0                 MOV             R0, R4				=> 04 00 A0 E1
+.text:0094E4D4                 SUB             R1, R5, #1			=> 01 10 45 E2
+.text:0094E4D8                 BL              _ZN4Json5ValueixEj ; Json::Value::operator[](uint)	=> FD 57 26 EB
+.text:0094E4DC                 LDMFD           SP!, {R3-R5,LR}			=> 38 40 BD E8
+.text:0094E4E0                 B               _ZNK4Json5Value5asIntEv ; Json::Value::asInt(void) => 41 4C 26 EA
+
+Hacked:
+ADD             R4, R0, #0x8000000 					=> 024380E2
+ADD             R4, R0, #0x8000					=> 024980E2
+ADD             R4, R0, #0x800						=> 024B80E2
+
+MOV             R0, #0x8000000 					=> 0203A0E3
+MOV             R0, #0x8000						=> 0209A0E3
+MOV             R0, #0x800						=> 
+
+game::multiplayer::FriendTourneyManager::GetGoldLoseReward(game::multiplayer::FriendTourneyManager
+_ZN4game11multiplayer20FriendTourneyManager17GetGoldLoseRewardEi
+
+text:0094E4E4                 STMFD           SP!, {R3-R5,LR}			=> 38 40 2D E9
+.text:0094E4E8                 ADD             R4, R0, #0x120			=> 12 4E 80 E2
+.text:0094E4EC                 MOV             R5, R1				=> 01 50 A0 E1
+.text:0094E4F0                 MOV             R0, R4  ; this			=> 04 00 A0 E1
+.text:0094E4F4                 BL              _ZNK4Json5Value5emptyEv ; Json::Value::empty(void)	=> 14 4F 26 EB
+.text:0094E4F8                 CMP             R0, #0				=> 00 00 50 E3
+.text:0094E4FC                 BEQ             loc_94E508			=> 01 00 00 0A
+.text:0094E500                 MOV             R0, #0				=> 00 00 A0 E3
+.text:0094E504                 LDMFD           SP!, {R3-R5,PC}			=> 38 80 BD E8
+
+.text:0094E508 loc_94E508                              ; CODE XREF: game::multiplayer::FriendTourneyManager::GetGoldLoseReward(int)+18j
+.text:0094E508                 MOV             R0, R4
+.text:0094E50C                 SUB             R1, R5, #1
+.text:0094E510                 BL              _ZN4Json5ValueixEj ; Json::Value::operator[](uint)
+.text:0094E514                 LDMFD           SP!, {R3-R5,LR}
+.text:0094E518                 B               _ZNK4Json5Value5asIntEv ; Json::Value::asInt(void)
+
+nucleus::crm::BaseCrmManager::IsBannedFromGame(void)const
+_ZNK7nucleus3crm14BaseCrmManager16IsBannedFromGameEv
+.text:00B40FB4 _ZNK7nucleus3crm14BaseCrmManager16IsBannedFromGameEv
+
+.text:00B40FB4                 LDRB            R0, [R0,#0x75] 			=> 75 00 D0 E5
+.text:00B40FB8                 BX              LR				=> 1E FF 2F E1
+
+nucleus::crm::BaseCrmManager::IsBannedFromSocial(nucleus::crm::BaseCrmManager *__hidden this)
+_ZNK7nucleus3crm14BaseCrmManager18IsBannedFromSocialEv
+
+.text:00B40FBC                 LDRB            R0, [R0,#0x75] 			=> 75 00 D0 E5
+.text:00B40FC0                 BX              LR				=> 1E FF 2F E1
+
+__fastcall game::multiplayer::TourneyManager::GetGoldLoseReward(game::multiplayer::TourneyManager *__hidden this, int)
+_ZN4game11multiplayer14TourneyManager17GetGoldLoseRewardEi
+
+.text:006FDC1C                 STMFD           SP!, {R4,LR}			=> 10 40 2D E9
+.text:006FDC20                 MOV             R4, R1				=> 01 40 A0 E1
+.text:006FDC24                 BL              _ZNK4game11multiplayer14TourneyManager22GetCurrentDailyTourneyEv ; game::multiplayer::TourneyManager::GetCurrentDailyTourney(void) 	=> F4 FF FF EB
+.text:006FDC28                 MOV             R1, R4  ; unsigned int		=> 04 10 A0 E1
+.text:006FDC2C                 LDMFD           SP!, {R4,LR}			=> 10 40 BD E8
+.text:006FDC30                 B               _ZNK7nucleus8services11OsirisEvent13GetLoseRewardEj ; nucleus::services::OsirisEvent::GetLoseReward(uint)	=> 9E 0C 12 EA
+
+__fastcall game::multiplayer::TourneyManager::GetGoldWinReward(game::multiplayer::TourneyManager *__hidden this, int)
+_ZN4game11multiplayer14TourneyManager16GetGoldWinRewardEi
+
+.text:006FDC04                 STMFD           SP!, {R4,LR}			=> 10 40 2D E9
+.text:006FDC08                 MOV             R4, R1				=> 01 40 A0 E1
+.text:006FDC0C                 BL              _ZNK4game11multiplayer14TourneyManager22GetCurrentDailyTourneyEv ; game::multiplayer::TourneyManager::GetCurrentDailyTourney(void)	=> FA FF FF EB
+.text:006FDC10                 MOV             R1, R4  ; unsigned int		=> 04 10 A0 E1
+.text:006FDC14                 LDMFD           SP!, {R4,LR}			=> 10 40 BD E8
+.text:006FDC18                 B               _ZNK7nucleus8services11OsirisEvent12GetWinRewardEj ; nucleus::services::OsirisEvent::GetWinReward(uint)	=> 9E 0C 12 EA
+

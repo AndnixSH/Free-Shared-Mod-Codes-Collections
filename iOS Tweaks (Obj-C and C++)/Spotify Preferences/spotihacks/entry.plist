@@ -1,0 +1,10 @@
+{
+    entry = {
+	bundle = SpotiHacks;
+	cell = PSLinkCell;
+	detail = SpotiHacksListController;
+	icon = SpotiHacksicon.png;
+	isController = 1;
+	label = SpotiHacks;
+    };
+}

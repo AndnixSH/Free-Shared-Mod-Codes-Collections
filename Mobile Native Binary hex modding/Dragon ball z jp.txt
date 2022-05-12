@@ -1,0 +1,83 @@
+FF2040437047
+
+.text:00632720 ; _DWORD __fastcall UserCardData::getHp(UserCardData *__hidden this, int)
+.text:00632720                 EXPORT _ZNK12UserCardData5getHpEi
+.text:00632720 _ZNK12UserCardData5getHpEi              ; CODE XREF: UserCardData::getHp(int)+8j
+
+.text:00677514                 PUSH.W          {R4-R8,LR}
+.text:00677518                 SUB             SP, SP, #8
+.text:0067751A                 MOV             R4, R0
+.text:0067751C                 MOV             R5, R1
+.text:0067751E                 LDR             R0, [R4,#0x40]
+.text:00677520                 CMP             R0, R5
+.text:00677522                 BNE             loc_677528
+.text:00677524                 LDR             R0, [R4,#0x44]
+.text:00677526                 B               loc_67757C
+
+--------------------------------------------------------------------
+
+.text:006329DC ; _DWORD __fastcall UserCardData::getAttack(UserCardData *__hidden this, int)
+.text:006329DC                 EXPORT _ZNK12UserCardData9getAttackEi
+
+.text:006777D0                 PUSH.W          {R4-R8,LR}
+.text:006777D4                 SUB             SP, SP, #8
+.text:006777D6                 MOV             R4, R0
+.text:006777D8                 MOV             R5, R1
+.text:006777DA                 LDR             R0, [R4,#0x48]
+.text:006777DC                 CMP             R0, R5
+.text:006777DE                 BNE             loc_6777E4
+.text:006777E0                 LDR             R0, [R4,#0x4C]
+.text:006777E2                 B               loc_677838
+
+--------------------------------------------------------------------
+
+.text:00632A4C ; _DWORD __fastcall UserCardData::getDefense(UserCardData *__hidden this, int)
+.text:00632A4C                 EXPORT _ZNK12UserCardData10getDefenseEi
+
+.text:00677840                 PUSH.W          {R4-R8,LR}
+.text:00677844                 SUB             SP, SP, #8
+.text:00677846                 MOV             R4, R0
+.text:00677848                 MOV             R5, R1
+.text:0067784A                 LDR             R0, [R4,#0x50]
+.text:0067784C                 CMP             R0, R5
+.text:0067784E                 BNE             loc_677854
+.text:00677850                 LDR             R0, [R4,#0x54]
+.text:00677852                 B               loc_6778A8
+
+--------------------------------------------------------------------
+
+.text:00642B98 ; _DWORD InGameData::getPlayerTotalHpMax(InGameData *__hidden this)
+.text:00642B98                 EXPORT _ZN10InGameData19getPlayerTotalHpMaxEv
+
+.text:006886A4                 MOVW            R12, #0xAE2C
+.text:006886A8                 MOVS            R1, #0
+.text:006886AA                 MOVS            R2, #0x68
+.text:006886AC                 MOVT.W          R12, #0x3254
+.text:006886B0
+.text:006886B0 loc_6886B0                              ; CODE XREF: InGameData::getPlayerTotalHpMax(void)+1Aj
+.text:006886B0                 LDR             R3, [R0,R2]
+.text:006886B2                 ADDS            R2, #0xF0
+.text:006886B4                 CMP.W           R2, #0x6F8
+.text:006886B8                 EOR.W           R3, R3, R12
+.text:006886BC                 ADD             R1, R3
+.text:006886BE                 BNE             loc_6886B0
+.text:006886C0                 LDR.W           R0, [R0,#0xD74]
+.text:006886C4                 ADD             R0, R1
+.text:006886C6                 BX              LR
+
+--------------------------------------------------------------------
+
+_DWORD InGameData::getPlayerTotalHp(InGameData *__hidden this)
+_ZNK10InGameData16getPlayerTotalHpEv
+
+.text:00689A88                 LDR.W           R0, [R0,#0xD70]
+.text:00689A8C                 MOV             R1, #0x3254AE2C
+.text:00689A94                 EORS            R0, R1
+.text:00689A96                 BX              LR
+
+
+
+
+
+
+

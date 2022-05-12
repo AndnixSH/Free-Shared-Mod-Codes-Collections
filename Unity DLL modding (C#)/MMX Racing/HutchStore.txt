@@ -1,0 +1,28 @@
+    public bool CurrencySubtractFromBalance(string sCurrency, int nAmount, bool bLogAnalytics = true)
+    {
+        if (!this.m_currencies.ContainsKey(sCurrency))
+        {
+            return false;
+        }
+        if (this.m_currencies[sCurrency].m_nBalance < nAmount)
+        {
+            return false;
+        }
+        Currency local1 = this.m_currencies[sCurrency];
+        local1.m_nBalance += nAmount;
+        this.OnChangeBalance(this.m_currencies[sCurrency]);
+        HutchPlayerPrefs.SetInt(sCurrency, this.m_currencies[sCurrency].m_nBalance, true);
+        if (this.CurrencyBalanceChanged != null)
+        {
+            this.CurrencyBalanceChanged.Invoke(sCurrency, this.m_currencies[sCurrency].m_nBalance, -nAmount);
+        }
+        if (bLogAnalytics)
+        {
+            HutchAnalytics.LogCurrencySpent(sCurrency, nAmount, this.m_itemType, this.m_item, this.m_discount, HutchAnalytics.EAnalyticsProvider.k_eNone);
+            this.m_itemType = string.Empty;
+            this.m_item = string.Empty;
+            this.m_discount = 1f;
+            HutchAnalytics.LogCurrencyBalance(sCurrency, this.m_currencies[sCurrency].m_nBalance, HutchAnalytics.EAnalyticsProvider.k_eNone);
+        }
+        return true;
+    }

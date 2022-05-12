@@ -1,0 +1,3 @@
+1. SUBS R0, R2, R0 => ADD R0, R2, R0 [In HEX: 1018] (It will give you the money it took instead of substracting)
+2. SUBS R0, R2, R0 => MOVS R0, R7 [In Hex: 38 1C] (Will give you millions instead of substracting)
+3. SUBS R0, R2, R0 => NOP [In Hex: C0 46] (it will be FREE)

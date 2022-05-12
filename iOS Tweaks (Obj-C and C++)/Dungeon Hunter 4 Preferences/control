@@ -1,0 +1,9 @@
+Package: iandrohackerdk
+Name: Dungeon Hunter 4 Cheats
+Depends: mobilesubstrate
+Version: 1.9.0
+Architecture: iphoneos-arm
+Description: An awesome MobileSubstrate tweak made by iAndroHackerDK!
+Maintainer: iAndroHackerDK
+Author: iAndroHackerDK
+Section: Tweaks

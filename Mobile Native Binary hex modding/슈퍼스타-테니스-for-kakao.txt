@@ -1,0 +1,20 @@
+//Super Shot Gauge Active
+.text:0075EE0C ; CharacterStats::getSuperShotGauge(void)
+.text:0075EE0C                 EXPORT _ZN14CharacterStats17getSuperShotGaugeEv
+.text:0075EE0C _ZN14CharacterStats17getSuperShotGaugeEv
+
+775524
+
+00 00 FF 20 1E FF 2F E1
+
+RSCSHS	R0, PC, R0
+BX	LR
+
+int __fastcall CharacterStats::getSuperShotGauge(int result)
+{
+  char v1; // cf
+
+  if ( v1 )
+    result -= !v1 + 7728660;
+  return result;
+}

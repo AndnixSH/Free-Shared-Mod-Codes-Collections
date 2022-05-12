@@ -1,0 +1,124 @@
+com/inca/security/Proxy/AppGuardProxyApplication
+
+android/app/Application
+
+
+.super Lcom/inca/security/Proxy/AppGuardProxyFragmentActivity;
+invoke-direct {p0}, Lcom/inca/security/Proxy/AppGuardProxyFragmentActivity;-><init>()V
+invoke-super {p0, p1}, Lcom/inca/security/Proxy/AppGuardProxyFragmentActivity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
+invoke-super {p0, p1}, Lcom/inca/security/Proxy/AppGuardProxyFragmentActivity;->onCreate(Landroid/os/Bundle;)V
+invoke-super {p0, p1}, Lcom/inca/security/Proxy/AppGuardProxyFragmentActivity;->onNewIntent(Landroid/content/Intent;)V
+
+.super Landroid/support/v4/app/FragmentActivity;
+invoke-direct {p0}, Landroid/support/v4/app/FragmentActivity;-><init>()V
+invoke-super {p0, p1}, Landroid/support/v4/app/FragmentActivity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
+invoke-super {p0, p1}, Landroid/support/v4/app/FragmentActivity;->onCreate(Landroid/os/Bundle;)V
+invoke-super {p0, p1}, Landroid/support/v4/app/FragmentActivity;->onNewIntent(Landroid/content/Intent;)V
+
+
+.super Landroid/app/Activity;
+invoke-direct {p0}, Landroid/app/Activity;-><init>()V
+invoke-super {p0}, Landroid/app/Activity;->onStop()V
+invoke-super {p0}, Landroid/app/Activity;->onPause()V
+invoke-super {p0}, Landroid/app/Activity;->onResume()V
+invoke-super {p0}, Landroid/app/Activity;->onRestart()V
+invoke-super {p0}, Landroid/app/Activity;->onDestroy()V
+invoke-super {p0}, Landroid/app/Activity;->onBackPressed()V
+invoke-super {p0, p1, p2}, Lcom/inca/security/Proxy/AppGuardProxyActivity;->startActivityForResult(Landroid/content/Intent;I)V
+invoke-super {p0, p1, p2}, Landroid/app/Activity;->startActivityForResult(Landroid/content/Intent;I)V
+invoke-super {p0, p1, p2, p3}, Landroid/app/Activity;->onActivityResult(IILandroid/content/Intent;)V
+invoke-super {p0, p1}, Landroid/app/Activity;->onWindowFocusChanged(Z)V
+invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
+invoke-super {p0, p1}, Landroid/app/Activity;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
+invoke-super {p0, p1}, Landroid/app/Activity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
+invoke-super {p0, p1}, Landroid/app/Application;->attachBaseContext(Landroid/content/Context;)V
+invoke-super {p0, p1}, Landroid/app/Activity;->onSaveInstanceState(Landroid/os/Bundle;)V
+
+
+.super Lcom/inca/security/Proxy/AppGuardProxyActivity;
+invoke-direct {p0}, Lcom/inca/security/Proxy/AppGuardProxyActivity;-><init>()V
+invoke-super {p0}, Lcom/inca/security/Proxy/AppGuardProxyActivity;->onStart()V
+invoke-super {p0}, Lcom/inca/security/Proxy/AppGuardProxyActivity;->onDestroy()V
+invoke-super {p0}, Lcom/inca/security/Proxy/AppGuardProxyActivity;->onPause()V
+invoke-super {p0}, Lcom/inca/security/Proxy/AppGuardProxyActivity;->onResume()V
+invoke-super {p0}, Lcom/inca/security/Proxy/AppGuardProxyActivity;->onStop()V
+invoke-super {p0}, Lcom/inca/security/Proxy/AppGuardProxyActivity;->onRestart()V
+invoke-super {p0}, Lcom/inca/security/Proxy/AppGuardProxyActivity;->onBackPressed()V
+invoke-super {p0, p1, p2}, Lcom/inca/security/Proxy/AppGuardProxyActivity;->startActivityForResult(Landroid/content/Intent;I)V
+invoke-super {p0, p1, p2, p3}, Lcom/inca/security/Proxy/AppGuardProxyActivity;->onActivityResult(IILandroid/content/Intent;)V
+invoke-super {p0, p1}, Lcom/inca/security/Proxy/AppGuardProxyActivity;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
+invoke-super {p0, p1}, Lcom/inca/security/Proxy/AppGuardProxyActivity;->onSaveInstanceState(Landroid/os/Bundle;)V
+invoke-super {p0, p1}, Lcom/inca/security/Proxy/AppGuardProxyActivity;->onCreate(Landroid/os/Bundle;)V
+invoke-super {p0, p1}, Lcom/inca/security/Proxy/AppGuardProxyActivity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
+invoke-super {p0, p1}, Lcom/inca/security/Proxy/AppGuardProxyActivity;->onTouchEvent(Landroid/view/MotionEvent;)Z
+invoke-super {p0, p1}, Lcom/inca/security/Proxy/AppGuardProxyActivity;->onWindowFocusChanged(Z)V
+invoke-super {p0, p1}, Lcom/inca/security/Proxy/AppGuardProxyApplication;->attachBaseContext(Landroid/content/Context;)V
+invoke-super {p0, p1}, Lcom/inca/security/Proxy/AppGuardProxyActivity;->onSaveInstanceState(Landroid/os/Bundle;)V
+
+
+
+
+Remove
+MainActivity
+.field private mAppGuardClient:Lcom/inca/security/AppGuard/AppGuardClient;
+
+.method public constructor <init>()V
+    .locals 2 //change 2 to 1
+
+    const/4 v1, 0x0 // remove
+	
+iput-object v1, p0, Lnet/supercat/stone/MainActivity;->mAppGuardClient:Lcom/inca/security/AppGuard/AppGuardClient;
+
+onDestroy()V
+iget-object v0, p0, Lnet/supercat/stone/MainActivity;->mAppGuardClient:Lcom/inca/security/AppGuard/AppGuardClient;
+
+invoke-virtual {v0}, Lcom/inca/security/AppGuard/AppGuardClient;->cleanup()V
+
+.method protected onPause()V
+    .locals 1 // change to 0
+
+    invoke-super {p0}, Lcom/unity3d/player/UnityPlayerActivity;->onPause()V
+    
+//remove
+    iget-object v0, p0, Lnet/supercat/stone/MainActivity;->mAppGuardClient:Lcom/inca/security/AppGuard/AppGuardClient;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lnet/supercat/stone/MainActivity;->mAppGuardClient:Lcom/inca/security/AppGuard/AppGuardClient;
+
+    invoke-virtual {v0}, Lcom/inca/security/AppGuard/AppGuardClient;->pause()V
+
+    :cond_0
+//---
+    return-void
+.end method
+
+.method protected onResume()V
+    .locals 1 // change to 0
+
+    invoke-super {p0}, Lcom/unity3d/player/UnityPlayerActivity;->onResume()V
+
+//remove
+    iget-object v0, p0, Lnet/supercat/stone/MainActivity;->mAppGuardClient:Lcom/inca/security/AppGuard/AppGuardClient;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lnet/supercat/stone/MainActivity;->mAppGuardClient:Lcom/inca/security/AppGuard/AppGuardClient;
+
+    invoke-virtual {v0}, Lcom/inca/security/AppGuard/AppGuardClient;->resume()V
+
+    :cond_0
+//---
+    return-void
+.end method
+
+
+// smali\com\inca
+
+// smali\com\unity3d\ads\adunit\AdUnitActivity.smali
+
+// smali\com\unity3d\player\UnityPlayerActivity.smali
+
+// smali\net\supercat\stone\MainActivity.smali
+
+// smali\net\supercat\MainApplication.smali

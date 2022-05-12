@@ -1,0 +1,13 @@
+public struct DamageResult
+{
+    public bool IsCritical;
+    public int BaseDamage;
+    public int ComboDamage;
+    public int Damage
+    {
+        get
+        {
+            return ((this.BaseDamage + this.ComboDamage) * 0x3e8);
+        }
+    }
+}

@@ -1,0 +1,2 @@
+To unblock event for cheaters, enable Promos_CanShowPromosToCheaters (movs r0, #1) (this is a fake bug because it hides event if you are a cheater)
+Disable L_ResetDeviceIdForCheaters and SceneManager_DisplayCheaterPopup (movs r0, #0)

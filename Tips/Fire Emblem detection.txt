@@ -1,0 +1,3 @@
+Hmm very interesting... I've found these functions, isRooted, isEmulator, isDebuggerAttached and etc. If they are using SafetyNet, why use custom detection. Google Services is doing its job and detect root, emulator, APK tampering (signed/unsigned) and etc. Weird, right?
+And btw, I was able to bypass root detection on Super Mario Run even SafetyNet is included.
+Tampered APK (unsigned) of Fire Emblem is working so SafetyNet is not doing anything. Hmm...

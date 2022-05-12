@@ -1,0 +1,137 @@
+.text:00A2287C ; _DWORD __fastcall ObstacleTemplate::RttiIsOfType(ObstacleTemplate *__hidden this, unsigned int)
+.text:00A2287C                 WEAK _ZNK16ObstacleTemplate12RttiIsOfTypeEj
+.text:00A2287C _ZNK16ObstacleTemplate12RttiIsOfTypeEj  ; DATA XREF: .data.rel.ro:016B4410o
+.text:00A2287C                                         ; .data.rel.ro:016B7CC0o
+.text:00A2287C                 LDR             R3, =(_GLOBAL_OFFSET_TABLE_ - 0xA2288C)
+.text:00A22880                 LDR             R2, =(_ZZN16ObstacleTemplate14RttiGetClassIdEvE2id_ptr - 0x16EA8BC)
+.text:00A22884                 ADD             R3, PC, R3 ; _GLOBAL_OFFSET_TABLE_
+.text:00A22888                 LDR             R2, [R3,R2] ; _ZZN16ObstacleTemplate14RttiGetClassIdEvE2id_ptr ; ObstacleTemplate::RttiGetClassId(void)::id
+.text:00A2288C                 CMP             R1, R2
+.text:00A22890                 BEQ             loc_A228DC
+.text:00A22894                 LDR             R2, =(_ZZN6Object14RttiGetClassIdEvE2id_ptr - 0x16EA8BC)
+.text:00A22898                 LDR             R2, [R3,R2] ; _ZZN6Object14RttiGetClassIdEvE2id_ptr ; Object::RttiGetClassId(void)::id
+.text:00A2289C                 CMP             R1, R2
+.text:00A228A0                 BEQ             loc_A228DC
+.text:00A228A4                 LDR             R2, =(_ZZN10GameEntity14RttiGetClassIdEvE2id_ptr - 0x16EA8BC)
+.text:00A228A8                 LDR             R2, [R3,R2] ; _ZZN10GameEntity14RttiGetClassIdEvE2id_ptr ; GameEntity::RttiGetClassId(void)::id
+.text:00A228AC                 CMP             R1, R2
+.text:00A228B0                 BEQ             loc_A228DC
+.text:00A228B4                 LDR             R2, =(_ZZN5clara6Entity14RttiGetClassIdEvE2id_ptr - 0x16EA8BC)
+.text:00A228B8                 LDR             R2, [R3,R2] ; _ZZN5clara6Entity14RttiGetClassIdEvE2id_ptr ; clara::Entity::RttiGetClassId(void)::id
+.text:00A228BC                 CMP             R1, R2
+.text:00A228C0                 BEQ             loc_A228DC
+.text:00A228C4                 LDR             R2, =(_ZZN5clara10DataEntity14RttiGetClassIdEvE2id_ptr - 0x16EA8BC)
+.text:00A228C8                 LDR             R0, [R3,R2] ; _ZZN5clara10DataEntity14RttiGetClassIdEvE2id_ptr ; clara::DataEntity::RttiGetClassId(void)::id
+.text:00A228CC                 SUBS            R1, R0, R1
+.text:00A228D0                 RSBS            R0, R1, #0
+.text:00A228D4                 ADCS            R0, R0, R1
+.text:00A228D8                 BX              LR
+
+
+.text:00A228FC ; _DWORD __fastcall ObstacleTemplate::RttiCastTo(ObstacleTemplate *__hidden this, unsigned int)
+.text:00A228FC                 WEAK _ZNK16ObstacleTemplate10RttiCastToEj
+.text:00A228FC _ZNK16ObstacleTemplate10RttiCastToEj    ; DATA XREF: 
+
+
+.text:00A228FC                 LDR             R3, =(_GLOBAL_OFFSET_TABLE_ - 0xA2290C)
+.text:00A22900                 LDR             R2, =(_ZZN16ObstacleTemplate14RttiGetClassIdEvE2id_ptr - 0x16EA8BC)
+.text:00A22904                 ADD             R3, PC, R3 ; _GLOBAL_OFFSET_TABLE_
+.text:00A22908                 LDR             R2, [R3,R2] ; _ZZN16ObstacleTemplate14RttiGetClassIdEvE2id_ptr ; ObstacleTemplate::RttiGetClassId(void)::id
+.text:00A2290C                 CMP             R1, R2
+.text:00A22910                 BXEQ            LR
+.text:00A22914                 LDR             R2, =(_ZZN6Object14RttiGetClassIdEvE2id_ptr - 0x16EA8BC)
+.text:00A22918                 LDR             R2, [R3,R2] ; _ZZN6Object14RttiGetClassIdEvE2id_ptr ; Object::RttiGetClassId(void)::id
+.text:00A2291C                 CMP             R1, R2
+.text:00A22920                 BXEQ            LR
+.text:00A22924                 LDR             R2, =(_ZZN10GameEntity14RttiGetClassIdEvE2id_ptr - 0x16EA8BC)
+.text:00A22928                 LDR             R2, [R3,R2] ; _ZZN10GameEntity14RttiGetClassIdEvE2id_ptr ; GameEntity::RttiGetClassId(void)::id
+.text:00A2292C                 CMP             R1, R2
+.text:00A22930                 BXEQ            LR
+.text:00A22934                 LDR             R2, =(_ZZN5clara6Entity14RttiGetClassIdEvE2id_ptr - 0x16EA8BC)
+.text:00A22938                 LDR             R2, [R3,R2] ; _ZZN5clara6Entity14RttiGetClassIdEvE2id_ptr ; clara::Entity::RttiGetClassId(void)::id
+.text:00A2293C                 CMP             R1, R2
+.text:00A22940                 BXEQ            LR
+.text:00A22944                 LDR             R2, =(_ZZN5clara10DataEntity14RttiGetClassIdEvE2id_ptr - 0x16EA8BC)
+.text:00A22948                 LDR             R3, [R3,R2] ; _ZZN5clara10DataEntity14RttiGetClassIdEvE2id_ptr ; clara::DataEntity::RttiGetClassId(void)::id
+.text:00A2294C                 CMP             R3, R1
+.text:00A22950                 MOVNE           R0, #0
+.text:00A22954                 BX              LR
+
+
+.text:007AE768 ; _DWORD __fastcall AnticheatingManager::SetUserBannedFromSocial(AnticheatingManager *__hidden this, bool)
+.text:007AE768                 EXPORT _ZN19AnticheatingManager23SetUserBannedFromSocialEb
+.text:007AE768 _ZN19AnticheatingManager23SetUserBannedFromSocialEb
+
+
+.text:007AE768                 STMFD           SP!, {R4-R7,LR}
+.text:007AE76C                 ADD             R4, R0, #0x34
+.text:007AE770                 SUB             SP, SP, #0x14
+
+.text:007AE834 ; _DWORD __fastcall AnticheatingManager::SetUserBannedFromGame(AnticheatingManager *__hidden this, bool)
+.text:007AE834                 EXPORT _ZN19AnticheatingManager21SetUserBannedFromGameEb
+.text:007AE834 _ZN19AnticheatingManager21SetUserBannedFromGameEb
+.text:007AE834                                         ; CODE XREF: AnticheatingManager::ProcessBanDataV2(Json::Value const&)+134p
+.text:007AE834                                         ; AnticheatingManager::TryBanV1(void)+70p ...
+
+
+.text:007AE834                 STMFD           SP!, {R4-R7,LR}
+.text:007AE838                 ADD             R5, R0, #0xC
+.text:007AE83C                 MOV             R4, R1
+
+
+
+.text:00AB445C ; _DWORD Game::IsGameCracked(Game *__hidden this)
+.text:00AB445C                 EXPORT _ZNK4Game13IsGameCrackedEv
+.text:00AB445C _ZNK4Game13IsGameCrackedEv
+.text:00AB445C                 ADD             R0, R0, #0x810
+.text:00AB4460                 STMFD           SP!, {R3,LR}
+.text:00AB4464                 MOV             R1, R0
+.text:00AB4468                 BL              _ZNK3jet4core16ProtectedStorageIaE11DecodeValueERKNS2_5ValueE ; jet::core::ProtectedStorage<signed char>::DecodeValue(jet::core::ProtectedStorage<signed char>::Value const&)
+.text:00AB446C                 MOVS            R0, R0
+.text:00AB4470                 MOVNE           R0, #1
+.text:00AB4474                 LDMFD           SP!, {R3,PC}
+
+
+.text:00AB443C ; _DWORD Game::IsDeviceJailbroken(Game *__hidden this)
+.text:00AB443C                 EXPORT _ZNK4Game18IsDeviceJailbrokenEv
+.text:00AB443C _ZNK4Game18IsDeviceJailbrokenEv         ; CODE XREF: IAPController::Update(void)+230p
+.text:00AB443C                                         ; IAPController::Update(void)+764p ...
+.text:00AB443C                 ADD             R0, R0, #0x7E0
+.text:00AB4440                 ADD             R0, R0, #8
+.text:00AB4444                 STMFD           SP!, {R3,LR}
+.text:00AB4448                 MOV             R1, R0
+.text:00AB444C                 BL              _ZNK3jet4core16ProtectedStorageIaE11DecodeValueERKNS2_5ValueE ; jet::core::ProtectedStorage<signed char>::DecodeValue(jet::core::ProtectedStorage<signed char>::Value const&)
+.text:00AB4450                 MOVS            R0, R0
+.text:00AB4454                 MOVNE           R0, #1
+.text:00AB4458                 LDMFD           SP!, {R3,PC}
+
+
+.text:009BC404 ; _DWORD GameItem::IsTokenRewardModeEnabled(GameItem *__hidden this)
+.text:009BC404                 EXPORT _ZN8GameItem24IsTokenRewardModeEnabledEv
+.text:009BC404 _ZN8GameItem24IsTokenRewardModeEnabledEv
+
+.text:009BC404                 LDR             R3, =(_GLOBAL_OFFSET_TABLE_ - 0x9BC414)
+.text:009BC408                 LDR             R2, =(_ZN8GameItem24s_rewardTokenModeEnabledE_ptr - 0x16EA8BC)
+.text:009BC40C                 ADD             R3, PC, R3 ; _GLOBAL_OFFSET_TABLE_
+.text:009BC410                 LDR             R3, [R3,R2] ; _ZN8GameItem24s_rewardTokenModeEnabledE_ptr ; GameItem::s_rewardTokenModeEnabled
+.text:009BC414                 LDRB            R0, [R3]
+.text:009BC418                 BX              LR
+
+.text:009BE844 ; _DWORD __fastcall GameItem::EnableTokenRewardMode(GameItem *__hidden this, bool)
+.text:009BE844                 EXPORT _ZN8GameItem21EnableTokenRewardModeEb
+.text:009BE844 _ZN8GameItem21EnableTokenRewardModeEb   ; CODE XREF: GameItem::ResetStaticVars(void)+ACp
+.text:009BE844                 STMFD           SP!, {R4-R6,LR}
+.text:009BE848                 VPUSH           {D8}
+.text:009BE84C                 MOV             R5, R0
+
+.text:00AD4E64 ; _DWORD Player::GetCurrentMultiplier(Player *__hidden this)
+.text:00AD4E64                 EXPORT _ZNK6Player20GetCurrentMultiplierEv
+.text:00AD4E64 _ZNK6Player20GetCurrentMultiplierEv     ; CODE XREF: LeaderboardMgr::RefreshStatisticsData(safe_enum<ELeaderboardTypeDef,ELeaderboardTypeDef::type>,LeaderboardMgrSaveData::StatisticsSaveData *,bool,bool)+130p
+.text:00AD4E64                                         ; PopupCloudConflict::RefreshPopup(void)+4F8p ...
+.text:00AD4E64
+.text:00AD4E64 var_8           = -8
+.text:00AD4E64
+.text:00AD4E64                 STMFD           SP!, {R4,LR}
+.text:00AD4E68                 SUB             SP, SP, #8
+.text:00AD4E6C                 BL              _ZNK6Player22GetBaseMultiplierLevelEv ; Player::GetBaseMultiplierLevel(void)
+.text:00AD4E70                 LDR             R3, =(_GLOBAL_OFFSET_TABLE_ - 0xAD4E84)

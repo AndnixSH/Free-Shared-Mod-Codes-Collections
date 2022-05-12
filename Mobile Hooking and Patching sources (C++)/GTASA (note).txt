@@ -1,0 +1,11 @@
+int __fastcall CPed::CanBeArrested(CPed *this)
+{
+  return 0;
+}
+
+return
+void CPlayerPed::HandleSprintEnergy()
+CPlayerPed::HandlePlayerBreath()
+cBuoyancy::SimpleCalcBuoyancy()
+CWaterLevel::RenderWaterFog()
+CPointLights::RenderFogEffect()

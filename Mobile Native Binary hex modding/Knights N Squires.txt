@@ -1,0 +1,48 @@
+MOV	R0, #0	=> 00 20
+MOV	R0, #1	=> 01 20
+
+MOV R0, R7 	=> 38 1C
+BX LR 		=> 70 47
+
+* GetFellowAttack
+
+.text:000BBDD0                 PUSH    {R4-R7,LR} 		=> F0 B5
+.text:000BBDD2                 MOV     R7, R8			=> 47 46
+.text:000BBDD4                 PUSH    {R7}				=> 80 B4
+.text:000BBDD6                 MOVS    R4, R0			=> 04 1C
+.text:000BBDD8                 LDR     R0, [R0,#0x10]	=> 00 69
+
+* GetFellowSkillAttack
+
+.text:000BBC60                 PUSH    {R4-R6,LR}		=> 70 B5
+.text:000BBC62                 MOVS    R6, R2			=> 16 1C
+.text:000BBC64                 LDR     R2, [R0,#0x68]	=> 82 6E
+.text:000BBC66                 MOVS    R3, #0x7D0		=> FA 23 DB 00
+
+* GetItemSellPrice
+
+.text:000BB498                 PUSH    {R4-R6,LR}		=> 70 B5
+.text:000BB49A                 LDR     R1, =0x186A0		=> 15 49
+.text:000BB49C                 MOVS    R5, R0			=> 05 1C
+.text:000BB49E                 BLX     __divsi3			=> A7 F0 54 EA
+
+* GetItemBuyPrice
+
+.text:000BB50C                 PUSH    {R4-R6,LR}		=> 70 B5
+.text:000BB50E                 LDR     R1, =0x186A0		=> 15 49
+.text:000BB510                 MOVS    R5, R0			=> 05 1C
+.text:000BB512                 BLX     __divsi3			=> A7 F0 1A EA
+
+* SetGameTotalDamage 
+
+.text:000C7120                 PUSH    {R4-R7,LR} 		=> F0 B5
+.text:000C7122                 MOV     R7, R8			=> 47 46
+.text:000C7124                 PUSH    {R7}				=> 80 B4
+.text:000C7126                 LDR     R3, =(gameInfo_ptr - 0xC7130) => 1D 4B
+.text:000C7128                 LDR     R2, =0x2960		=> 1D 4A
+
+_DWORD Protection::startCheckSpeedHack(Protection *__hidden this)
+_ZN10Protection19startCheckSpeedHackEv
+
+.text:0013765C                 MOVS    R0, #1
+.text:0013765E                 BX      LR

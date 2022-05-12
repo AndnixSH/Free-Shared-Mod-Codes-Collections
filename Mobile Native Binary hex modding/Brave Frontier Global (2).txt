@@ -1,0 +1,70 @@
+----- [sub_1911C4] -----
+
+Original:
+.text:001911C4                 PUSH    {R3,LR} => 08 B5
+.text:001911C6                 BL      sub_17EB5A => ED F7 C8 FC
+.text:001911CA                 POP     {R3,PC} => 08 BD
+
+hacked:
+.text:001911C4                 MOVS    R0, #4 => 04 20
+.text:001911C6                 BX      LR => 70 47
+
+----- [sub_192D3C] -----
+
+Original:
+.text:00192D3C                 PUSH    {R4,LR} => 10 B5
+.text:00192D3E                 MOVS    R4, R0 => 04 1C
+.text:00192D40                 BL      sub_17CDC4
+.text:00192D44                 MOVS    R3, #0x3D8
+.text:00192D48                 ADDS    R0, R4, R3
+.text:00192D4A                 BL      sub_179E74
+.text:00192D4E                 POP     {R4,PC}
+
+hacked:
+.text:00192D3C                 BX      LR
+
+----- [sub_253D8A inventory] -----
+
+
+
+20 * 25 = 500
+
+Original:
+.text:00253D8A                 MOVS    R3, R0 => 03 1C
+.text:00253D8C                 ADDS    R3, #0xCC => CC 33
+.text:00253D8E                 LDRB    R2, [R3,#4] => 1A 79
+.text:00253D90                 LDR     R3, [R3] => 1B 68
+.text:00253D92                 EORS    R2, R3
+.text:00253D94                 MOVS    R3, R0
+.text:00253D96                 ADDS    R3, #0xD8
+.text:00253D98                 LDRB    R0, [R3,#4]
+.text:00253D9A                 LDR     R3, [R3]
+.text:00253D9C                 EORS    R3, R0
+.text:00253D9E                 ADDS    R0, R2, R3
+.text:00253DA0                 BX      LR
+
+hacked:
+.text:00253D8A                 MOVS    R0, #0x14 => 14 20
+.text:00253D8C                 MOVS    R3, #0x19 => 19 23
+.text:00253D8E                 MULS    R0, R3 => 58 43
+.text:00253D90                 BX      LR => 70 47
+
+----- [sub_596AB8] -----
+
+Original: 
+.text:00596AB8                 PUSH    {R4-R7,LR} => 
+.text:00596ABA                 LDR     R1, =(aSgGumiBravefro - 0x596AC4) => 3A 49
+
+Hacked: 
+.text:00596AB8                 MOVS    R0, #1
+.text:00596ABA                 BX      LR
+
+----- [sub_596F50] -----
+
+Original: 
+.text:00596F50                 PUSH    {R0,R1,R4,LR} => 13 B5
+.text:00596F52                 MOVS    R4, #0 => 00 24
+
+Hacked: 
+.text:00596F50                 MOVS    R0, #1
+.text:00596F52                 BX      LR

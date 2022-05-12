@@ -1,0 +1,304 @@
+---------- Zel hack ----------
+Zel Function:
+BattleRewardPoint::getSendZel
+_ZN17BattleRewardPoint10getSendZelEv
+
+Original:
+.text:0038165A                 PUSH    {R3,LR}
+.text:0038165C                 LDR     R1, [R0,#0x20]  ; int
+.text:0038165E                 BL      _ZN17BattleRewardPoint6decodeEi ; BattleRewardPoint::decode(int)
+.text:00381662                 POP     {R3,PC}
+
+003A9D6E                 PUSH    {R3,LR}		=>	08 B5
+003A9D70                 LDR     R1, [R0,#0x20]		=>	01 6A
+003A9D72                 BL      _ZN17BattleRewardPoint6decodeEi ; BattleRewardPoint::decode(int)					=>	FF F7 CD FF
+003A9D76                 POP     {R3,PC}		=>	08 BD
+
+
+Hacked:
+003A9D6E                 MOVS    R0, #0x64		=>	64 20
+003A9D70                 MOVS    R3, #0x5A		=>	5A 23
+003A9D72                 MULS    R0, R3		=>	58 43
+003A9D74                 BX      LR			=>	70 47
+
+003A9D76                 POP     {R3,PC}		=>	08 BD
+
+Hex to decimal:
+#0x20 = 32
+#0x64 = 100
+#0x5A = 90
+
+---------- Brave Brust hack ----------
+Brave Brust Functions:
+BattleUnitSkill::getBraveBurstCost(void)
+_ZN15BattleUnitSkill17getBraveBurstCostEv
+
+Original:
+003C0FDE                 MOVS    R3, R0		=>	03 1C
+003C0FE0                 ADDS    R3, #0x60		=>	60 33
+
+003C0FE2                 LDRB    R2, [R3]
+003C0FE4                 LDR     R3, [R0,#0x5C]
+003C0FE6                 MOVS    R0, R2
+003C0FE8                 EORS    R0, R3
+003C0FEA                 BX      LR
+
+Hacked:
+003C0FDE                 MOVS    R0, #2		=>	02 20
+003C0FE0                 BX      LR			=>	70 47
+
+003C0FE2                 LDRB    R2, [R3]
+003C0FE4                 LDR     R3, [R0,#0x5C]
+003C0FE6                 MOVS    R0, R2
+003C0FE8                 EORS    R0, R3
+003C0FEA                 BX      LR
+
+Hex to decimal:
+#0x60 = 96
+#2 = 2
+
+---------- Monster Attack hack ----------
+Monster Attack Functions:
+MonsterUnit::getAtk(void)
+_ZN10BattleUnit10getBaseAtkEv
+
+Original:
+003C4318                 PUSH    {R3,LR}		=>	08 B5
+003C431A                 BL      ; BattleUnit::getBaseAtk(void) =>	EF F7 A4 FA
+003C431E                 POP     {R3,PC}		=>	08 BD
+
+Hacked:
+003C4318                 MOVS    R0, #0xA		=>	0A 20
+003C431A                 MOVS    R3, #1		=>	01 23
+003C431C                 MULS    R0, R3		=>	58 43
+003C431E                 BX      LR			=>	70 47
+
+Hex to decimal:
+#0xA = 10
+#1 = 1
+
+
+---------- Monster HP hack ----------
+Monster HP Functions:
+MonsterUnit::getMaxHp(void)
+_ZN11MonsterUnit8getMaxHpEv
+
+Original:
+.text:00391D74                 PUSH    {R3,LR}
+.text:00391D76                 BL      _ZN10BattleUnit12getBaseMaxHpEv ; BattleUnit::getBaseMaxHp(void)
+.text:00391D7A                 POP     {R3,PC}
+
+Hacked:
+003C4318                 MOVS    R0, #0xA		=>	0A 20
+003C431A                 MOVS    R3, #1		=>	01 23
+003C431C                 MULS    R0, R3		=>	58 43
+003C431E                 BX      LR			=>	70 47
+
+Hex to decimal:
+#0xA = 10
+#1 = 1
+
+---------- Monster Def hack ----------
+Monster HP Functions:
+MonsterUnit::getDef(MonsterUnit *__hidden this)
+_ZN11MonsterUnit6getDefEv
+
+Original:
+.text:00391D74                 PUSH    {R3,LR}
+.text:00391D76                 BL      _ZN10BattleUnit12getBaseMaxHpEv ; BattleUnit::getBaseMaxHp(void)
+.text:00391D7A                 POP     {R3,PC}
+
+Hacked:
+003C4318                 MOVS    R0, #0xA		=>	0A 20
+003C431A                 MOVS    R3, #1		=>	01 23
+003C431C                 MULS    R0, R3		=>	58 43
+003C431E                 BX      LR			=>	70 47
+
+
+---------- Get Reaming Time hack ----------
+Get Reaming Time Functions:
+PermitPlaceInfo::getRemainingTime(void)
+_ZN15PermitPlaceInfo16getRemainingTimeEv
+
+Original:
+00436DE2                 PUSH    {R4,LR}		=>	10 B5	
+00436DE4                 LDR     R3, [R0,#0x1C]		=>	C3 69	
+00436DE6                 MOVS    R4, R0		=>	04 1C	
+
+00436DE8                 CMP     R3, #0
+00436DEA                 BLE     loc_436E00
+00436DEC                 BL      _ZN11CommonUtils15getNowUnitxTimeEv ; CommonUtils::getNowUnitxTime(void)
+00436DF0                 LDR     R3, [R4,#0x20]
+00436DF2                 SUBS    R0, R0, R3
+00436DF4                 LDR     R3, [R4,#0x1C]
+00436DF6                 SUBS    R0, R3, R0
+00436DF8                 MVNS    R3, R0
+00436DFA                 ASRS    R3, R3, #0x1F
+00436DFC                 ANDS    R0, R3
+00436DFE                 B       locret_436E04
+
+Hacked:
+00436DE2                 PUSH    {R4,LR}		=>	10 B5
+00436DE4                 MOVS    R0, #1		=>	01 20
+00436DE6                 POP     {R4,PC}		=>	10 BD
+
+00436DE8                 CMP     R3, #0
+00436DEA                 BLE     loc_436E00
+00436DEC                 BL      _ZN11CommonUtils15getNowUnitxTimeEv ; CommonUtils::getNowUnitxTime(void)
+00436DF0                 LDR     R3, [R4,#0x20]
+00436DF2                 SUBS    R0, R0, R3
+00436DF4                 LDR     R3, [R4,#0x1C]
+00436DF6                 SUBS    R0, R3, R0
+00436DF8                 MVNS    R3, R0
+00436DFA                 ASRS    R3, R3, #0x1F
+00436DFC                 ANDS    R0, R3
+00436DFE                 B       locret_436E04
+
+Hex to decimal:
+#0x1C = 28
+#1 = 1
+
+---------- Deck Cost hack ----------
+Deck Cost Functions:
+UserTeamInfo::getDeckCost(void)
+_ZN12UserTeamInfo11getDeckCostEv
+Original:
+.text:003C378C                 LDR     R0, [R0,#0x78]		=>	80 6F
+.text:003C378E                 BX      LR			=>	70 47
+
+Hacked:
+00451604                 MOVS    R0, #0xFF		=>	FF 20
+00451606                 BX      LR			=>	70 47
+
+Hex to decimal:
+#0x78 = 120
+#0xFF = 255
+
+---------- Max Ware House hack ----------
+Max Ware House Functions:
+UserTeamInfo::getMaxWarehouseCnt(void)
+_ZN12UserTeamInfo18getMaxWarehouseCntEv
+
+Original:
+004517AE                 MOVS    R3, R0		=>	03 1C
+004517B0                 ADDS    R3, #0xCC		=>	CC 33
+004517B2                 LDRB    R2, [R3,#4]		=>	1A 79
+004517B4                 LDR     R3, [R3]		=>	1B 68
+
+004517B6                 EORS    R2, R3
+004517B8                 MOVS    R3, R0
+004517BA                 ADDS    R3, #0xD8
+004517BC                 LDRB    R0, [R3,#4]
+004517BE                 LDR     R3, [R3]
+004517C0                 EORS    R3, R0
+004517C2                 ADDS    R0, R2, R3
+004517C4                 BX      LR
+
+Hacked:
+004517AE                 MOVS    R0, #0x64		=>	64 20
+004517B0                 MOVS    R3, #0x64		=>	64 23
+004517B2                 MULS    R0, R3		=>	58 43
+004517B4                 BX      LR			=>	70 47
+
+004517B6                 EORS    R2, R3
+004517B8                 MOVS    R3, R0
+004517BA                 ADDS    R3, #0xD8
+004517BC                 LDRB    R0, [R3,#4]
+004517BE                 LDR     R3, [R3]
+004517C0                 EORS    R3, R0
+004517C2                 ADDS    R0, R2, R3
+004517C4                 BX      LR
+
+Hex to decimal:
+#0xCC = 204
+#0x64 = 100
+
+---------- Friend Point hack ----------
+Friend Point Functions:
+UserState::getFriendPoint(void)
+_ZN9UserState14getFriendPointEv
+
+Original:
+00486852                 MOVS    R3, R0		=>	03 1C
+00486854                 ADDS    R3, #0x50		=>	50 33
+
+00486856                 LDRB    R2, [R3]
+00486858                 LDR     R3, [R0,#0x4C]
+0048685A                 MOVS    R0, R2
+0048685C                 EORS    R0, R3
+0048685E                 BX      LR
+
+Hacked:
+00486852                 MOVS    R0, #0x28		=>	28 20
+00486854                 BX      LR			=>	70 47
+
+00486856                 LDRB    R2, [R3]
+00486858                 LDR     R3, [R0,#0x4C]
+0048685A                 MOVS    R0, R2
+0048685C                 EORS    R0, R3
+0048685E                 BX      LR
+
+Hex to decimal:
+#0x50 = 80
+#0x28 = 40
+
+
+---------- Quest Bonus Type hack ----------
+Quest Bonus Type:
+UserState::getQuestBonusType(void)
+_ZN9UserState17getQuestBonusTypeEv
+
+Original:
+00486C0E                 ADDS    R0, #0xFC		=>	FC 30
+00486C10                 LDR     R0, [R0,#0x50]		=>	00 6D
+00486C12                 BX      LR			=>	70 47
+
+Hacked:
+00486C0E                 ADDS    R0, #0xFC		=>	FC 30
+00486C10                 MOVS    R0, #1		=>	01 20
+00486C12                 BX      LR			=>	70 47
+
+Hex to decimal:
+#0xFC = 252
+#0x50 = 80
+
+??? hack
+Original:
+006838A6                 CMP     R4, R0		=>	84 42
+
+Hacked:
+006838A6                 CMP     R4, R4		=>	A4 42
+
+---------- Player max hp hack ----------
+Functions:
+PlayerUnit::getMaxHp(void)
+_ZN10PlayerUnit8getMaxHpEv
+
+Original:
+.text:00392B66                 PUSH    {R4,LR}
+.text:00392B68                 MOVS    R4, R0
+.text:00392B6A                 BL      _ZN10BattleUnit12getBaseMaxHpEv ; BattleUnit::getBaseMaxHp(void)
+.text:00392B6E                 MOVS    R3, #0x37C
+
+---------- Player atk hack ----------
+Functions:
+PlayerUnit::getAtk(void)
+_ZN10PlayerUnit6getAtkEv
+
+Original:
+.text:00392B84                 PUSH    {R4,LR}
+.text:00392B86                 MOVS    R4, R0
+.text:00392B88                 BL      _ZN10BattleUnit10getBaseAtkEv ; BattleUnit::getBaseAtk(void)
+.text:00392B8C                 MOVS    R3, #0x37C
+.text:00392B90                 LDR     R1, [R4,R3]
+
+---------- Player def hack ----------
+Functions:
+PlayerUnit::getDef(void)
+.text:00392BA8                 EXPORT _ZN10PlayerUnit6getDefEv
+Original:
+.text:00392BA8                 PUSH    {R4,LR}
+.text:00392BAA                 MOVS    R4, R0
+.text:00392BAC                 BL      _ZN10BattleUnit10getBaseDefEv ; BattleUnit::getBaseDef(void)
+.text:00392BB0                 MOVS    R3, #0x37C
+

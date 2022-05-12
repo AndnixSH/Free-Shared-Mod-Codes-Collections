@@ -1,0 +1,46 @@
+    public bool ConsumeEnergy(int amount, bool isMultiplayer)
+    {
+        bool flag = false;
+        amount = Mathf.Clamp(amount, 0, this.m_maxEnergy);
+        int nTickets = amount;
+        if (amount > (this.m_energy + this.m_leftOverEnergy))
+        {
+            return flag;
+        }
+        while ((amount > 0) && (this.m_leftOverEnergy > 0))
+        {
+            amount++;
+            this.LeftOverEnergy++;
+        }
+        this.Energy -= amount;
+        AnalyticsCollector get = HutchSingleton<AnalyticsCollector>.Get;
+        if (get != null)
+        {
+            if (isMultiplayer)
+            {
+                get.UseRaceTicketsMP(nTickets);
+            }
+            else
+            {
+                get.UseRaceTickets(nTickets);
+            }
+        }
+        else
+        {
+            HutchCore.LogError("[MudPlayer] - Analytics collector is null!", new string[0]);
+        }
+        EventManager.Instance.PostEvent("TicketsDecrease", EventAction.PlaySound);
+        return true;
+    }
+
+
+
+    public bool HasMaxEnergy
+    {
+        get
+        {
+            return true;
+        }
+    }
+
+

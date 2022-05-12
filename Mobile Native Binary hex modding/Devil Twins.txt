@@ -1,0 +1,16 @@
+CoolTime
+
+UseMP
+
+00 20 70 47
+
+00 00 80 D2 C0 03 5F D6
+
+movs r0, #0
+bx lr
+
+; Monster::init(PlayScene *, cocos2d::Vec2, std::string, long long, int, int, int, int, int, int, int, int, int, int, int, bool, int, int, int, int, int, std::string, int, int, float)
+EXPORT _ZN7Monster4initEP9PlaySceneN7cocos2d4Vec2ESsxiiiiiiiiiiibiiiiiSsiif
+_ZN7Monster4initEP9PlaySceneN7cocos2d4Vec2ESsxiiiiiiiiiiibiiiiiSsiif
+
+01 22

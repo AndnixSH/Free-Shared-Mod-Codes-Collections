@@ -1,0 +1,83 @@
+[BEGIN]
+
+<<< Info >>>
+Game: Dungeon Hunter 5
+Version: 1.1.1b
+
+<<< Hack features >>>
+- 1. Infinite mana
+- 2. Rapid attack
+- 3. No cooldown
+- 4. Anti-ban (untested)
+
+x2 speed hack is removed because there is high ban risk. better use rapid attack for more speed.
+
+<<< Instructions >>>
+1. Install Dungeon Hunter 5 From Play Store.
+2. Run Summoners War and let it download/update data
+3. Close the game
+4. Go to settings -> Application -> Dungeon Hunter 5 and tap Force Close
+5. Open Lucky Patcher and patch the game
+6. If done then run the game
+
+If Any Problem, Reboot your device, Reinstall The Game And Patch it Again.
+
+<< Credits >>>
+- Andnix (ported mods to patch)
+- DaiCaVN (updated mod to 1.1.1)
+- Riu - AlphaGAmer (Modded APK)
+
+[LIB]
+{"name":"libAndroid.so"}
+
+{"original":"08 40 2D E9 1B 6A 00 EB"}
+{"replaced":"01 00 A0 E3 1E FF 2F E1"}
+
+{"original":"08 40 2D E9 9A 69 00 EB"}
+{"replaced":"11 03 A0 E3 1E FF 2F E1"}
+
+{"original":"08 40 2D E9 E0 30 90 E5"}
+{"replaced":"01 00 A0 E3 1E FF 2F E1"}
+
+{"original":"08 40 2D E9 08 30 90 E5 EB 20 D3 E5"}
+{"replaced":"1E FF 2F E1 ?? ?? ?? ?? ?? ?? ?? ??"}
+
+{"original":"44 00 90 E5 01 00 70 E2 00 00 A0 33 1E FF 2F E1 10 40 2D E9"}
+{"replaced":"01 00 A0 E3 1E FF 2F E1 ?? ?? ?? ?? ?? ?? ?? ?? 1E FF 2F E1"}
+
+{"original":"44 00 90 E5 01 00 70 E2 00 00 A0 33 1E FF 2F E1 11 7A 90 ED"}
+{"replaced":"01 00 A0 E3 1E FF 2F E1 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ??"}
+
+{"original":"2F E1 70 40 2D E9 00 40 A0 E1 00 30 90 E5 10 30 93 E5"}
+{"replaced":"?? ?? 1E FF 2F E1 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ??"}
+
+{"original":"2F E1 0F 00 71 E3 04 10 A0 03 02 00"}
+{"replaced":"?? ?? 1E FF 2F E1 ?? ?? ?? ?? ?? ??"}
+
+{"original":"F8 03 D0 E5 1E FF 2F E1"}
+{"replaced":"00 00 A0 E3 ?? ?? ?? ??"}
+
+{"original":"A8 31 9F E5 F0 47 2D E9"}
+{"replaced":"1E FF 2F E1 ?? ?? ?? ??"}
+
+{"original":"48 F2 4A 01 70 40 2D E9 01 40 A0 E1"}
+{"replaced":"?? ?? ?? ?? 1E FF 2F E1 ?? ?? ?? ??"}
+
+{"original":"30 40 2D E9 01 50 A0 E1 00 31"}
+{"replaced":"00 00 A0 E3 1E FF 2F ?? ?? ??"}
+
+{"original":"BD E8 F8 40 2D E9 02 70 A0 E1 00 60 A0 E1"}
+{"replaced":"?? ?? 1E FF 2F E1 ?? ?? ?? ?? ?? ?? ?? ??"}
+
+{"original":"26 01 38 40 2D E9 00 50 A0 E1 60 40 9F E5"}
+{"replaced":"?? ?? 00 00 A0 E3 1E FF 2F ?? ?? ?? ?? ??"}
+
+{"original":"25 01 10 40 2D E9 00 40 A0 E1 56 FF"}
+{"replaced":"?? ?? 00 00 A0 E3 1E FF 2F ?? ?? ??"}
+
+[ADD-BOOT]
+
+[END]
+Patched..!!
+Cheers..!!
+By Andnix

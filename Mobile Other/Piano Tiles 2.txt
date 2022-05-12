@@ -1,0 +1,19 @@
+assets\cmlogo
+assets\res\UIOpenning
+
+AchieveMent.csv
+journey.csv
+RewardDiamond, RewardCoin, RewardLife
+999
+
+language.csv
+,,,,text_caption4_2years,Modded by AndnixSH#,Modded by AndnixSH#,Modded by AndnixSH#,Modded by AndnixSH#,Modded by AndnixSH#,Modded by AndnixSH#,Modded by AndnixSH#,Modded by AndnixSH#,Modded by AndnixSH#,Modded by AndnixSH#,Modded by AndnixSH#,Modded by AndnixSH#,Modded by AndnixSH#,,
+,,,,text_caption5_2years,500+ exclusive mods,500+ exclusive mods,500+ exclusive mods,500+ exclusive mods,500+ exclusive mods,500+ exclusive mods,500+ exclusive mods,500+ exclusive mods,500+ exclusive mods,500+ exclusive mods,500+ exclusive mods,500+ exclusive mods,500+ exclusive mods,,
+
+level.csv
+leveling.csv
+life.csv
+lv.csv
+task.csv
+
+do mot mod levelreward.csv 

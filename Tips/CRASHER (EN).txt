@@ -1,0 +1,7 @@
+PlayStore: https://play.google.com/store/apps/details?id=com.qjzs.an.en4399&hl=en
+
+As far this game is lack of protection for hack detection, but they use their own "file system" (which is DES encrypted and their own-made BIT Crypto) to store many "important" files, including some NET assemblies. That's why we might find missing Assembly-CSharp.dll there. Their "file system" is stored in "/assets/pkg" file. Look at LoaderLib.dll if we want to see how to open files stored in the "pkg" file.
+
+The actual assembly DLL that handle the gameplay is stored in "/assets/pkg" file. It stored as "mogores", "mogores0", and "mogores1" which is an actual "Assembly-CSharp.dll", "Assembly-Script-firstpass.dll", and "Assembly-Script.dll". The "pkg" file itself is encrypted with dual DES and BIT Crypto. It'll takes time for modder to patch and mod this game since we have to load the necessary files from "pkg", mod them, and store them back to "pkg" before releasing the work.
+
+Need more Suggestion .........

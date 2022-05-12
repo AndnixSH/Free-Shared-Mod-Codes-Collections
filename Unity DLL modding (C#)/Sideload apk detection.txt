@@ -1,0 +1,15 @@
+if (Application.platform == RuntimePlatform.Android)
+			{
+				if (Application.installerName.Contains("com.amazon.venezia") || Application.installerName.Contains("com.android.vending"))
+				{
+					text = "c";
+				}
+				else if (ObscuredPrefs.GetBool("isTestConnect"))
+				{
+					text = "n";
+				}
+				else
+				{
+					Application.Quit();
+				}
+			}

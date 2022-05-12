@@ -1,0 +1,17 @@
+
+//ARM
+public class FTUERaceOptions
+{
+	[Address(RVA = "0xD83068", Offset = "0xD83068")]
+	public FTUERaceOptions(JSONNode json)
+	{
+	}
+
+	[Address(RVA = "0xD8393C", Offset = "0xD8393C")]
+	public FTUERaceDialog GetRaceDialog(FTUERaceDialog.RaceStateTrigger trigger, int gear = -1)
+	{
+	}
+
+
+//x86
+public FTUERaceDialog GetRaceDialog(RaceStateTrigger trigger, optional int gear); // 0xCF3D00

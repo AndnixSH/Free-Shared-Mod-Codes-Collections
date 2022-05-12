@@ -1,0 +1,33 @@
+[BEGIN]
+
+<<< Trials Frontier v3.2.4 >>>
+
+<<< Hack features >>>
+1. Add money when spending money
+2. Add gems when spending gems
+3. Add fuel when starting race
+
+<<< Instructions >>>
+1. Install Trials Frontier From Play Store.
+2. Run Trials Frontier and let it download/update data
+3. Close the game
+4. Go to settings -> Application -> Trials Frontier and tap Force Close
+5. Open Lucky Patcher and patch the game
+6. If done then run the game
+
+If Any Problem, Reboot your device, Reinstall The Game And Patch it Again.
+
+<< Credits >>>
+Andnix
+
+[LIB]
+{"name":"libTrialsGo.so"}
+
+{"original":"65 E0 04 20 A0 E1 06 10"}
+{"replaced":"85 ?? ?? ?? ?? ?? ?? ??"}
+
+
+[END]
+Patched!
+Cheers!
+By Andnix

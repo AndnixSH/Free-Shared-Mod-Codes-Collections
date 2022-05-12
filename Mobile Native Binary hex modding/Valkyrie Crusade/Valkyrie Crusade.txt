@@ -1,0 +1,96 @@
+.text:0045467C ; SkillUtil::getSkillCondPercentage(SVCardSkillInfo const*, int, int)
+.text:0045467C                 EXPORT _ZN9SkillUtil22getSkillCondPercentageEPK15SVCardSkillInfoii
+TaskCustomSkillTabView::setSkillTextCell(nb::UITableCanvas *,SVMasterSkillInfo const*,SVMasterCustomSkillLevelInfo const*)+1C8↑p
+.text:0045467C                                         ; SkillDescCell::setParam(int,int)+188↑p ...
+.text:0045467C ; __unwind {
+
+.text:004546CA
+.text:004546CA loc_4546CA                              ; CODE XREF: SkillUtil::getSkillCondPercentage(SVCardSkillInfo const*,int,int)+6E↓j
+
+64 20 
+
+MOVS            R0, #0x64
+
+//Offset: 4716B8
+//Mod
+.text:004546CA                 BL              __divsi3
+.text:004546CE                 ADDS            R0, R0, R7 
+..text:004BBD50                .MOVS            R0, #0x64 ; 'd' //Mod: 20
+.text:004546D2                 BLE             loc_4546D6
+.text:004546D4                 MOVS            R0, #0x64 ; 'd'
+
+//Orig
+.text:004546CA                 BL              __divsi3
+.text:004546CE                 ADDS            R0, R0, R7
+..text:004546D0                .CMP             R0, #0x64 ; 'd' //Orig: 28
+.text:004546D2                 BLE             loc_4546D6
+.text:004546D4                 MOVS            R0, #0x64 ; 'd'
+
+--------------------------------
+
+; BattleSkill::getEnableBurstSkill(TaskBattleCard3D *, BattleSkill::Timing)const
+EXPORT _ZNK11BattleSkill19getEnableBurstSkillEP16TaskBattleCard3DNS_6TimingE
+_ZNK11BattleSkill19getEnableBurstSkillEP16TaskBattleCard3DNS_6TimingE
+
+//Offset: 538E2C
+//Mod: 23 06 D1
+LDR             R3, [R4,#4]
+MOVS            R3, #0
+BNE             loc_4BE78A
+
+//Orig: 2B 06 D0
+LDR             R3, [R4,#4]
+CMP             R3, #0
+BEQ             loc_4BE78A
+
+--------------------------------
+
+; _DWORD BattleSkill::calcBeforeTrun(BattleSkill *__hidden this)
+EXPORT _ZN11BattleSkill14calcBeforeTrunEv
+_ZN11BattleSkill14calcBeforeTrunEv
+
+//Offset: 53930E 
+//Mod: 20
+loc_4BEC50              ; this
+MOVS            R0, R4
+BL              _ZNK16TaskBattleCard3D7isBurstEv ; TaskBattleCard3D::isBurst(void)
+MOVS            R0, #0 //
+BNE             loc_4BEC4A
+
+//Orig: 28
+loc_4BEC50              ; this
+MOVS            R0, R4
+BL              _ZNK16TaskBattleCard3D7isBurstEv ; TaskBattleCard3D::isBurst(void)
+CMP             R0, #0 //
+BNE             loc_4BEC4A
+
+--------------------------------
+
+; int __fastcall BattleSkill::getEnableSkill(int, int, TaskBattleCard3D *this, int, char)
+EXPORT _ZNK11BattleSkill14getEnableSkillEP16TaskBattleCard3DNS_6TimingEb
+_ZNK11BattleSkill14getEnableSkillEP16TaskBattleCard3DNS_6TimingEb
+
+//Offset: 539CA6
+//Mod: 20
+loc_4BF5E2
+MOVS            R0, #1
+STR             R0, [SP,#0x68+var_68]
+MOVS            R1, R5
+MOVS            R0, R7
+LDR             R2, [SP,#0x68+var_34]
+MOV             R3, R8
+BL              _ZNK11BattleSkill32canNotFireWithTimingBeforeAttackEP16TaskBattleCard3DPN3BTL5SkillEib ; BattleSkill::canNotFireWithTimingBeforeAttack(TaskBattleCard3D *,BTL::Skill *,int,bool)
+MOVS            R0, #0 //
+BNE             loc_4BF558
+
+//Orig: 28
+loc_4BF5E2
+MOVS            R0, #1
+STR             R0, [SP,#0x68+var_68]
+MOVS            R1, R5
+MOVS            R0, R7
+LDR             R2, [SP,#0x68+var_34]
+MOV             R3, R8
+BL              _ZNK11BattleSkill32canNotFireWithTimingBeforeAttackEP16TaskBattleCard3DPN3BTL5SkillEib ; BattleSkill::canNotFireWithTimingBeforeAttack(TaskBattleCard3D *,BTL::Skill *,int,bool)
+CMP             R0, #0 //
+BNE             loc_4BF558

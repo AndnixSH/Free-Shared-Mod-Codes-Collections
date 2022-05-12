@@ -1,0 +1,21 @@
+//Game: Tales of Erin
+//Version: 3.0.0
+//APK: https://apkpure.com/tales-of-erin/com.efun.cl.se
+
+-----------------------------
+
+Dumb enemy mod
+
+BaseCard::MonsterMoveAI(void)
+_ZN8BaseCard13MonsterMoveAIEv 
+
+BX LR
+
+Thumb hex: 70 47
+
+BaseCard::getATK(void)
+_ZN8BaseCard6getATKEv
+
+BX LR
+
+Thumb hex: 70 47

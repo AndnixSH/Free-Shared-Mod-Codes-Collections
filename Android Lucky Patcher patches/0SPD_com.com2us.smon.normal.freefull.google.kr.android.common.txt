@@ -1,0 +1,50 @@
+[BEGIN]
+
+<<< Works for Summoners War v1.5.5 and future versions (1.5.x) >>>
+
+<<< Hack features >>>
+- 0 speed
+
+0 speed means nobody will move (u and opponents)
+But we can move using spd rune on slot 2.. but as opponents dont have runes so they will not move making ur victory for certain.. 
+
+- No root detection
+- No anti-cheat
+- No Lucky Patcher detection
+
+<<< Instructions >>>
+1. Install Summoners War From Play Store.
+2. Run Summoners War and let it download/update data
+3. Close the game
+4. Go to settings -> Application -> Summoners War and tap Force Close
+5. Open Lucky Patcher and patch the game
+6. If done then run the game
+
+If Any Problem, Reboot your device, Reinstall The Game And Patch it Again.
+
+<< Credits >>>
+- Andnix
+
+
+[LIB]
+{"name":"libc2ssmon.so"}
+
+{"original":"90 B0 13 28 1B D8 A3 22 0E 4B 52 01 14 1C 44 43 7B 44 1C 19 00 2C 12 D0 D8 23 5B 00 E5 18 D8 26"}
+{"replaced":"00 20 00 21 48 43 70 BD ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ??"}
+
+{"original":"02 4B 58 22 7B 44 98 5C"}
+{"replaced":"00 20 70 47 ?? ?? ?? ??"}
+
+{"original":"01 20 70 47 01 20 70 47 F0 B5"}
+{"replaced":"00 ?? ?? ?? ?? ?? ?? ?? ?? ??"}
+
+{"original":"F0 B5 4F 46 46 46 C0 B4 3D 4F 3E"}
+{"replaced":"00 20 70 47 ?? ?? ?? ?? ?? ?? ??"}
+
+{"original":"F0 B5 5F 46 56 46 4D 46 44 46 F0 B4 86 49 87 4A 87 4C 8A"}
+{"replaced":"00 20 70 47 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ??"}
+
+[END]
+Patched..!!
+Cheers..!!
+By Andnix

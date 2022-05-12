@@ -1,0 +1,36 @@
+    public EnemyParameter GetHumanEnemyParameter(int level, int variationNo)
+    {
+        <GetHumanEnemyParameter>c__AnonStorey208 storey = new <GetHumanEnemyParameter>c__AnonStorey208 {
+            level = level
+        };
+        if (this.HumanList.Count == 0)
+        {
+            Debug.LogError("HumanList is Empty");
+            EnemyParameter parameter = ScriptableObject.CreateInstance<EnemyParameter>();
+            parameter.CharaType = CHARA_TYPE.ENEMY;
+            return parameter;
+        }
+        Human human = Enumerable.Where<Human>(this.HumanList, new Func<Human, bool>(storey.<>m__364)).FirstOrDefault<Human>();
+        if (human == null)
+        {
+            human = Enumerable.OrderBy<Human, int>(this.HumanList, new Func<Human, int>(storey.<>m__365)).First<Human>();
+            Debug.LogError(string.Concat(new object[] { "HumanEnemyParameter is not found : level = ", storey.level, " Replaced by level = ", human.Level }));
+        }
+        EnemyParameter parameter2 = ScriptableObject.CreateInstance<EnemyParameter>();
+        parameter2.CharaType = CHARA_TYPE.ENEMY;
+        parameter2.Atb = human.Atb;
+        parameter2.MaxHP = human.HP;
+//modded
+        parameter2.Defense = human.deffence / 200;
+        parameter2.AttackPowers = new int[] { human.attackPower };
+        parameter2.Level = storey.level;
+        if (this.avatarList != null)
+        {
+            HumanType.Avatar avatar = this.getAvatar(variationNo, CHARA_TYPE.ENEMY);
+            parameter2.HeadPath = avatar.headName;
+            parameter2.BodyPath = avatar.bodyName;
+            parameter2.WeaponPath = avatar.weaponName;
+            parameter2.CharacterName = avatar.name[(int) Singleton<LocalCacheManager>.I.Language];
+        }
+        return parameter2;
+    }

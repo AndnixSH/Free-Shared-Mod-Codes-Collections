@@ -1,0 +1,63 @@
+What do you mean? I can help if you need help with CIL instructions
+it's just 
+
+ldarg.0
+callvirt Method name
+brtrue
+xxxxxx
+ret
+yyyyyy
+ret
+for example
+PickupManager.Instance.DropPickup(Pickup.E_Type.Xp, Player.Instance.Owner.transform.position, Vector3.up, 1f, false, 25f);
+it should be 
+
+callvirt DropPickup
+wait
+can't i just return 99999?
+no
+I think this is a void
+this is the reason you can't return 99999
+so you have to follow the Void instructions
+You should open the function 
+
+DropPickup
+
+to see how it works
+it's a boolean
+it should have a boolean and a float value inside
+like this: (void, float, boolean, float): Boolean
+if you return simply ldc.i4.1 (true)
+
+then that boolean will apply to ALL circumstances
+i see
+while they specified the only circumstance in which the boolean should be true
+i guess i have to learn C# again
+i never worked this in my apk tool
+But in most games, as you just said, it will be enough to return ldc.i4.1 because usually, booleans apply to 1 circumstance only
+or two
+such as the 
+
+get_IsInvincible
+this code looks simple Player.Instance.Owner.BlackBoard.Invulnerable = true;
+if you returned ldc.i4.1 to get_IsInvincible
+your enemy could be invincible, too
+this is why you need to specify which circumstance you're using to return true
+such as
+
+
+ldarg.0
+call get_IsPlayer
+brtrue (ldc.i4.1)
+ldc.i4.0
+ret
+ldc.i4.1
+ret
+this means: if IsPlayer = IsInvincible, otherwise FALSE
+i don't think i will remember all this
+
+Player.Instance.Owner.BlackBoard.Invulnerable = true; is quite simple
+if the "BlackBoard" Owner is the Player, then Invulnerable = true
+if you just put
+
+Invlunerable = true, then enemies will be invulnerable, too

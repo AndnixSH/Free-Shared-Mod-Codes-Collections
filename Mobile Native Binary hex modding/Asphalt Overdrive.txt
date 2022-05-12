@@ -1,0 +1,98 @@
+MOVS    R0, #0	=> 00 20
+BX      LR		=> 70 47
+
+MOV             R0, #0x8000000 => 0203A0E3
+
+MOVS    R0, #0	=> 0000A0E3
+BX      LR		=> 1EFF2FE1
+
+MOV R0, R7	=> 0700A0E1
+
+NOP => 0000A0E1
+
+--------------[ Coins ]--------------
+ASPlayerInventory::GetCoins(gameswf::FunctionCall const&)
+_ZN17ASPlayerInventory8GetCoinsERKN7gameswf12FunctionCallE
+
+.text:006E18C0                                         ; DATA XREF: ASPlayerInventory::createClass(gameswf::Player *)+ACo
+.text:006E18C0                                         ; .got:_ZN17ASPlayerInventory8GetCoinsERKN7gameswf12FunctionCallE_ptro
+.text:006E18C0                 LDR             R3, =(_ZN9SingletonI15PlayerInventoryE10s_instanceE_ptr - 0x6E18D4)
+.text:006E18C4                 STMFD           SP!, {R4,LR}
+.text:006E18C8                 LDR             R4, [R0]
+.text:006E18CC                 LDR             R0, [PC,R3] ; _ZN9SingletonI15PlayerInventoryE10s_instanceE_ptr ; Singleton<PlayerInventory>::s_instance
+.text:006E18D0                 LDR             R1, [R0]
+.text:006E18D4                 ADD             R0, R1, #8 ; this
+.text:006E18D8                 BL              _ZNK4Json5Value5asIntEv ; Json::Value::asInt(void)
+.text:006E18DC                 VMOV            S13, R0
+.text:006E18E0                 MOV             R0, R4  ; this
+.text:006E18E4                 LDMFD           SP!, {R4,LR}
+.text:006E18E8                 VCVT.F64.S32    D7, S13
+.text:006E18EC                 VMOV            R2, R3, D7
+
+Hacked:
+0057B48C*                 MOV             R0, #0x19
+.text:0057B070                 MOV             R1, #0x65
+.text:0057B074                 MUL             R1, R0, R1
+.text:0057B078                 MOV             R0, #0x64
+.text:0057B07C                 MUL             R0, R0, R0
+.text:0057B080                 MUL             R0, R1, R0
+.text:0057B084                 ADD             R0, R0, R1
+.text:0057B088                 BX              LR
+
+--------------[ Cash ]--------------
+Original:
+ASPlayerInventory::GetCash(gameswf::FunctionCall const&)
+_ZN17ASPlayerInventory7GetCashERKN7gameswf12FunctionCallE
+
+.text:006E18F8                                         ; DATA XREF: ASPlayerInventory::createClass(gameswf::Player *)+FCo
+.text:006E18F8                                         ; .got:_ZN17ASPlayerInventory7GetCashERKN7gameswf12FunctionCallE_ptro
+.text:006E18F8                 LDR             R3, =(_ZN9SingletonI15PlayerInventoryE10s_instanceE_ptr - 0x6E190C)
+.text:006E18FC                 STMFD           SP!, {R4,LR}
+.text:006E1900                 LDR             R4, [R0]
+.text:006E1904                 LDR             R0, [PC,R3] ; _ZN9SingletonI15PlayerInventoryE10s_instanceE_ptr ; Singleton<PlayerInventory>::s_instance
+.text:006E1908                 LDR             R1, [R0]
+.text:006E190C                 ADD             R0, R1, #0x38 ; this
+.text:006E1910                 BL              _ZNK4Json5Value5asIntEv ; Json::Value::asInt(void)
+.text:006E1914                 VMOV            S13, R0
+.text:006E1918                 MOV             R0, R4  ; this
+.text:006E191C                 LDMFD           SP!, {R4,LR}
+.text:006E1920                 VCVT.F64.S32    D7, S13
+.text:006E1924                 VMOV            R2, R3, D7
+.text:006E1928                 B               _ZN7gameswf7ASValue9setDoubleEd ; gameswf::ASValue::setDouble(double)
+
+Hacked:
+19 00 A0 E3 0057B4B8*                 MOV             R0, #0x19
+65 10 A0 E3 .text:0057B09C                 MOV             R1, #0x65
+90 01 01 E0 .text:0057B0A0                 MUL             R1, R0, R1
+64 00 A0 E3 .text:0057B0A4                 MOV             R0, #0x64
+90 00 00 E0 .text:0057B0A8                 MUL             R0, R0, R0
+91 00 00 E0 .text:0057B0AC                 MUL             R0, R1, R0
+01 00 80 E0 .text:0057B0B0                 ADD             R0, R0, R1
+1E FF 2F E1 .text:0057B0B4                 BX              LR
+
+--------------[ ShowBannedCustomerCareScreen ]--------------
+_DWORD ShowBannedCustomerCareScreen(void)
+EXPORT _Z28ShowBannedCustomerCareScreenv
+
+.text:004C1068                 MOV             R0, #1  ; bool
+.text:004C106C                 B               _Z29ShowGenericCustomerCareScreenb
+
+--------------[ ShowBannedFromGameBlockingAlert ]--------------
+_DWORD __cdecl ma2online::OnlineManager::ShowBannedFromGameBlockingAlert(ma2online::OnlineManager *__hidden this, const char *)
+EXPORT _ZN9ma2online13OnlineManager31ShowBannedFromGameBlockingAlertEPKc
+
+.text:0105AED8                 MOV             R0, R1  ; char *
+.text:0105AEDC                 B               _Z17ShowBlockingAlertPKc ; ShowBlockingAlert(char const*)
+
+--------------[ ShowBannedFromGameBlockingAlert ]--------------
+_DWORD __cdecl GameOnlineManager::ShowBannedFromGameBlockingAlert(GameOnlineManager *__hidden this, const char *)
+EXPORT _ZN17GameOnlineManager31ShowBannedFromGameBlockingAlertEPKc
+
+.text:00712220                 LDR             R3, =(_ZN9SingletonI19NotificationManagerE10s_instanceE_ptr - 0x712234)
+.text:00712224                 MOV             R0, R1  ; char *
+
+--------------[ ShowBannedCustomerCareScreen ]--------------
+ma2online::GameSwf::MA2::ASMA2Const::_ShowBannedCustomerCareScreen(gameswf::FunctionCall const&)
+EXPORT _ZN9ma2online7GameSwf3MA210ASMA2Const29_ShowBannedCustomerCareScreenERKN7gameswf12FunctionCallE
+
+.text:010562E8                 B               _Z28ShowBannedCustomerCareScreenv ; ShowBannedCustomerCareScreen(void)

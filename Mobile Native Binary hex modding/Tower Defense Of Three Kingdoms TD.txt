@@ -1,0 +1,10 @@
+text:006214AC ; TD_monster::sethp(int)
+.text:006214AC                 WEAK _ZN10TD_monster5sethpEi
+.text:006214AC _ZN10TD_monster5sethpEi                 ; DATA XREF: LOAD:00054B54↑o
+.text:006214AC                                         ; .data.rel.ro:00C75894↓i
+.text:006214AC                 MOVS            R0, #1
+.text:006214AE                 BX              LR
+
+
+
+B8 01 00 00 00 C3

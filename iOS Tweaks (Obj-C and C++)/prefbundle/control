@@ -1,0 +1,9 @@
+Package: com.supergiu.test
+Name: Test
+Depends: mobilesubstrate
+Version: 1.0
+Architecture: iphoneos-arm
+Description: Test
+Maintainer: SUPERGIU
+Author: SUPERGIU
+Section: Tweaks

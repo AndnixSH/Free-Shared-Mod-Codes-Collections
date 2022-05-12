@@ -1,0 +1,13 @@
+ skills with cooldown are now spammable except BeamBase and DaggerBase Skills
+- Increase HP Regeneration (Change Base 100% to Base 80%)
+- Poison Damage = 0
+- Put any Element to any non-fixed slots
+- Slight Boost on ComboDMG,SkillDMG,Movement Speed
+- SP Gauge fills 3x faster
+- Survival Stance Equip = Immortal
+- DaggerBase Skills Increase DaggerCount to 15
+- Devil Claw Increase HitCount to 10
+- Drainburst Slight Increase to heal
+- LightningBolt Increase HitCount to 10
+- RoadBase Skills Splash Radius Slightly Increased
+- Spread Boomerang = 5 Boomerangs

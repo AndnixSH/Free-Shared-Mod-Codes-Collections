@@ -1,0 +1,30 @@
+F8 (Photo mode. Useful to take screenshots or making movie)
+F9 (Photo mode and freeze. Useful to take screenshots or making movie)
+F10 (Screenshot)
+ravpic (Hide UI. Useful to take screenshots or making movie)
+movie (Same as rawpic i guess)
+shazam (Instant win for survivors)
+iddqd (Kill yourself and you will become a ghost)
+showtapes (Hightlight objects with tapes)
+sane (Max sanity to yourself)
+terror (0 sanity to yourself)
+outline
+asylum
+stoptapes (Hide highlighting)
+nomonster (Disable monster solo only)
+flash
+debug (Show useful debug info)
+powerup (Remove cooldown)
+catch (Monster catches you solo only)
+getbot
+noise
+nototems
+battery (Give yourself full battery)
+lowbat  (Give yourself low battery)
+front  (Give yourself low battery)
+reunite (As a monster, respawn survirors in front of you)
+speed (Increase speed of survivor)
+slow (Decrease speed of survivor)
+killbot
+allclear (Remove darkness)
+music

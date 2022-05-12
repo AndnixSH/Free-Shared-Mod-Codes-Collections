@@ -1,0 +1,42 @@
+_DWORD __fastcall im::app::car::CarDescription::GetPremiumCurrencyPrice(im::app::car::CarDescription *__hidden this, int)
+EXPORT _ZN2im3app3car14CarDescription23GetPremiumCurrencyPriceEi
+
+.text:008C04C0                 LDR             R0, [R0,#0x8C]
+.text:008C04C4                 MOV             R2, #0xB6DB6DB7
+.text:008C04CC                 LDR             R12, [R0,#0x2C]
+.text:008C04D0                 LDR             R3, [R0,#0x34]
+.text:008C04D4                 LDR             R0, [R0,#0x38]
+.text:008C04D8                 SUB             R1, R1, R12
+.text:008C04DC                 SUB             R0, R0, R3
+.text:008C04E0                 MOV             R0, R0,ASR#4
+.text:008C04E4                 MUL             R0, R0, R2
+.text:008C04E8                 SUB             R0, R0, #1
+.text:008C04EC                 CMP             R0, R1
+.text:008C04F0                 MOVLT           R1, R0
+.text:008C04F4                 CMP             R1, #0
+.text:008C04F8                 MOVLT           R1, #0
+.text:008C04FC                 RSB             R0, R1, R1,LSL#3
+.text:008C0500                 ADD             R0, R3, R0,LSL#4
+.text:008C0504                 LDR             R0, [R0,#4]
+.text:008C0508                 BX              LR
+
+_DWORD __fastcall im::app::car::CarDescription::GetCashPrice(im::app::car::CarDescription *__hidden this, int)
+EXPORT _ZN2im3app3car14CarDescription12GetCashPriceEi
+
+.text:008C0478                 LDR             R0, [R0,#0x8C]
+.text:008C047C                 MOV             R2, #0xB6DB6DB7
+.text:008C0484                 LDR             R12, [R0,#0x2C]
+.text:008C0488                 LDR             R3, [R0,#0x34]
+.text:008C048C                 LDR             R0, [R0,#0x38]
+.text:008C0490                 SUB             R1, R1, R12
+.text:008C0494                 SUB             R0, R0, R3
+.text:008C0498                 MOV             R0, R0,ASR#4
+.text:008C049C                 MUL             R0, R0, R2
+.text:008C04A0                 SUB             R0, R0, #1
+.text:008C04A4                 CMP             R0, R1
+.text:008C04A8                 MOVLT           R1, R0
+.text:008C04AC                 CMP             R1, #0
+.text:008C04B0                 MOVLT           R1, #0
+.text:008C04B4                 RSB             R0, R1, R1,LSL#3
+.text:008C04B8                 LDR             R0, [R3,R0,LSL#4]
+.text:008C04BC                 BX              LR

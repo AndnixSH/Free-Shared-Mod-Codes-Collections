@@ -1,0 +1,91 @@
+BX      LR		=> 1EFF2FE1
+
+MOV R0, R7	=> 0700A0E1
+MOVS R0, R7	=> 0700B0E1
+
+_DWORD KCardInfo::getCardDamage(KCardInfo *__hidden this)
+_ZNK9KCardInfo13getCardDamageEv
+
+.text:0054C104                 STR     R11, [SP,#-4+var_s0]!
+.text:0054C108                 ADD     R11, SP, #0
+.text:0054C10C                 SUB     SP, SP, #0xC
+.text:0054C110                 STR     R0, [R11,#var_8]
+.text:0054C114                 LDR     R3, [R11,#var_8]
+.text:0054C118                 LDR     R3, [R3,#0x70]
+.text:0054C11C                 MOV     R0, R3
+.text:0054C120                 SUB     SP, R11, #0
+.text:0054C124                 LDR     R11, [SP+var_s0],#4
+.text:0054C128                 BX      LR
+
+_DWORD __fastcall KCardInfo::setCardDamage(KCardInfo *__hidden this, float)
+_ZN9KCardInfo13setCardDamageEf
+
+.text:0054C12C                 STR     R11, [SP,#-4+var_s0]!
+.text:0054C130                 ADD     R11, SP, #0
+.text:0054C134                 SUB     SP, SP, #0xC
+.text:0054C138                 STR     R0, [R11,#var_8]
+.text:0054C13C                 STR     R1, [R11,#var_C]
+.text:0054C140                 LDR     R3, [R11,#var_8]
+.text:0054C144                 LDR     R2, [R11,#var_C]
+.text:0054C148                 STR     R2, [R3,#0x70]
+.text:0054C14C                 SUB     SP, R11, #0
+.text:0054C150                 LDR     R11, [SP+var_s0],#4
+.text:0054C154                 BX      LR
+
+_DWORD KCardInfo::getCardDamageGrowth(KCardInfo *__hidden this)
+_ZNK9KCardInfo19getCardDamageGrowthEv
+
+.text:0054C158                 STR     R11, [SP,#-4+var_s0]!
+.text:0054C15C                 ADD     R11, SP, #0
+.text:0054C160                 SUB     SP, SP, #0xC
+.text:0054C164                 STR     R0, [R11,#var_8]
+.text:0054C168                 LDR     R3, [R11,#var_8]
+.text:0054C16C                 LDR     R3, [R3,#0x74]
+.text:0054C170                 MOV     R0, R3
+.text:0054C174                 SUB     SP, R11, #0
+.text:0054C178                 LDR     R11, [SP+var_s0],#4
+.text:0054C17C                 BX      LR
+
+_DWORD __fastcall KCardInfo::setCardDamageGrowth(KCardInfo *__hidden this, float)
+_ZN9KCardInfo19setCardDamageGrowthEf
+
+.text:0054C180                 STR     R11, [SP,#-4+var_s0]!
+.text:0054C184                 ADD     R11, SP, #0
+.text:0054C188                 SUB     SP, SP, #0xC
+.text:0054C18C                 STR     R0, [R11,#var_8]
+.text:0054C190                 STR     R1, [R11,#var_C]
+.text:0054C194                 LDR     R3, [R11,#var_8]
+.text:0054C198                 LDR     R2, [R11,#var_C]
+.text:0054C19C                 STR     R2, [R3,#0x74]
+.text:0054C1A0                 SUB     SP, R11, #0
+.text:0054C1A4                 LDR     R11, [SP+var_s0],#4
+.text:0054C1A8                 BX      LR
+
+_DWORD YDamageObject::getDamage(YDamageObject *__hidden this)
+WEAK _ZNK13YDamageObject9getDamageEv
+
+.text:006809C8                 STR     R11, [SP,#-4+var_s0]!
+.text:006809CC                 ADD     R11, SP, #0
+.text:006809D0                 SUB     SP, SP, #0xC
+.text:006809D4                 STR     R0, [R11,#var_8]
+.text:006809D8                 LDR     R3, [R11,#var_8]
+.text:006809DC                 LDR     R3, [R3,#0xF0]
+.text:006809E0                 MOV     R0, R3
+.text:006809E4                 SUB     SP, R11, #0
+.text:006809E8                 LDR     R11, [SP+var_s0],#4
+.text:006809EC                 BX      LR
+
+_DWORD __fastcall YDamageObject::setDamage(YDamageObject *__hidden this, int)
+WEAK _ZN13YDamageObject9setDamageEi
+
+.text:006809F0                 STR     R11, [SP,#-4+var_s0]!
+.text:006809F4                 ADD     R11, SP, #0
+.text:006809F8                 SUB     SP, SP, #0xC
+.text:006809FC                 STR     R0, [R11,#var_8]
+.text:00680A00                 STR     R1, [R11,#var_C]
+.text:00680A04                 LDR     R3, [R11,#var_8]
+.text:00680A08                 LDR     R2, [R11,#var_C]
+.text:00680A0C                 STR     R2, [R3,#0xF0]
+.text:00680A10                 SUB     SP, R11, #0
+.text:00680A14                 LDR     R11, [SP+var_s0],#4
+.text:00680A18                 BX      LR

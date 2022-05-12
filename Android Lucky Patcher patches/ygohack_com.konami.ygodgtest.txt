@@ -1,0 +1,27 @@
+[BEGIN]
+
+<<< Yu-Gi-Oh Duel Generation v1.06 and future versions >>>
+
+<<< Hack features >>>
+- 65025 YGO points (it is enough)
+
+<<< Instructions >>>
+1. Install Yu-Gi-Oh Duel Generation From Play Store.
+2. Open Lucky Patcher and patch the game
+3. If done then run the game
+
+If Any Problem, Reboot your device, Reinstall The Game And Patch it Again.
+
+<< Credits >>>
+- Andnix
+
+[LIB]
+{"name":"libcocos2dcpp.so"}
+
+{"original":"08 B5 FF F7 66 F9 C3 68 58 68"}
+{"replaced":"FF 20 FF 21 48 43 70 47 ?? ??"}
+
+[END]
+Patched!
+Cheers!
+By Andnix

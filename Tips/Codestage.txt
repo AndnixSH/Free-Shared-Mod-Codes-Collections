@@ -1,0 +1,18 @@
+
+return new ObscuredInt(999);
+
+which would be
+
+
+ldc.i4    999
+newobj    instance void CodeStage.AntiCheat.ObscuredTypes.ObscuredInt::.ctor(int32)
+ret
+
+in CIL.
+
+Or via implicit type conversion:
+
+ldc.i4    999
+call    valuetype CodeStage.AntiCheat.ObscuredTypes.ObscuredInt CodeStage.AntiCheat.ObscuredTypes.ObscuredInt::op_Implicit(int32)
+ret
+

@@ -1,0 +1,20 @@
+ew things you're doing wrong, try not to mod obvious entries, you have to work around them, never mod them directly. You also have to avoid signing the apk, there is a nasty signature check, so I use luckypatcher to avoid license verification. After doing that, you have to use xprivacy to avoid luckypatcher detection lol...Next is the worst of them all...DLL detection, you'll have to redirect all calls to the dll to another location so that the original is untouched (only our team knows how to do this).
+
+Recently though, they switched to Native method, so the game now uses .so with stripped functions (all sub_xxxx) so good luck! 
+
+I already know how to mod .so.....you think I dont know? I did not say I didnt know how to lol. I'm currently still able to mod this game, even WITH the stripped sub_xxxx functions.
+
+I was warning YOU that they switched and it's harder. But not for me. Never underestimate me again.
+
+These are my current mods for School of Chaos that are CURRENTLY working:
+
+-Unlimited energy
+-Bombs don't effect you
+-Zapper don't effect you
+-Jammers dont effect you
+-Unlimited ammo (throwables as well)
+-3 tags per kill
+-Scrap box always drops
+-Condition increases instead of decreases
+-Unlimited consumables (food, kits)
+-Hidden store items are shown and purchasable

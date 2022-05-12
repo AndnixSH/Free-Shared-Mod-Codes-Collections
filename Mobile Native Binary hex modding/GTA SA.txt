@@ -1,0 +1,8 @@
+CStats::IncrementStat(CStats *__hidden this, unsigned __int16, float)
+_ZN6CStats13IncrementStatEtf
+
+Orig:	VMOV            R3, S15 //a0 b1
+Mod:	VMOV            R3, S14 //c0 46
+
+Orig:	VSTR            S15, [R5] //e6do
+Mod:	VSTR            S14, [R5] //c0 46

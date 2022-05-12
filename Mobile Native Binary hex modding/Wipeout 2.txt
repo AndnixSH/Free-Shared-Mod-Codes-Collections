@@ -1,0 +1,16 @@
+Gold:
+Get Some:
+Offset: 0x001C590C
+Old Function:  STR R1, [R0,#0x30]
+New Function: STR R7, [R0,#0x30]
+ 
+Old Hex: 301080E5
+New Hex: 307080E5
+ 
+Lose Some:
+Offset: 0x001C5974
+Old Function: STR R0, [R4,#0x30]
+New Function: STR R7, [R4,#0x30]
+ 
+Old Hex: 300084E5
+New Hex: 307084E5

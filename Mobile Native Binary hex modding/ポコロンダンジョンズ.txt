@@ -1,0 +1,28 @@
+//Game: ポコロンダンジョンズ
+//Version: 8.10.2
+//APK: https://apkpure.com/%E3%83%9D%E3%82%B3%E3%83%AD%E3%83%B3%E3%83%80%E3%83%B3%E3%82%B8%E3%83%A7%E3%83%B3%E3%82%BA/jp.grenge.pocolondungeons
+
+; _DWORD EnemyMonsterLogic::getPower(EnemyMonsterLogic *__hidden this)
+EXPORT _ZNK17EnemyMonsterLogic8getPowerEv
+_ZNK17EnemyMonsterLogic8getPowerEv
+; __unwind {
+MOVS            R0, #1
+BX              LR
+
+arm64: 1C02BBC
+hex: 00 00 80 d2 C0 03 5F D6
+
+v7a: 1091c50
+Thumb hex: 01 20 70 47
+
+; _DWORD PlayerData::getPower(PlayerData *__hidden this)
+WEAK _ZNK10PlayerData8getPowerEv
+_ZNK10PlayerData8getPowerEv
+MOVS.W          R0, #0x40000
+BX              LR
+
+arm64: 1D8A8AC
+hex: 00 E0 AF D2 C0 03 5F D6
+
+v7a: 10da60e
+Thumb hex: 5F F4 80 20 70 47

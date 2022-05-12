@@ -1,0 +1,13 @@
+Credit: xyzhunter - Platinmods.com
+
+game : Crows x Worst - 最強伝説
+link: https://play.google.com/store/apps/details?id=jp.konami.crowsworstdynamite
+status : shutdown
+il2cpp game hex modding
+class | method, value:
+NBUnitBase|GetDamage|FF 00 0E E3 F5 05 40 E3 1E FF 2F E1
+NBUnitPlayer|Damage|00 00 00 E3 1E FF 2F E1
+NBUnitSupporter|Damage|00 00 00 E3 1E FF 2F E1
+BBBehaviour|get_IsIllegalTotalDamage|00 00 00 E3 1E FF 2F E1
+BBBehaviour|GetDamage|FF 00 0E E3 F5 05 40 E3 1E FF 2F E1
+BBBehaviour|OnEnemyAttackHit|00 00 00 E3 1E FF 2F E1

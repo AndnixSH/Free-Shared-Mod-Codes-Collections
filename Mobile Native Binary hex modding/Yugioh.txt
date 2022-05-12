@@ -1,0 +1,56 @@
+PlayerDataManager::GetYGOPoints(void)
+_ZN17PlayerDataManager12GetYGOPointsEv
+
+.text:002B4066                 PUSH    {R3,LR}
+.text:002B4068                 BL      _ZN17PlayerDataManager13sharedManagerEv ; PlayerDataManager::sharedManager(void)
+.text:002B406C                 LDR     R3, [R0,#0xC]
+.text:002B406E                 LDR     R0, [R3,#4]
+.text:002B4070                 POP     {R3,PC}
+
+.text:002B4066                 ADDS    R0, #0xFF
+.text:002B4068                 BX      LR
+
+-----------------------------------------------------
+._DWORD PlayerDataManager::GetBattlePoints(PlayerDataManager *__hidden this)
+EXPORT _ZN17PlayerDataManager15GetBattlePointsEv
+
+.text:002B40F4                 PUSH    {R3,LR}
+.text:002B40F6                 BL      _ZN17PlayerDataManager13sharedManagerEv ; PlayerDataManager::sharedManager(void)
+.text:002B40FA                 LDR     R3, [R0,#0xC]
+.text:002B40FC                 LDR     R0, [R3,#8]
+.text:002B40FE                 POP     {R3,PC}
+.text:002B40FE ; End of function PlayerDataManag
+
+.text:002B40F4                 ADDS    R0, #0xFF
+.text:002B40F6                 BX      LR
+
+-----------------------------------------------------
+PlayerDataManager::UpdateYGOPoints(unsigned long, Enum::UpdateDataType, bool)
+EXPORT _ZN17PlayerDataManager15UpdateYGOPointsEmN4Enum14UpdateDataTypeEb
+
+.text:002B41AC                 PUSH    {R0-R2,R4-R7,LR}
+.text:002B41AE                 MOVS    R5, R1
+.text:002B41B0                 MOVS    R6, R0
+
+.text:002B41AC                 ADDS    R0, #0xFF
+.text:002B41AE                 BX      LR
+
+-----------------------------------------------------
+PlayerDataManager::UnlockRecipe(PlayerDataManager *__hidden this, unsigned __int16)
+EXPORT _ZN17PlayerDataManager12UnlockRecipeEt
+
+.text:002B42C0                 PUSH    {R4-R6,LR}
+.text:002B42C2                 MOVS    R5, R0
+
+.text:002B42C0                 MOVS    R0, #1
+.text:002B42C2                 BX      LR
+
+-----------------------------------------------------
+_DWORD PlayerDataManager::IsBannedFromDuelLeague(PlayerDataManager *__hidden this)
+EXPORT _ZN17PlayerDataManager22IsBannedFromDuelLeagueEv
+
+.text:002B587C                 PUSH    {R4,LR}
+.text:002B587E                 SUB     SP, SP, #0x18
+
+.text:002B587C                 MOVS    R0, #0
+.text:002B587E                 BX      LR

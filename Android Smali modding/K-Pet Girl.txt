@@ -1,0 +1,50 @@
+#Game: K-Pet Girl♥Asian Pocket Girl 
+#Version: 1.0.18
+#APK: http://k-pet-girl-asian-pocket-girl.apk.black/
+
+# com/c9entertainment/pet/s1/data/GoldData
+.method public static getGold(Landroid/content/Context;)I
+   .locals 1
+
+  const v0, 0x7fffff #2147483647
+ 
+  return v0
+.end method
+
+# com/c9entertainment/pet/s1/data/CashData
+.method public static getCash(Landroid/content/Context;)I
+   .locals 1
+
+  const v0, 0x7fffff #2147483647
+ 
+  return v0
+.end method
+
+# ------------------------------------------
+
+# com/rooex/util/RootingHelper
+# Root detection
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 3
+
+    return-void
+.end method
+
+.method private static varargs checkRootingFiles([Ljava/io/File;)Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public static isRooting()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method

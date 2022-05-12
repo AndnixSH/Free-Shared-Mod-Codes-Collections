@@ -1,0 +1,30 @@
+[BEGIN]
+
+<<< Blitz Brigade 1.8.2b and up >>>
+
+<<< Hacks >>>
+- Unlimited Ammo
+- No Reload
+
+<<< Instructions >>>
+1. Install or update Blitz Brigade From Play Store.
+2. Open Lucky Patcher and patch the game
+3. If done then run the game
+
+If Any Problem, Reboot your device, Reinstall The Game And Patch it Again.
+
+<< Credits >>>
+- Andnix
+
+[LIB]
+{"name":"libwarBoys.so"}
+
+{"original":"10 40 2D E9 00 40 51 E2 0A 00 00 DA 08 10 A0 E3"}
+{"replaced":"FF 00 B0 E3 FF 30 B0 E3 93 00 10 E0 1E FF 2F E1"}
+
+[ADD-BOOT]
+
+[END]
+Patched!
+Cheers!
+By Andnix

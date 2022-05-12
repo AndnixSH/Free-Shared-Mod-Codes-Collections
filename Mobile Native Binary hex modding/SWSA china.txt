@@ -1,0 +1,122 @@
+--------------[ nativeGetHackToolCount ]--------------
+.text:0001A454                 PUSH    {R4,LR}
+.text:0001A456                 BL      sub_10A7C8
+.text:0001A45A                 POP     {R4,PC}
+
+--------------[ nativeGetHackToolName ]--------------
+.text:0001A60C                 PUSH    {R4,LR}
+.text:0001A60E                 MOVS    R4, R0
+.text:0001A610                 MOVS    R0, R2
+.text:0001A612                 BL      sub_10A7E0
+.text:0001A616                 LDR     R2, [R4]
+.text:0001A618                 MOVS    R3, #0x29C
+.text:0001A61C                 MOVS    R1, R0
+.text:0001A61E                 LDR     R3, [R2,R3]
+.text:0001A620                 MOVS    R0, R4
+.text:0001A622                 BLX     R3
+.text:0001A624                 POP     {R4,PC}
+
+--------------[ getRunningHackingTool ]--------------
+.text:0001A8C8                 PUSH    {R4-R6,LR}
+.text:0001A8CA                 SUB     SP, SP, #8
+.text:0001A8CC                 ADD     R0, SP, #0x18+var_14
+
+.text:0001A8FE                 POP     {R4-R6,PC} 70 BD
+
+--------------[ getRunningHackingTool 2]--------------
+.text:0001AAF0                 PUSH    {R4-R6,LR}
+.text:0001AAF2                 SUB     SP, SP, #8
+.text:0001AAF4                 ADD     R0, SP, #0x18+var_14
+
+.text:0001A8FE                 POP     {R4-R6,PC} 70 BD
+
+--------------[ GetMemoryHackCheckType]--------------
+.text:001CA748                 LDR     R3, =(unk_7DE2BC - 0x1CA74E)
+.text:001CA74A                 ADD     R3, PC ; unk_7DE2BC
+.text:001CA74C                 LDR     R0, [R3,#(dword_7DE31C - 0x7DE2BC)]
+.text:001CA74E                 BX      LR
+
+--------------[ startCheckSpeedHack ]--------------
+.text:001CB524                 MOVS    R0, #1
+.text:001CB526                 BX      LR
+
+--------------[ CheckSpeedHack ]--------------
+.text:001CC0C8                 PUSH    {R4-R7,LR}
+.text:001CC0CA                 MOV     R7, R11
+
+--------------[ isRunningMemoryHack ]--------------
+.text:001CD140                 PUSH    {R4-R7,LR}
+.text:001CD142                 MOV     R7, R11
+
+--------------[ nativeHackDetected ]--------------
+.text:0001A2B8                 PUSH    {LR}
+.text:0001A2BA                 LDR     R3, =0x1FE6EFF5
+.text:0001A2BC                 SUB     SP, SP, #0xC
+
+--------------[ CS_hlpIsCracked ]--------------
+.text:001C40E8                 PUSH    {R4-R6,LR}
+.text:001C40EA                 LDR     R4, =(_GLOBAL_OFFSET_TABLE_ - 0x1C40F2)
+.text:001C40EC                 LDR     R5, =(_ZN10Protection11mProtectionE_ptr - 0x265748)
+.text:001C40EE                 ADD     R4, PC ; _GLOBAL_OFFSET_TABLE_
+.text:001C40F0                 LDR     R3, [R4,R5] ; _ZN10Protection11mProtectionE_ptr ; Protection::mProtection
+.text:001C40F2                 LDR     R0, [R3]
+.text:001C40F4                 CMP     R0, #0
+.text:001C40F6                 BEQ     loc_1C40FE
+
+--------------[ GetbattleUnitSpeed ]--------------
+.text:00154BFC                 PUSH    {R4-R6,LR}
+.text:00154BFE                 SUB     SP, SP, #0x40
+.text:00154C00                 CMP     R0, #0x13
+.text:00154C02                 BHI     loc_154C3C
+.text:00154C04                 MOVS    R2, #0xA3
+.text:00154C06                 LDR     R3, =(word_3451E0 - 0x154C12)
+.text:00154C08                 LSLS    R2, R2, #5
+.text:00154C0A                 MOVS    R4, R2
+.text:00154C0C                 MULS    R4, R0
+.text:00154C0E                 ADD     R3, PC ; word_3451E0
+.text:00154C10                 ADDS    R4, R3, R4
+.text:00154C12                 CMP     R4, #0
+.text:00154C14                 BEQ     loc_154C3C
+.text:00154C16                 MOVS    R3, #0x1B0
+.text:00154C1A                 ADDS    R5, R4, R3
+.text:00154C1C                 MOVS    R6, #0xD8
+.text:00154C1E                 ADDS    R3, #0x10
+.text:00154C20                 ADDS    R1, R4, R3      ; src
+.text:00154C22                 MOVS    R2, #0x3C       ; n
+.text:00154C24                 LSLS    R6, R6, #1
+.text:00154C26                 MOV     R0, SP          ; dest
+.text:00154C28                 BLX     memcpy
+.text:00154C2C                 LDR     R0, [R4,R6]
+.text:00154C2E                 LDR     R1, [R5,#4]
+.text:00154C30                 LDR     R2, [R5,#8]
+.text:00154C32                 LDR     R3, [R5,#0xC]
+.text:00154C34                 BL      sub_1A6F78
+
+--------------[ GetBattleUnitAtk ]--------------
+.text:00154C8C                 PUSH    {R4-R6,LR}
+.text:00154C8E                 SUB     SP, SP, #0x40
+.text:00154C90                 CMP     R0, #0x13
+.text:00154C92                 BHI     loc_154CCC
+.text:00154C94                 MOVS    R2, #0xA3
+.text:00154C96                 LDR     R3, =(word_3451E0 - 0x154CA2)
+.text:00154C98                 LSLS    R2, R2, #5
+.text:00154C9A                 MOVS    R4, R2
+.text:00154C9C                 MULS    R4, R0
+.text:00154C9E                 ADD     R3, PC ; word_3451E0
+.text:00154CA0                 ADDS    R4, R3, R4
+.text:00154CA2                 CMP     R4, #0
+.text:00154CA4                 BEQ     loc_154CCC
+.text:00154CA6                 MOVS    R3, #0x118
+.text:00154CAA                 ADDS    R5, R4, R3
+.text:00154CAC                 MOVS    R6, #0x8C
+.text:00154CAE                 ADDS    R3, #0x10
+.text:00154CB0                 ADDS    R1, R4, R3      ; src
+.text:00154CB2                 MOVS    R2, #0x3C       ; n
+.text:00154CB4                 LSLS    R6, R6, #1
+.text:00154CB6                 MOV     R0, SP          ; dest
+.text:00154CB8                 BLX     memcpy
+.text:00154CBC                 LDR     R0, [R4,R6]
+.text:00154CBE                 LDR     R1, [R5,#4]
+.text:00154CC0                 LDR     R2, [R5,#8]
+.text:00154CC2                 LDR     R3, [R5,#0xC]
+.text:00154CC4                 BL      sub_1A6F78

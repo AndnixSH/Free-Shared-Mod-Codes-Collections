@@ -1,0 +1,13 @@
+_DWORD XSDispatcher::IsExitPending(XSDispatcher *__hidden this)
+EXPORT _ZN12XSDispatcher13IsExitPendingEv
+
+.text:0004CAFA                 LDR     R0, [R0,#0x44]
+.text:0004CAFC                 BX      LR
+
+
+_DWORD __fastcall OnHackDetected(int, const char *)
+EXPORT _Z14OnHackDetectediPKc
+
+.text:00029BA4                 PUSH    {R0-R6,LR}
+.text:00029BA6                 LDR     R4, =(g_jvm_ptr - 0x29BB0)
+.text:00029BA8                 MOVS    R6, R0

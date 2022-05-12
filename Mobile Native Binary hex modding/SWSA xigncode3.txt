@@ -1,0 +1,63 @@
+----------[ OnHackDetected ]----------
+.text:00029B9C                 PUSH    {R0-R6,LR}
+.text:00029B9E                 LDR     R4, =(g_jvm_ptr - 0x29BA8)
+
+----------[ IsExitPending ]----------
+.text:0004CB52                 LDR     R0, [R0,#0x44]
+.text:0004CB54                 BX      LR
+
+----------[ IsTerminated ]----------
+.text:0004CB4E                 MOVS    R0, #0
+.text:0004CB50                 BX      LR
+
+----------[ ZCWAVE_1AddPackageInfo ]----------
+.text:00029EBC                 PUSH    {R4,LR}
+.text:00029EBE                 LDR     R4, =(g_system_ptr - 0x29EC4)
+
+----------[ ZCWAVE_1Cleanup ]----------
+.text:00029DE8                 PUSH    {R0,R1,R4,LR}
+.text:00029DEA                 LDR     R4, =(g_system_ptr - 0x29DF0)
+
+----------[ ZCWAVE_1GetCooke ]----------
+.text:00029F50                 PUSH    {R4-R6,LR}
+.text:00029F52                 LDR     R6, =(__stack_chk_guard_ptr - 0x29F5C)
+
+----------[ ZCWAVE_1GetRevision ]----------
+.text:00029F34                 PUSH    {R3,LR}
+.text:00029F36                 LDR     R3, =(g_system_ptr - 0x29F3C)
+
+----------[ ZCWAVE_1Initialize ]----------
+.text:0002A064                 PUSH    {R4-R7,LR}
+.text:0002A066                 SUB     SP, SP, #0x44
+
+----------[ ZCWAVE_1OnActivityPause ]----------
+.text:00029EA0                 PUSH    {R3,LR}
+.text:00029EA2                 LDR     R3, =(g_system_ptr - 0x29EA8)
+
+----------[ ZCWAVE_1OnActivityResume ]----------
+.text:00029E84                 PUSH    {R3,LR}
+.text:00029E86                 LDR     R3, =(g_system_ptr - 0x29E8C)
+
+----------[ ZCWAVE_1OnReceive ]----------
+.text:00029E68                 LDR     R3, =(g_system_ptr - 0x29E70)
+.text:00029E6A                 MOVS    R0, #0
+
+----------[ ZCWAVE_1SetDeviceId ]----------
+.text:00029F08                 PUSH    {R4,LR}
+.text:00029F0A                 LDR     R4, =(g_system_ptr - 0x29F10)
+
+----------[ ZCWAVE_1SetResolutionInfo ]----------
+.text:00029EE8                 PUSH    {R4,LR}
+.text:00029EEA                 LDR     R1, =(g_system_ptr - 0x29EF0)
+
+----------[ ZCWAVE_1SetUserInfo ]----------
+.text:00029FBC                 PUSH    {R4,LR}
+.text:00029FBE                 LDR     R4, =(g_system_ptr - 0x29FC4)
+
+----------[ RequestInstalledPackage(void) ]----------
+.text:00029C04                 PUSH    {R0,R1,R4,LR}
+.text:00029C06                 LDR     R4, =(g_jvm_ptr - 0x29C10)
+
+----------[ ShowToast ]----------
+.text:00029C48                 PUSH    {R0-R2,R4,R5,LR}
+.text:00029C4A                 LDR     R4, =(g_jvm_ptr - 0x29C54)

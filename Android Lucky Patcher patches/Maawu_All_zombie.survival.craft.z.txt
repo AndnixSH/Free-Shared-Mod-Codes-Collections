@@ -1,0 +1,51 @@
+[BEGIN]
+Patch by Maawu @XDA
+
+Features:
+-Durability never goes down
+-Magic split
+-Gold goes up instead of down
+-Skill points go up instead of down
+-Free crafting
+[LIB]
+{"name":"libil2cpp.so"}
+{"original":"A5 0F 85 E0 E0 11 9F E5 00 70 99 E5 05 60 A0 E1 C0 80 A0 E1 E0 01 9F E5 00 40 68 E2 00 00 8F E0"}
+{"replaced":"** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** 14 40 A0 E3 ** ** ** **"}
+
+{"name":"libil2cpp.so"}
+{"original":"78 22 03 00 F4 57 6A 00 18 59 00 00 0C 00 90 E5 1E FF 2F E1 F0 4F 2D E9 1C B0 8D E2 04 D0 4D E2"}
+{"replaced":"** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** 01 00 A0 E3 1E FF 2F E1 ** ** ** **"}
+
+{"name":"libil2cpp.so"}
+{"original":"18 8B 91 00 7C 92 00 00 E8 8B 91 00 30 00 D0 E5 1E FF 2F E1 00 48 2D E9 0D B0 A0 E1 34 00 90 E5"}
+{"replaced":"** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** 64 00 A0 E3 1E FF 2F E1 ** ** ** **"}
+
+{"name":"libil2cpp.so"}
+{"original":"00 00 94 E5 1C 21 90 E5 20 11 90 E5 04 00 A0 E1 32 FF 2F E1 30 0B 41 EC 00 00 94 E5 C8 0B 70 EE"}
+{"replaced":"** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** 88 ** ** **"}
+
+{"name":"libil2cpp.so"}
+{"original":"FF 8C FE EA 78 66 0A EB 0F E0 A0 E1 ED D8 FF EA 0C 00 90 E5 1E FF 2F E1 10 4C 2D E9 08 B0 8D E2"}
+{"replaced":"** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** 01 00 A0 E3 1E FF 2F E1"}
+
+{"name":"libil2cpp.so"}
+{"original":"04 00 A0 E1 60 0B 78 EE 30 2B 53 EC 31 FF 2F E1 10 D0 4B E2 02 8B BD EC 30 88 BD E8 BF 65 0A EB"}
+{"replaced":"** ** ** ** 20 ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **"}
+
+{"name":"libil2cpp.so"}
+{"original":"6C 88 02 00 90 69 6A 00 50 17 01 00 64 69 6A 00 50 69 6A 00 48 A9 00 00 F0 4D 2D E9 18 B0 8D E2"}
+{"replaced":"** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** 01 00 A0 E3 1E FF 2F E1"}
+
+{"name":"libil2cpp.so"}
+{"original":"38 65 6A 00 50 17 01 00 0C 65 6A 00 F8 64 6A 00 B8 3D 00 00 10 4C 2D E9 08 B0 8D E2 00 40 A0 E1"}
+{"replaced":"** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** 01 00 A0 E3 1E FF 2F E1 ** ** ** **"}
+
+{"name":"libil2cpp.so"}
+{"original":"48 A9 00 00 78 22 03 00 0C 4A 6A 00 18 59 00 00 10 00 90 E5 1E FF 2F E1 F0 4B 2D E9 18 B0 8D E2"}
+{"replaced":"** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** 01 00 A0 E3 1E FF 2F E1"}
+
+{"name":"libil2cpp.so"}
+{"original":"00 48 BD E8 E7 8B FE EA 60 65 0A EB 0F E0 A0 E1 D5 D7 FF EA F0 48 2D E9 10 B0 8D E2 02 8B 2D ED"}
+{"replaced":"** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** 01 00 A0 E3 1E FF 2F E1 ** ** ** **"}
+[END]
+Success

@@ -1,0 +1,148 @@
+    public bool GotPerfectLaunch
+    {
+        [CompilerGenerated]
+        get
+        {
+            return true;
+        }
+        [CompilerGenerated]
+        set
+        {
+            this. = value;
+        }
+    }
+
+
+    public int NumOfPerfectShifts
+    {
+        [CompilerGenerated]
+        get
+        {
+            return 5;
+        }
+        [CompilerGenerated]
+        set
+        {
+            this. = value;
+        }
+    }
+
+-----------------------------------------------
+
+    public int EditUsernameCostPoints
+    {
+        [CompilerGenerated]
+        get
+        {
+            return -900;
+        }
+        [CompilerGenerated]
+        set
+        {
+            this. = value;
+        }
+    }
+
+
+    public int SellValuePercentForCars
+    {
+        [CompilerGenerated]
+        get
+        {
+            return 0x328c;
+        }
+        [CompilerGenerated]
+        set
+        {
+            this. = value;
+        }
+    }
+
+    public int TeamCreationCost
+    {
+        [CompilerGenerated]
+        get
+        {
+            return -400000;
+        }
+        [CompilerGenerated]
+        set
+        {
+            this. = value;
+        }
+    }
+
+----------------------------------------------
+
+
+    public bool Nitrous
+    {
+        [CompilerGenerated]
+        get
+        {
+            return true;
+        }
+        [CompilerGenerated]
+        set
+        {
+            this. = value;
+        }
+    }
+
+
+    public bool PLaunch
+    {
+        [CompilerGenerated]
+        get
+        {
+            return true;
+        }
+        [CompilerGenerated]
+        set
+        {
+            this.
+ = value;
+        }
+    }
+
+
+    public int PShifts
+    {
+        [CompilerGenerated]
+        get
+        {
+            return 5;
+        }
+        [CompilerGenerated]
+        set
+        {
+            this.	 = value;
+        }
+    }
+
+
+    public bool Win
+    {
+        [CompilerGenerated]
+        get
+        {
+            return true;
+        }
+        [CompilerGenerated]
+        set
+        {
+            this. = value;
+        }
+    }
+
+-------------------------------------------------
+
+    public Dictionary<string, int> CarClassToCampaign
+    {
+        get
+        {
+            return 1;
+        }
+    }
+
+

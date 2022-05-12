@@ -1,0 +1,9 @@
+Package: andnix
+Name: SpotiHacks
+Depends: mobilesubstrate
+Version: 1.0
+Architecture: iphoneos-arm
+Description: SpotiHacks for Spotify 2.2.0. No premium needed!
+Maintainer: Andnix
+Author: Andnix
+Section: Tweaks

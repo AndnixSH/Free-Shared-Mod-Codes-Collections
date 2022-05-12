@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>entry</key>
+	<dict>
+		<key>cell</key>
+		<string>PSLinkCell</string>
+		<key>icon</key>
+		<string>icon.png</string>
+		<key>label</key>
+		<string>SpotiHacks (Spotify 2.2.0)</string>
+	</dict>
+	<key>items</key>
+	<array>
+        <dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Allow you to seeking</string>    
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>spotihacks</string>       
+			<key>key</key>
+			<string>kSeeking</string>      
+			<key>label</key>
+			<string>Enable seeking</string>       
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Skip music</string>    
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>spotihacks</string>       
+			<key>key</key>
+			<string>kSkipping</string>      
+			<key>label</key>
+			<string>Enable skipping</string>       
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Can Toggling Shuffle</string>    
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>spotihacks</string>       
+			<key>key</key>
+			<string>kTogglingShuffle</string>      
+			<key>label</key>
+			<string>Enable Toggling Shuffle</string>       
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Disable Shuffle if you don't like it</string>    
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>spotihacks</string>       
+			<key>key</key>
+			<string>kNoShuffle</string>      
+			<key>label</key>
+			<string>No Shuffle</string>       
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Allow you to peeking</string>    
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>spotihacks</string>       
+			<key>key</key>
+			<string>kPeeking</string>      
+			<key>label</key>
+			<string>Enable peeking</string>       
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>After you apply settings, please respring your device.</string>    
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>Respring</string>
+			<key>action</key>
+			<string>respring</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>link</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>icon</key>
+			<string>iOSGods.png</string>
+			<key>label</key>
+			<string>Visit iOSgods</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Brought to you by evildog1 - iosgods.com</string>
+		</dict>
+		
+	</array>
+	<key>title</key>
+	<string>SpotiHacks (Spotify 2.2.0)</string>
+</dict>
+</plist>

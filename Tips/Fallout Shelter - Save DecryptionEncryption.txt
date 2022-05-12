@@ -1,0 +1,269 @@
+
+
+    One of my personal favourite parts of game hacking is reversing the code to be able to decrypt the game data, this could include resources or game saves.
+
+    The difficulty varies depending on the engine used and or the compiler used.
+
+    Game: Fallout Shelter
+    Difficulty: 1 out of 10
+
+    Locating the Save:
+    First we need to locate the game save, depending on the game it could require root privileges, lucky for us Fallout uses the internal sd card to save its game data, location for me was: /sdcard/Android/data/com.bethsoft.falloutshelter/files/
+
+    Vault1.sav
+    Vault2.sav
+    Vault3.sav
+
+    First copy this save to your desktop so we can work better, after opening the save file in a hex editor or in a text editor, we notice the following:
+    save_texteditor.PNG
+    We notice straight away that this is base64 encoding, we can try to decode it but the result is just gibberish this means the data is encrypted + later with base64 encoded.
+
+    Decrypting the Save:
+    The fallout game is written for the Unity engine, so the code is .net and can be easily read by anybody, lets open the Assembly-CSharp.dll in reflector and start looking for where the save would be loaded.
+
+    We can search using our head for things that relate to saves, keywords such as "Save, Load, LoadSave" i started with the string search ".sav" with this i located the following:
+    sav_search.PNG
+
+    The string ".sav" was found in Function "Save, Load, Delete" inside class "LocalSaveSystem" this sounds perfect, lets take a closer look at the "Load" function:
+    Code:
+
+    public void Load(ProfileName profile)
+    {
+        byte[] buffer;
+        try
+        {
+            buffer = File.ReadAllBytes(string.Concat(new object[] { Application.persistentDataPath, "/", profile, ".sav" }));
+        }
+        catch (Exception exception)
+        {
+            if (this.OnLoadCompleteEvent != null)
+            {
+                this.OnLoadCompleteEvent(false, profile, null);
+            }
+            Debug.LogWarning(exception.ToString());
+            return;
+        }
+        VaultData vaultDataFromBytes = this.GetVaultDataFromBytes(buffer, profile + ".sav");
+        try
+        {
+            vaultDataFromBytes.ModifiedDate = File.GetLastWriteTime(string.Concat(new object[] { Application.persistentDataPath, "/", profile, ".sav" }));
+        }
+        catch (Exception exception2)
+        {
+            Debug.LogWarning(exception2.ToString());
+            vaultDataFromBytes.ModifiedDate = DateTime.Now;
+        }
+        if (this.OnLoadCompleteEvent != null)
+        {
+            this.OnLoadCompleteEvent(true, profile, vaultDataFromBytes);
+        }
+    }
+
+
+      public void Load(ProfileName profile)
+    {
+        byte[] buffer;
+        try
+        {
+            buffer = File.ReadAllBytes(string.Concat(new object[] { Application.persistentDataPath, "/", profile, ".sav" }));
+        }
+        catch (Exception exception)
+        {
+            if (this.OnLoadCompleteEvent != null)
+            {
+                this.OnLoadCompleteEvent(false, profile, null);
+            }
+            Debug.LogWarning(exception.ToString());
+            return;
+        }
+        VaultData vaultDataFromBytes = this.GetVaultDataFromBytes(buffer, profile + ".sav");
+        try
+        {
+            vaultDataFromBytes.ModifiedDate = File.GetLastWriteTime(string.Concat(new object[] { Application.persistentDataPath, "/", profile, ".sav" }));
+        }
+        catch (Exception exception2)
+        {
+            Debug.LogWarning(exception2.ToString());
+            vaultDataFromBytes.ModifiedDate = DateTime.Now;
+        }
+        if (this.OnLoadCompleteEvent != null)
+        {
+            this.OnLoadCompleteEvent(true, profile, vaultDataFromBytes);
+        }
+    }
+
+    This code tries to read the save file and converts it to a byte array.
+    byte[] buffer;
+    buffer = File.ReadAllBytes(string.Concat(new object[] { Application.persistentDataPath, "/", profile, ".sav" }));
+    This is a standard API call so we know 100% that this won't decrypt the data, the byte array "buffer" will contain exactly what Vault1.sav contains.
+
+    This code then passes the byte array and profile name to the function GetVaultDataFromBytes.
+    VaultData vaultDataFromBytes = this.GetVaultDataFromBytes(buffer, profile + ".sav");
+
+    Now we need to check GetVaultDataFromBytes:
+    Code:
+
+    private VaultData GetVaultDataFromBytes(byte[] textBytes, string fileName)
+    {
+        string str = new UTF8Encoding().GetString(textBytes);
+        string str2 = !kEncrypt ? str : PersistenceManager.Decrypt(str);
+        string str3 = !kCompress ? str2 : PersistenceManager.Decompress(str2);
+        Dictionary<string, object> dictionary = PersistenceManager.DeserializeData(str3);
+        VaultData data = new VaultData(string.Empty) {
+            Data = dictionary,
+            FileName = fileName
+        };
+        if (data.Data.ContainsKey("timeMgr"))
+        {
+            Dictionary<string, object> dic = data.Data["timeMgr"] as Dictionary<string, object>;
+            long ticks = SerializeHelper.TryGetValue<long>(dic, "timeSaveDate", DateTime.Now.Ticks);
+            data.ModifiedDate = new DateTime(ticks);
+        }
+        return data;
+    }
+
+
+      private VaultData GetVaultDataFromBytes(byte[] textBytes, string fileName)
+    {
+        string str = new UTF8Encoding().GetString(textBytes);
+        string str2 = !kEncrypt ? str : PersistenceManager.Decrypt(str);
+        string str3 = !kCompress ? str2 : PersistenceManager.Decompress(str2);
+        Dictionary<string, object> dictionary = PersistenceManager.DeserializeData(str3);
+        VaultData data = new VaultData(string.Empty) {
+            Data = dictionary,
+            FileName = fileName
+        };
+        if (data.Data.ContainsKey("timeMgr"))
+        {
+            Dictionary<string, object> dic = data.Data["timeMgr"] as Dictionary<string, object>;
+            long ticks = SerializeHelper.TryGetValue<long>(dic, "timeSaveDate", DateTime.Now.Ticks);
+            data.ModifiedDate = new DateTime(ticks);
+        }
+        return data;
+    }
+
+    This also contains a lot of useless code that is unintersting for us, the most important is at the top:
+
+    1) Convert the byte array back to a String.
+    string str = new UTF8Encoding().GetString(textBytes);
+
+    2) If encryption is enabled, decrypt the string
+    string str2 = !kEncrypt ? str : PersistenceManager.Decrypt(str);
+
+    3) If compression is eanbled, decompress the string
+    string str3 = !kCompress ? str2 : PersistenceManager.Decompress(str2);
+
+    4) Deserialize the data
+    Dictionary<string, object> dictionary = PersistenceManager.DeserializeData(str3);
+
+    Lets take a closer look at Decrypt:
+    Code:
+
+    public static string Decrypt(string data)
+    {
+        return StringCipher.Decrypt(data, s_passPhrase);
+    }
+
+    Seen as we only pass 1 parameter to Decrypt, it means s_passPhrase is assigned somewhere else, we need to search for this first.
+
+    Double click on s_passPhrase and analyse it, then take a look for where it is assigned:
+    s_pass.PNG
+
+    Lets take a look at the OnAwake function
+    Code:
+
+    protected override void OnAwake()
+    {
+        Object.DontDestroyOnLoad(base.gameObject);
+        s_passPhrase = StringCipher.GeneratePassPhrase("PlayerData");
+    }
+
+    1.) the s_passPhrase is generated by the call to GeneratePassPhrase with parameter "PlayerData"
+    s_passPhrase = StringCipher.GeneratePassPhrase("PlayerData");
+
+    Lets take a look at the GeneratePassPhrase function
+    Code:
+
+    public static string GeneratePassPhrase(string plainText)
+    {
+        string str = plainText;
+        while (str.Length < 8)
+        {
+            str = str + plainText;
+        }
+        return Base64Encode(str).Substring(0, 8);
+    }
+
+    The code is easy enough to understand, if the string is less than 8 in length, add the string to its self until it is longer than 8:
+
+    For example the string cat.
+    dog (3) -> dogdog (6) -> dogdogdog (9) -> OK!
+
+    Now the next part encodes the string with base64 and returns the first 8 characters:
+    Base64("PlayerData") -> UGxheWVyRGF0YQ== -> "UGxheWVy" = s_PassPhrase
+     
+
+#1
+Uncle_BoB, Aug 21, 2015
+JamesJoker likes this.
+Uncle_BoB
+Uncle_BoB
+What Protection?
+Staff Member
+Cracking Team
+
+Joined:
+    Mar 20, 2014
+
+Messages:
+    938
+
+Likes Received:
+    1,126
+
+    Now lets get back to the Decrypt function, and lets take a look at StringCipher.Decrypt:
+    Code:
+
+    public static string Decrypt(string cipherText, string passPhrase)
+    {
+        byte[] bytes = Encoding.ASCII.GetBytes("tu89geji340t89u2");
+        byte[] buffer = Convert.FromBase64String(cipherText);
+        byte[] rgbKey = new Rfc2898DeriveBytes(passPhrase, Encoding.ASCII.GetBytes("tu89geji340t89u2")).GetBytes(0x20);
+        ICryptoTransform transform = new RijndaelManaged { Mode = CipherMode.CBC }.CreateDecryptor(rgbKey, bytes);
+        MemoryStream stream = new MemoryStream(buffer);
+        CryptoStream stream2 = new CryptoStream(stream, transform, CryptoStreamMode.Read);
+        byte[] buffer4 = new byte[buffer.Length];
+        int count = stream2.Read(buffer4, 0, buffer4.Length);
+        stream.Close();
+        stream2.Close();
+        return Encoding.UTF8.GetString(buffer4, 0, count);
+    }
+
+    Here we see the the real decryption, lets go over it slowly so everybody understands.
+
+    1) Convert the string "tu89geji340t89u2" to a byte array.
+    byte[] bytes = Encoding.ASCII.GetBytes("tu89geji340t89u2");
+
+    2) Base64 decode the save data and put it into a byte array
+    byte[] buffer = Convert.FromBase64String(cipherText);
+
+    3) Generate a IV key from the password and the salt "tu89geji340t89u2"
+    byte[] rgbKey = new Rfc2898DeriveBytes(passPhrase, Encoding.ASCII.GetBytes("tu89geji340t89u2")).GetBytes(0x20);
+
+    4) Initialize the Rijndael encryption with the Key + IV
+    ICryptoTransform transform = new RijndaelManaged { Mode = CipherMode.CBC }.CreateDecryptor(rgbKey, bytes);
+
+    5) Perform the decryption and return it as a string
+    MemoryStream stream = new MemoryStream(buffer);
+    CryptoStream stream2 = new CryptoStream(stream, transform, CryptoStreamMode.Read);
+    byte[] buffer4 = new byte[buffer.Length];
+    int count = stream2.Read(buffer4, 0, buffer4.Length);
+    stream.Close();
+    stream2.Close();
+    return Encoding.UTF8.GetString(buffer4, 0, count);
+
+    This was the entire routine, compression is not used so we can stop after decryption.
+
+    Encryption is just the same but reversed: Plain Text -> Encrypt -> Base64.
+
+    Below you will find a simple C# console program to decrypt or encrypt the saves. 

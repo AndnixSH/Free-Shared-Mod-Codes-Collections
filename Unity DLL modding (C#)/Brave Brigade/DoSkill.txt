@@ -1,0 +1,30 @@
+public bool DoSkill(SkillInfo skill, bool isBurning)
+    {
+----------------
+        if (base.isEnemy)
+        {
+            return false;
+        }
+-----------------
+        if (!isBurning)
+        {
+            base.additive.RunTurnBefore();
+        }
+        if ((base.isDead || (base.additive.CanTurn != 0)) || (((base.additive.CanSkill != 0) || (skill == null)) || (base.additive.Chaos != 0)))
+        {
+            return false;
+        }
+        base.isBurringAttack = isBurning;
+        this._action = this._skill;
+        this._action.RunSkill(skill);
+        this.MakeEffectFX("skillLight");
+        if (!base.isBurringAttack)
+        {
+            base.UseSpBySkill(skill.mForm.sp);
+            this.runSkillIcon(skill.mForm.icon);
+            this.reservedSkillData = null;
+            base._main.skillBtnManager.SetSelectedSkill(this);
+        }
+        base.TURN_STATE = ActorState.SKILL;
+        return true;
+    }

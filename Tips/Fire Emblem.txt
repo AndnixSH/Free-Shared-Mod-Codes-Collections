@@ -1,0 +1,94 @@
+Guides that I've found useful from the past request: 
+From @Virg099 on Morphing
+open nox, 
+unroot it, 
+open CE,
+go to CE settings
+on the extra tab tick everything
+open FE H on nox and go to the stage with the unit you want to morph
+
+select your fodder shell unit and heart it
+Set CE to look for byte
+search 100
+unheart and search 101
+Repeat until you are left with 2 values that end with a "4"
+If it doesn't give you any values ending with "4" start a new search replacing the heart value with 228 heart/229 no heart
+Now since you have 2 values, move your fodder unit to another space
+Drag the non-red address to the bottom box
+
+next highlight the target unit by long clicking
+start a new search 
+search 237
+unselect the target unit
+search 229
+Repeat until one address is left
+Drag that to the bottom box
+
+now click the target's address in the bottom box and click ctrl+b
+now click on the first row of values (I'll name this row 0)
+go up one row (row -1)
+select everything from row -1 to -42
+copy
+
+click on your fodder's addres and click ctrl+b
+now click on the first row of values (I'll name this row 0)
+go up one row (row -1)
+select everything from row -1 to -42
+paste
+
+now surrender the battle
+go to allies, 
+equip/unequip something
+restart the game
+
+
+ ----------- on GG memory editiing for ver 1.0.2 (shards do not work on 1.1.1) 
+
+ ----------- Morphing 
+(Don't know who made the video)
+
+@Boldag on fixing the "803 error" for rooted devices
+0) FIRST OF ALL, remove all your google accounts from android emulator.
+1) Get root on Nox. You don't have to download anything, just activate root in Nox settings.
+2) Install "xposed" (again, can't link so just google it, it's probably the first result), install framework via xposed, reboot android. Now go to modules, search for FakeGapps and install it. Activate it and reboot android once again.
+3) Go to /system/priv-app with standard file manager and if you see any of the following apps in there, delete them: "GmsCore", "GoogleBackupTransport", "GoogleFeedback", "GoogleLoginService", "GoogleOneTimeInitializer", "GooglePartnerSetup", "GoogleServicesFramework", "Phonesky", "SetupWizard" and "Velvet". Also delete updates for Play Services in settings -> apps. Reboot android once again.
+4) Now download microG Services Core (get the latest preview) and Services Framework Proxy from the download section on the microG website (again, can't link so just google it, it's probably the first result). Install them both.
+5) Launch microG. Turn on Google device registration and Google Cloud Messaging. After that you can add your google account either through system settings or play market. After adding google account and launching play market first time it will give an error. Just close play market and launch it again - it should work now.
+
+@Schm on Stat editing
+Datastructure of inbattle stats is
+Heartvalue Address + Eh(Hex Value)
+Attackvalue(4Byte splittet in two 2byte values that get Xor connected for the atk value ,same for the other stats) 
+Spd
+Def
+Res
+just overwrite +14byte+18byte+22byte+26byte from the heartvalue with "FF"
+
+@kbkoolio on IV
+guide to IV modifying using GG
+
+Step 0. Identify Unit with good ivs or ivs you want
+
+Step 1: Find Heart Value. Copy the address. Go to address
+
+Step 2: In hex calculator, Heart Value - 100
+
+Step 3: Find that new value in the Go To (Arrow) function in GG
+
+Step 4: Tick that line and the two lines below it. Save as dword
+
+Step 5: Identify unit you want to modify ivs for
+
+Step 6: Follow steps 1-3
+
+Step 7: Copy saved line values as dword into new units line
+
+Step 8: Change skills on characters you modified ivs for
+
+Step 9: Restart the game
+
+Step 10: Your IVs should be reflected by your new stats
+
+
+
+As new updates are released some methods are subject to change and some will be patched.

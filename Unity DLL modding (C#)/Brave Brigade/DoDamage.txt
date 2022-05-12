@@ -1,0 +1,130 @@
+public int DoDamage(int dmg, bool cri, bool eva, int actNo, IActor attacker, string eff)
+    {
+----------------
+        eva = false;
+        if (attacker.isEnemy)
+        {
+            dmg = 0;
+        }
+        if (!attacker.isEnemy)
+        {
+            dmg *= 15;
+        }
+---------------
+        if (base.isDead)
+        {
+            return 0;
+        }
+        bool flag = false;
+        if (dmg > 0)
+        {
+            base.lastAttacker = attacker;
+            if (((int) base.additive.ABS_GUARD) > 0)
+            {
+//removed
+                flag = true;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public int DoDamage(SecInt dmg, bool cri, bool eva, int actNo, IActor attacker, string eff)
+{
+    eva = false;
+    if (attacker.isEnemy)
+    {
+        dmg = 0;
+    }
+    if (!attacker.isEnemy)
+    {
+        dmg *= 15;
+    }
+    if (base.isDead)
+    {
+        return 0;
+    }
+    bool flag = false;
+    if (dmg > 0)
+    {
+        base.lastAttacker = attacker;
+        if (((int) base.additive.ABS_GUARD) > 0)
+        {
+            flag = true;
+        }
+    }
+    base.damage = (int) dmg;
+    this._eva = eva;
+    if (this._eva)
+    {
+        base.damage = 0;
+        this.MakeEffect(ActorEffect.EFFECTS.EVA);
+        this.ShowEvaMotion();
+        base.additive.RunEvaAfter();
+        this.ShowTalk(TalkBoxManager.GetEvaMsg(), (float) 0.5f);
+    }
+    else
+    {
+        if (cri)
+        {
+            base.damage *= 2;
+            this.MakeEffect(ActorEffect.EFFECTS.CRI);
+            this.ShowTalk(TalkBoxManager.GetCriMsg(this), (float) 0.5f);
+        }
+        this.avatar.onActFinished = new actFinished(this.OnDamageActFinished);
+        this.act(actNo);
+        if ((base.damage > 0) || flag)
+        {
+            if (flag)
+            {
+                this.ShowTalk(TalkBoxManager.GetSGuard(), (float) 0.5f);
+            }
+            else if (!cri)
+            {
+                this.ShowTalk(TalkBoxManager.GetDamageMsg(this), (float) 0.5f);
+            }
+            if (base.isLeader)
+            {
+                foreach (EActor actor in this.shareHp)
+                {
+                    if (!actor.isDead)
+                    {
+                        int damage = (int) (((float) (base.damage * ((int) actor.additive.SHAREHP_RATE))) / 100f);
+                        if (damage > dmg)
+                        {
+                            damage = (int) dmg;
+                        }
+                        base.damage -= damage;
+                        actor.ChangeHp(-damage);
+                        actor.MakeHudDamage(damage);
+                        actor.act(actNo);
+                        actor.ShowTalk(TalkBoxManager.GetShareHp());
+                        if (base.damage <= 0)
+                        {
+                            base.damage = 0;
+                            break;
+                        }
+                    }
+                }
+            }
+            this.MakeEffectFX(eff);
+        }
+    }
+    actNo = this.avatar.currentActNo;
+    if (actNo == this.avatar.baseAct)
+    {
+        base.StartCoroutine(this.SkipDamageAct());
+    }
+    return Mathf.Max(0, base.damage);
+}
+

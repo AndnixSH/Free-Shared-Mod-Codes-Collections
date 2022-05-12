@@ -1,0 +1,4 @@
+//Credits (string: coins)
+sub_237C84
+MOV R0, R7
+BX LR

@@ -1,0 +1,62 @@
+.method public static doesFileExist(Landroid/content/Context;Ljava/lang/String;JZ)Z
+    .locals 4
+	# --- Remove ---
+
+    #const/4 v0, 0x1
+
+	# --- Change to: ---
+
+	const v0, 0x1
+
+    return v0
+
+	#----------------
+
+    new-instance v1, Ljava/io/File;
+
+    invoke-static {p0, p1}, Lcom/google/android/vending/expansion/downloader/Helpers;->generateSaveFileName(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v1}, Ljava/io/File;->exists()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-virtual {v1}, Ljava/io/File;->length()J
+
+    move-result-wide v2
+
+    cmp-long v2, v2, p2
+
+    if-nez v2, :cond_0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    sget-boolean v2, Lcom/google/android/vending/expansion/downloader/Helpers;->TRUE_DEBUG:Z
+
+    if-eqz v2, :cond_1
+
+    const-string v1, "LVLDL"
+
+    const-string v2, "Filesize mismatch, ignoring for development build"
+
+    invoke-static {v1, v2}, Lcom/google/android/vending/expansion/downloader/Helpers$Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_1
+    if-eqz p4, :cond_2
+
+    invoke-virtual {v1}, Ljava/io/File;->delete()Z
+
+    :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method

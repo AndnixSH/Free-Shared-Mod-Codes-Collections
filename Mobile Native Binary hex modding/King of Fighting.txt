@@ -1,0 +1,5 @@
+ivy::RDGameData::getGameComboDamage(void)
+4F F6 FF 70 70 47
+
+E0FF9FD2
+C0035FD6

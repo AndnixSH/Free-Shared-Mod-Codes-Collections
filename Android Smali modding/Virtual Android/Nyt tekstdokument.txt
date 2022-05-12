@@ -1,0 +1,1 @@
+    <string name="main_text_content">Virtual Android Custom ROM by AndnixSH</string>

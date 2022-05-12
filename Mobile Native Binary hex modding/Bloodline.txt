@@ -1,0 +1,165 @@
+THUMB
+
+_DWORD __fastcall AntiCheater::initValue(AntiCheater *__hidden this, int)
+EXPORT _ZN11AntiCheater9initValueEi
+
+.text:00426656                 PUSH    {R0-R2,R4-R7,LR}
+.text:00426658                 MOVS    R6, R1
+.text:0042665A                 MOVS    R5, R0
+.text:0042665C                 MOVS    R1, #0          ; c
+.text:0042665E                 ADDS    R0, #4          ; s
+.text:00426660                 MOVS    R2, #0x28       ; n
+.text:00426662                 BLX     memset
+.text:00426666                 CMP     R6, #9
+.text:00426668                 BLE     loc_426682
+.text:0042666A                 MOVS    R0, #3          ; this
+.text:0042666C                 MOVS    R1, #0xA
+
+
+_DWORD AntiCheater::getValue(AntiCheater *__hidden this)
+EXPORT _ZNK11AntiCheater8getValueEv
+
+.text:004266D2                 PUSH    {R4,LR}
+.text:004266D4                 MOVS    R3, #0
+.text:004266D6                 LDR     R1, [R0]
+.text:004266D8                 MOVS    R2, R0
+.text:004266DA                 MOVS    R0, R3
+.text:004266DC                 B       loc_4266E6
+
+_DWORD __fastcall AntiCheater::changeValue(AntiCheater *__hidden this, int)
+EXPORT _ZN11AntiCheater11changeValueEi
+
+.text:004266EC                 PUSH    {R3-R5,LR}
+.text:004266EE                 MOVS    R5, R0
+.text:004266F0                 MOVS    R4, R1
+.text:004266F2                 BL      _ZNK11AntiCheater8getValueEv ; AntiCheater::getValue(void)
+.text:004266F6                 ADDS    R1, R4, R0      ; int
+.text:004266F8                 MOVS    R0, R5          ; this
+.text:004266FA                 BL      _ZN11AntiCheater9initValueEi ; AntiCheater::initValue(int)
+.text:004266FE                 POP     {R3-R5,PC}
+
+AntiCheater::AntiCheater(void)
+EXPORT _ZN11AntiCheaterC2Ev
+
+.text:004266C4                 PUSH    {R4,LR}
+.text:004266C6                 MOVS    R4, R0
+.text:004266C8                 MOVS    R1, #0          ; int
+.text:004266CA                 BL      _ZN11AntiCheater9initValueEi ; AntiCheater::initValue(int)
+.text:004266CE                 MOVS    R0, R4
+.text:004266D0                 POP     {R4,PC}
+
+
+_DWORD __fastcall PlayerValueCounter::getCritDamageRate(PlayerValueCounter *__hidden this, const Character *)
+EXPORT _ZNK18PlayerValueCounter17getCritDamageRateEPK9Character
+
+.text:0045493C                 PUSH    {R3,LR}
+.text:0045493E                 ADDS    R0, #4          ; this
+.text:00454940                 BL      _ZNK15BufValueCounter17getCritDamageRateEPK9Character ; BufValueCounter::getCritDamageRate(Character const*)
+.text:00454944                 POP     {R3,PC}
+
+
+_DWORD __fastcall PVPBattle::getCardDamage(PVPBattle *__hidden this, int)
+EXPORT _ZNK9PVPBattle13getCardDamageEi
+
+.text:0033C7AC                 PUSH    {R4-R7,LR}
+.text:0033C7AE                 MOVS    R7, R0
+.text:0033C7B0                 SUB     SP, SP, #0x3C
+.text:0033C7B2                 MOVS    R6, R1
+.text:0033C7B4                 LDR     R4, [R0,#0x28]
+.text:0033C7B6                 MOVS    R5, #0
+.text:0033C7B8                 ADDS    R7, #0x28
+.text:0033C7BA                 B       loc_33C80A
+
+EXPORT _ZNK15BufValueCounter17getCritDamageRateEPK9Character
+_ZNK15BufValueCounter17getCritDamageRateEPK9Character
+
+.text:0034A884                 PUSH    {R3,LR}
+.text:0034A886                 CMP     R1, #0
+.text:0034A888                 BEQ     loc_34A89E
+.text:0034A88A                 MOVS    R0, R1          ; this
+.text:0034A88C                 BL      _ZNK9Character15getBufProcessorEv ; Character::getBufProcessor(void)
+.text:0034A890                 MOVS    R3, #0xFF
+.text:0034A892                 MOVS    R1, #7
+.text:0034A894                 MOVS    R2, #0
+.text:0034A896                 LSLS    R3, R3, #0x16
+.text:0034A898                 BL      _ZNK12BufProcessor11getBufRatioEN6BUF_NS12EFFECT_VALUEEPK9Characterf ; BufProcessor::getBufRatio(BUF_NS::EFFECT_VALUE,Character const*,float)
+.text:0034A89C                 B       locret_34A8A2
+
+_DWORD __cdecl PlayerValueCounter::getCritRate(PlayerValueCounter *__hidden this, const Character *)
+EXPORT _ZNK18PlayerValueCounter11getCritRateEPK9Character
+
+.text:00454946                 PUSH    {R4-R6,LR}
+.text:00454948                 MOVS    R5, R0
+.text:0045494A                 MOVS    R0, R1          ; this
+.text:0045494C                 MOVS    R4, R1
+.text:0045494E                 BL      _ZNK9Character12getAttributeEv ; Character::getAttribute(void)
+.text:00454952                 BL      _ZNK11CardItemOwn16getCardAttributeEv ; CardItemOwn::getCardAttribute(void)
+.text:00454956                 MOVS    R1, R4          ; Character *
+.text:00454958                 LDR     R6, [R0,#0x58]
+.text:0045495A                 ADDS    R0, R5, #4      ; this
+.text:0045495C                 BL      _ZNK15BufValueCounter11getCritRateEPK9Character ; BufValueCounter::getCritRate(Character const*)
+.text:00454960                 ADDS    R0, R6, R0
+.text:00454962                 POP     {R4-R6,PC}
+
+EXPORT _ZNK15BufValueCounter11getCritRateEPK9Character
+_ZNK15BufValueCounter11getCritRateEPK9Character
+
+.text:0034A6B4                 PUSH    {R3,LR}
+.text:0034A6B6                 SUBS    R0, R1, #0      ; this
+.text:0034A6B8                 BEQ     locret_34A6C6
+.text:0034A6BA                 BL      _ZNK9Character15getBufProcessorEv ; Character::getBufProcessor(void)
+.text:0034A6BE                 MOVS    R1, #6
+.text:0034A6C0                 MOVS    R2, #0
+.text:0034A6C2                 BL      _ZNK12BufProcessor11getBufValueEN6BUF_NS12EFFECT_VALUEEPK9Character ; BufProcessor::getBufValue(BUF_NS::EFFECT_VALUE,Character const*)
+.text:0034A6C6
+.text:0034A6C6 locret_34A6C6                           ; CODE XREF: BufValueCounter::getCritRate(Character const*)+4j
+.text:0034A6C6                 POP     {R3,PC}
+
+
+_DWORD CardItemOwn::getAttack(CardItemOwn *__hidden this)
+EXPORT _ZNK11CardItemOwn9getAttackEv
+
+.text:0033ED06                 PUSH    {R3,LR}
+.text:0033ED08                 ADDS    R0, #0xD8       ; this
+.text:0033ED0A                 BL      _ZNK11AntiCheater8getValueEv ; AntiCheater::getValue(void)
+.text:0033ED0E                 POP     {R3,PC}
+
+
+.text:00348F18 ; _DWORD CharacterAttribute::getAttack(CharacterAttribute *__hidden this)
+.text:00348F18                 EXPORT _ZNK18CharacterAttribute9getAttackEv
+.text:00348F18 _ZNK18CharacterAttribute9getAttackEv    ; DATA XREF: .data.rel.ro:008B6E60o
+.text:00348F18                 PUSH    {R4,LR}
+.text:00348F1A                 MOVS    R3, #0x2E8
+.text:00348F1E                 LDR     R4, [R0,R3]
+.text:00348F20                 BL      _ZNK11CardItemOwn9getAttackEv ; CardItemOwn::getAttack(void)
+.text:00348F24                 ADDS    R0, R0, R4
+.text:00348F26                 POP     {R4,PC}
+
+.text:00454964 ; _DWORD __fastcall PlayerValueCounter::getAttackRate(PlayerValueCounter *__hidden this, const Character *, const Character *)
+.text:00454964                 EXPORT _ZNK18PlayerValueCounter13getAttackRateEPK9CharacterS2_
+.text:00454964 _ZNK18PlayerValueCounter13getAttackRateEPK9CharacterS2_
+.text:00454964                                         ; DATA XREF: .data.rel.ro:008DCA5Co
+.text:00454964                 PUSH    {R3,LR}
+.text:00454966                 ADDS    R0, #4          ; this
+.text:00454968                 BL      _ZNK15BufValueCounter13getAttackRateEPK9CharacterS2_ ; BufValueCounter::getAttackRate(Character const*,Character const*)
+.text:0045496C                 POP     {R3,PC}
+
+
+.text:003CCD96 ; _DWORD JourneyCardItem::getHP(JourneyCardItem *__hidden this)
+.text:003CCD96                 EXPORT _ZNK15JourneyCardItem5getHPEv
+.text:003CCD96 _ZNK15JourneyCardItem5getHPEv
+.text:003CCD96                 PUSH    {R3,LR}
+.text:003CCD98                 MOVS    R3, #0x284
+.text:003CCD9C                 ADDS    R0, R0, R3      ; this
+.text:003CCD9E                 BL      _ZNK11AntiCheater8getValueEv ; AntiCheater::getValue(void)
+.text:003CCDA2                 POP     {R3,PC}
+
+.text:003490B8 ; _DWORD CharacterAttribute::getHP(CharacterAttribute *__hidden this)
+.text:003490B8                 EXPORT _ZNK18CharacterAttribute5getHPEv
+.text:003490B8 _ZNK18CharacterAttribute5getHPEv        ; CODE XREF: ReportWriter::recordIDInfo(bool,std::vector<Character *,std::allocator<Character *>> const&)+5Ep
+.text:003490B8                                         ; ReportWriter::recordIDInfo(bool,std::vector<Character *,std::allocator<Character *>> const&)+A0p ...
+.text:003490B8                 PUSH    {R3,LR}
+.text:003490BA                 MOVS    R3, #0x288
+.text:003490BE                 ADDS    R0, R0, R3      ; this
+.text:003490C0                 BL      _ZNK11AntiCheater8getValueEv ; AntiCheater::getValue(void)
+.text:003490C4                 POP     {R3,PC}

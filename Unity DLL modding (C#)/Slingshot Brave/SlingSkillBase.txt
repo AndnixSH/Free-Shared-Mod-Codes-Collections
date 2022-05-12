@@ -1,0 +1,11 @@
+    protected float GetAttackPower()
+    {
+        float num = this.User.WeaponControl.Parameter.AttackPower * this.User.WeaponControl.Parameter.Skills[0].rate;
+        return (num * ((150000f + this.User.Buff.GetBuffValue(BUFF_TYPE.SLING_SKILL)) / 100f));
+    }
+
+    protected float GetAttrAttackPower()
+    {
+        float num = this.User.WeaponControl.Parameter.AttackPower * this.User.WeaponControl.Parameter.Skills[0].attr_rate;
+        return (num * ((130f + this.User.Buff.GetBuffValue(BUFF_TYPE.SLING_SKILL)) / 100f));
+    }
