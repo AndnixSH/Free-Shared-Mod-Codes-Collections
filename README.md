@@ -8,6 +8,8 @@ And also, it's to stop leechers from leeching my offsets when it's impossible to
 
 I have turned off issues, because i don't read it often and don't want spam links and noobs asking how to use it.
 
+DON'T TRY TO GO SOMEWHERE ELSE TO ASK ME, I WILL ONLY UPLOAD SOURCE WHEN I WANT TO, AND WHEN IT'S SAFE TO DO!
+
 I'll appreciate if you can credit to me and others (if mentioned) at least
 
 Have fun :)
