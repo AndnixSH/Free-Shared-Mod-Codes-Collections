@@ -389,15 +389,25 @@ void *hack_thread(void *) {
 	while (!Il2Cpp::IsAssembliesLoaded()) {
         sleep(2);
     }
-
-	DobbyHook((void*)(Il2Cpp::GetMethodOffset(O("Assembly-CSharp.dll"), "", O("NewWeapon"), O("Update"))), (void*)NewWeapon_Update, (void**)&old_NewWeapon_Update);
-    DobbyHook((void*)(Il2Cpp::GetMethodOffset(O("Assembly-CSharp.dll"), "", O("NukeController"), O("Update"))), (void*)NukeController_Update, (void**)&old_NukeController_Update);
-    DobbyHook((void*)(Il2Cpp::GetMethodOffset(O("Assembly-CSharp.dll"), "", O("GameMode"), O("Update"))), (void*)GameMode_Update, (void**)&old_GameMode_Update);
-    DobbyHook((void*)(Il2Cpp::GetMethodOffset(O("Assembly-CSharp.dll"), "", O("GameShell"), O("Update"))), (void*)GameShell_Update, (void**)&old_GameShell_Update);
-    DobbyHook((void*)(Il2Cpp::GetMethodOffset(O("Assembly-CSharp.dll"), O("CodeStage.AntiCheat.Detectors"), O("SpeedHackDetector"), O("Update"))), (void*)SpeedHackDetector_Update, (void**)&old_SpeedHackDetector_Update);
-    DobbyHook((void*)(Il2Cpp::GetMethodOffset(O("Assembly-CSharp.dll"), "", O("WeaponController"), O("Update"))), (void*)WeaponController_Update, (void**)&old_WeaponController_Update);
-   // DobbyHook((void*)(Il2Cpp::GetMethodOffset(O("Assembly-CSharp.dll"), "", O("RemoteWeaponController"), O("Update"))), (void*)RemoteWeaponController_Update, (void**)&old_RemoteWeaponController_Update);
-    DobbyHook((void*)(Il2Cpp::GetMethodOffset(O("UnityEngine.CoreModule.dll"), O("UnityEngine"), O("Camera"), O("get_fieldOfView"))), (void*)get_fieldOfView, (void**)&old_get_fieldOfView);
+	
+	///Assembly-CSharp.dll
+	//NewWeapon - Update
+	Hook([Your offset], (void*)NewWeapon_Update, (void**)&old_NewWeapon_Update);
+	//NukeController - Update
+    Hook([Your offset], (void*)NukeController_Update, (void**)&old_NukeController_Update);
+	//GameMode - Update
+    Hook([Your offset], "", O("GameMode"), O("Update"))), (void*)GameMode_Update, (void**)&old_GameMode_Update);
+	//GameShell - Update
+    Hook([Your offset], (void*)GameShell_Update, (void**)&old_GameShell_Update);
+	//CodeStage.AntiCheat.Detectors - SpeedHackDetector - Update
+    Hook([Your offset], (void*)SpeedHackDetector_Update, (void**)&old_SpeedHackDetector_Update);
+	//WeaponController - Update
+    Hook([Your offset], (void*)WeaponController_Update, (void**)&old_WeaponController_Update);
+	//RemoteWeaponController - Update
+    Hook([Your offset], (void*)RemoteWeaponController_Update, (void**)&old_RemoteWeaponController_Update);
+	///UnityEngine.CoreModule.dll
+	//UnityEngine - Camera - get_fieldOfView
+    Hook([Your offset], (void*)get_fieldOfView, (void**)&old_get_fieldOfView);
 	
 	Patch::Setup((void*)getAbsoluteAddress(libName, 0x8BE540), (char*)"\x00\xF0\x20\xe3\x1e\xff\x2f\xe1", 8)->Apply(); //CheatController%SpeedHack
    // Patch::Setup((void*)getAbsoluteAddress(libName, 0x7545A4), (char*)"\x00\xF0\x20\xe3\x1e\xff\x2f\xe1", 8)->Apply(); //ModMenu%BanPlayer

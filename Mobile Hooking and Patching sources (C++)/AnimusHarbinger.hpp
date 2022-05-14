@@ -22,11 +22,11 @@ bool IsInvincible(void* _this) {
 
 void AnimusHook(){
 	//SVInventory - GetCount
-	DobbyHook((void *)getRealOffset(0xEC356C), (void *)GetCount, (void **) &orig_GetCount);
+	Hook((void *)getRealOffset(0xEC356C), (void *)GetCount, (void **) &orig_GetCount);
 	//SVFastFinish - GetFastFinishCostWithOverride
-	DobbyHook((void *)getRealOffset(0x12DE3C4), (void *)GetFastFinishCostWithOverride, (void **) &orig_GetFastFinishCostWithOverride);
+	Hook((void *)getRealOffset(0x12DE3C4), (void *)GetFastFinishCostWithOverride, (void **) &orig_GetFastFinishCostWithOverride);
 	//ItemManager - GetItemCost
-	DobbyHook((void *)getRealOffset(0xC38F98), (void *)GetItemCost, (void **) &orig_GetItemCost);
+	Hook((void *)getRealOffset(0xC38F98), (void *)GetItemCost, (void **) &orig_GetItemCost);
 	//SVInventory - Remove
 	//	PatchAddress((unsigned char *)getRealOffset(0xE9FA10), (unsigned char *) "\x1E\xFF\x2F\xE1", 4); 
 }
