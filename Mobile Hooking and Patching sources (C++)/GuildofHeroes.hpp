@@ -15,18 +15,18 @@ jobjectArray GetFeatureList(
 	jobjectArray ret;
 	//unlimited raid tokens
 	const char* features[] = {
-		OBFRK("Category_Disclaimer: The game have banning system. Use it at your own risk, do not abuse!"),
-		OBFRK("1_InputValue_Damage multiplier"),
-		OBFRK("2_InputValue_Defense multiplier"),
-		OBFRK("RichTextView_Max value 2147483647 for 1 hit kill/God mode =D"),
-		OBFRK("3_Toggle_No cooldown"),
-		OBFRK("4_Toggle_Potions Won't Decrease"),
-		OBFRK("5_Toggle_Revive Cost 0"),
-		OBFRK("6_Toggle_Achievements always claimable (Can get unlimited gems)"),
-		OBFRK("7_Toggle_No Requriement to Upgrade weapon and armors"),
-		OBFRK("8_Toggle_Unlock Slots for free"),
+		O("Category_Disclaimer: The game have banning system. Use it at your own risk, do not abuse!"),
+		O("1_InputValue_Damage multiplier"),
+		O("2_InputValue_Defense multiplier"),
+		O("RichTextView_Max value 2147483647 for 1 hit kill/God mode =D"),
+		O("3_Toggle_No cooldown"),
+		O("4_Toggle_Potions Won't Decrease"),
+		O("5_Toggle_Revive Cost 0"),
+		O("6_Toggle_Achievements always claimable (Can get unlimited gems)"),
+		O("7_Toggle_No Requriement to Upgrade weapon and armors"),
+		O("8_Toggle_Unlock Slots for free"),
 		//O("9_Toggle_Everything no costs"),
-		OBFRK("10_Toggle_Skip tutorial (There is a risk getting save data error. Use at your own risk)")
+		O("10_Toggle_Skip tutorial (There is a risk getting save data error. Use at your own risk)")
 	};
 
 	int Total_Feature = (sizeof features /
