@@ -1,0 +1,169 @@
+
+
+--------------[ GetBattleUnitCriRate ]--------------
+__text:001120CC                 MOV             R1, R0
+__text:001120CE                 MOVS            R0, #0
+__text:001120D0                 CMP             R1, #0x13
+__text:001120D2                 IT HI
+__text:001120D4                 BXHI            LR
+__text:001120D6                 MOVW            R2, #(:lower16:(_g_BattleUnit - 0x1120E6))
+__text:001120DA                 MOVW            R3, #0x1450
+__text:001120DE                 MOVT.W          R2, #(:upper16:(_g_BattleUnit - 0x1120E6))
+__text:001120E2                 ADD             R2, PC ; _g_BattleUnit
+__text:001120E4                 MLA.W           R3, R1, R3, R2
+__text:001120E8                 CMP             R3, #0
+__text:001120EA                 ITTT NE
+__text:001120EC                 MOVNEW          R0, #0x1450
+__text:001120F0                 MLANE.W         R0, R1, R0, R2
+__text:001120F4                 LDRNE.W         R0, [R0,#0xF9C]
+__text:001120F8                 BX              LR
+
+--------------[ _GetBattleUnitCriDamage ]--------------
+__text:001120FC                 MOV             R1, R0
+__text:001120FE                 MOVS            R0, #0
+__text:00112100                 CMP             R1, #0x13
+__text:00112102                 IT HI
+__text:00112104                 BXHI            LR
+__text:00112106                 MOVW            R2, #(:lower16:(_g_BattleUnit - 0x112116))
+__text:0011210A                 MOVW            R3, #0x1450
+__text:0011210E                 MOVT.W          R2, #(:upper16:(_g_BattleUnit - 0x112116))
+__text:00112112                 ADD             R2, PC ; _g_BattleUnit
+__text:00112114                 MLA.W           R3, R1, R3, R2
+__text:00112118                 CMP             R3, #0
+__text:0011211A                 ITTT NE
+__text:0011211C                 MOVNEW          R0, #0x1450
+__text:00112120                 MLANE.W         R0, R1, R0, R2
+__text:00112124                 LDRNE.W         R0, [R0,#0xFA0]
+__text:00112128                 BX              LR
+
+--------------[ GetBattleUnitAccuracyRate ]--------------
+__text:0011212C                 MOV             R1, R0
+__text:0011212E                 MOVS            R0, #0
+__text:00112130                 CMP             R1, #0x13
+__text:00112132                 IT HI
+__text:00112134                 BXHI            LR
+__text:00112136                 MOVW            R2, #(:lower16:(_g_BattleUnit - 0x112146))
+__text:0011213A                 MOVW            R3, #0x1450
+__text:0011213E                 MOVT.W          R2, #(:upper16:(_g_BattleUnit - 0x112146))
+__text:00112142                 ADD             R2, PC ; _g_BattleUnit
+__text:00112144                 MLA.W           R3, R1, R3, R2
+__text:00112148                 CMP             R3, #0
+__text:0011214A                 ITTT NE
+__text:0011214C                 MOVNEW          R0, #0x1450
+__text:00112150                 MLANE.W         R0, R1, R0, R2
+__text:00112154                 LDRNE.W         R0, [R0,#0xF98]
+__text:00112158                 BX              LR
+
+--------------[ GetBattleUnitAtk ]--------------
+__text:00111DDC                 PUSH            {R4,R7,LR}
+__text:00111DDE                 ADD             R7, SP, #4
+__text:00111DE0                 SUB             SP, SP, #0x3C
+__text:00111DE2                 CMP             R0, #0x13
+__text:00111DE4                 BHI             loc_111E90
+__text:00111DE6                 MOVW            R1, #(:lower16:(_g_BattleUnit - 0x111DF6))
+__text:00111DEA                 MOVW            R2, #0x1450
+__text:00111DEE                 MOVT.W          R1, #(:upper16:(_g_BattleUnit - 0x111DF6))
+__text:00111DF2                 ADD             R1, PC ; _g_BattleUnit
+__text:00111DF4                 MLA.W           R2, R0, R2, R1
+__text:00111DF8                 CMP             R2, #0
+__text:00111DFA                 BEQ             loc_111E90
+__text:00111DFC                 MOVW            R2, #0x1450
+__text:00111E00                 MOV             R12, SP
+__text:00111E02                 MLA.W           R3, R0, R2, R1
+__text:00111E06                 ADD.W           R9, R3, #0x12C
+__text:00111E0A                 ADD.W           R3, R3, #0x11C
+__text:00111E0E                 LDMIA           R3, {R0-R3}
+
+--------------[ CheckHackingTool ]--------------
+__text:0004F920                 PUSH            {R4,R7,LR}
+__text:0004F922                 ADD             R7, SP, #4
+__text:0004F924                 SUB             SP, SP, #4
+
+--------------[ InitHackingToolCheck ]--------------
+__text:0004F9B0                 MOVW            R1, #(:lower16:(_g_BanAppCheck - 0x4F9BE))
+__text:0004F9B4                 MOVS            R2, #0
+__text:0004F9B6                 MOVT.W          R1, #(:upper16:(_g_BanAppCheck - 0x4F9BE))
+__text:0004F9BA                 ADD             R1, PC ; _g_BanAppCheck
+__text:0004F9BC                 STR             R2, [R1]
+__text:0004F9BE                 STR             R2, [R1,#(dword_566FA4 - 0x566FA0)]
+__text:0004F9C0                 STR             R0, [R1,#(dword_566FA8 - 0x566FA0)]
+__text:0004F9C2                 BX              LR
+
+--------------[ UpdateHackToolCheck ]--------------
+__text:0004F9C4                 PUSH            {R4,R7,LR}
+__text:0004F9C6                 ADD             R7, SP, #4
+__text:0004F9C8                 SUB             SP, SP, #4
+
+--------------[ bndGetRunningHackingTool ]--------------
+__text:001BFEEC                 PUSH            {R4-R7,LR}
+__text:001BFEEE                 ADD             R7, SP, #0xC
+
+--------------[ GetPlayerXigncodeDetected ]--------------
+__text:000D601C                 MOV             R0, #(_g_bXigncodeDetected - 0xD6028)
+__text:000D6024                 ADD             R0, PC ; _g_bXigncodeDetected
+__text:000D6026                 LDRB            R0, [R0]
+__text:000D6028                 BX              LR
+
+--------------[ GetPlayerXigncodeErrorCode ]--------------
+__text:000D602C                 MOV             R0, #(__MergedGlobals_34 - 0xD6038)
+__text:000D6034                 ADD             R0, PC ; __MergedGlobals_34
+__text:000D6036                 LDR             R0, [R0,#(dword_588300 - 0x5882F0)]
+__text:000D6038                 BX              LR
+
+--------------[ Tweak.xm ]--------------
+
+GetBattleUnitCriRate
+GetBattleUnitCriDamage
+GetBattleUnitAccuracyRate
+GetBattleUnitAccuracyRate
+GetBattleUnitAtk
+CheckHackingTool
+CheckHackingToolInstalled
+bndGetRunningHackingTool
+bndGetInstalledHackingTool
+bndGetXignCodeCookie
+
+Obj-c hook
+%hook CKCocoUtils
++(bool)isJailbreak
+{
+return false;
+}
+%end
+
+%hook FlurryUtil
++(bool)deviceIsJailbroken
+{
+return false;
+}
+%end
+
+%hook CZDevice
++(bool)isJailbroken
+{
+return false;
+}
+%end
+
+%hook FlurryUtil
+-(bool)appIsCracked
+{
+return false;
+}
+%end
+
+MOVS R0, #0x96
+MOVS R1, #0x96
+MULS R0, R1    
+POP {R4,R5,R7,PC}
+
+writeData(0xD0A8C,0xFF20);
+writeData(0xD0A8E,0xFF21);
+writeData(0xD0A90,0x4843);
+writeData(0xD0A92,0xB0BD);
+writeData(0xD0A92,0x7047);
+
+//writeData(0xD0A8E,0xFF20);
+//writeData(0xD0A90,0xFF21);
+//writeData(0xD0A92,0x4843);
+//writeData(0xD0A94,0xB0BD);

@@ -1,5 +1,9 @@
-//Game name you know h+++++f++++
-//Camera zoom out mod so you can easly see hunter
+//AudioManager.cs
+		private void OnGUI()
+		{
+			Main.OnGUI();
+		}
+		
 
 //CameraController
 		private void Awake()
@@ -29,5 +33,32 @@
 				PopupManager.Instance.InitializeSimpleDialog(PopupType.SimpleDialogOfNewVersion, null, null, null, PriorityOfPopupDialog.High, null);
 				return;
 			}
-			//Remove this code to bypass fake update popup
+			//-----------------------------------------------------------
+			Profile.Startup();
+			if (!string.IsNullOrEmpty(RestClient.Inst.AuthToken))
+			{
+				UnityEngine.Debug.Log("Has Token");
+				RestClient.Inst.CallMain(delegate(bool success)
+				{
+					if (success)
+					{
+						this.TryAuthGoogle(true, delegate
+						{
+							RestClient.Inst.CallAuthSave();
+						}, null);
+						return;
+					}
+					UnityEngine.Debug.Log("Broken Token");
+					RestClient.Inst.DeleteAuthToken();
+					this.Auth();
+				});
+				return;
+			}
+			this.TryAuthGoogle(true, new Action(this.TryLogin), delegate
+			{
+				this.TryAuthGoogle(false, new Action(this.TryLogin), delegate
+				{
+					RestClient.Inst.CallAuthCreate(null);
+				});
+			});
 		}
