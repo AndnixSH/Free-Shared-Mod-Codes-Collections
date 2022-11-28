@@ -1,0 +1,61 @@
+p980854F7CEC24DD76583C2ED8B6DF179
+sys_kill
+
+get_apk_file_buffer
+get_apk_size
+get_apk_content
+
+crc32 24713285
+_crc32
+
+JNI_OnLoad
+
+com\unity3d\player\UnityPlayer
+
+_ZNK17ObfuscatedAddressIPFvPcS0_iiEE8originalEv
+_ZNK17ObfuscatedAddressIPFvPcEE8originalEv 
+
+offset: 265AA = 23
+
+.rodata:0008BEE3	00000006	C	/dev/
+.rodata:0008BEE9	00000009	C	/vendor/
+.rodata:0008BEF2	00000009	C	[vector]
+.rodata:0008BEFB	0000000A	C	[vectors]
+.rodata:0008BF05	0000000A	C	[sigpage]
+.rodata:0008BF0F	00000007	C	[vdso]
+.rodata:0008BF16	0000000B	C	[vsyscall]
+.rodata:0008BF21	00000009	C	/system/
+.rodata:0008BF2A	00000014	C	/data/dalvik-cache/
+.rodata:0008BF3E	00000015	C	/cache/dalvik-cache/
+.rodata:0008BF53	0000000D	C	xposedbridge
+.rodata:0008BF60	00000009	C	.xposed.
+.rodata:0008BF69	0000000B	C	xposed_art
+.rodata:0008BF74	0000000E	C	/proc/%d/maps
+.rodata:0008BF82	00000011	C	/proc/%d/cmdline
+.rodata:0008BF96	0000000A	C	substrate
+.rodata:0008BFA0	0000000F	C	MSHookFunction
+.rodata:0008BFAF	0000000D	C	MSFindSymbol
+.rodata:0008BFBC	00000010	C	MSCloseFunction
+.rodata:0008BFCC	0000000E	C	hook_postcall
+.rodata:0008BFDA	0000000A	C	adbi_hook
+.rodata:0008BFE4	0000000D	C	hook_precall
+.rodata:0008BFF1	00000018	C	dalvik_java_method_hook
+.rodata:0008C009	00000012	C	ALLINONEs_arthook
+.rodata:0008C01B	00000015	C	art_java_method_hook
+.rodata:0008C030	0000001A	C	art_quick_call_entrypoint
+.rodata:0008C04A	00000015	C	artQuickToDispatcher
+.rodata:0008C05F	00000015	C	dexstuff_defineclass
+.rodata:0008C074	00000009	C	ddi_hook
+.rodata:0008C07D	00000011	C	dexstuff_loaddex
+.rodata:0008C08E	00000014	C	dexstuff_resolv_dvm
+.rodata:0008C0A2	0000000F	C	DexposedBridge
+.rodata:0008C0B1	00000009	C	dexposed
+.rodata:0008C0BA	00000011	C	dexposedIsHooked
+.rodata:0008C0CB	00000014	C	dexposedCallHandler
+.rodata:0008C10B	0000000E	C	/proc/%s/maps
+.rodata:0008C0DF	0000000D	C	netstat -apn
+.rodata:0008C105	00000006	C	27043
+.rodata:0008C0F9	00000006	C	31415
+.rodata:0008C0FF	00000006	C	27042
+.rodata:0008C0F3	00000006	C	23946
+.rodata:0008C0EC	00000007	C	LISTEN

@@ -1,0 +1,28 @@
+package android.support.v4.soft;
+
+public class P
+{
+  public static String e(String paramString)
+  {
+    int i = paramString.length();
+    char[] arrayOfChar = new char[i];
+    int j = i - 1;
+    for (int k = j; j >= 0; k = j)
+    {
+      int m = paramString.charAt(k);
+      int n = k - 1;
+      arrayOfChar[k] = ((char)(m ^ 0x62));
+      if (n < 0) {
+        break;
+      }
+      j = n - 1;
+      arrayOfChar[n] = ((char)(0x6A ^ paramString.charAt(n)));
+    }
+    return new String(arrayOfChar);
+  }
+  
+  protected static boolean e()
+  {
+    return System.getProperty(Type.S, "").startsWith(e("P"));
+  }
+}
