@@ -1,0 +1,78 @@
+Tutorial\Objectives\ObjectiveGoToRac
+
+Objectives\Impl\BuyXCars.cs
+- CounterBuyCar: Change ++ to += 0
+
+Objectives\Impl\OpenXCrates.cs
+- CounterGatchaSpin: Change ++ to += 0
+
+Objectives\Impl\StrioXCrates.cs
+- CounterStripCar: Change ++ to += 0
+
+AndroidDevice.cs
+- IsLowEndDevice: false
+
+AttachedCamera.cs
+- OnLateUpdate: Change You.IsWinner to true
+
+BasePlatform.cs
+- GetApplicationVersion: 1.9.2
+
+CarGarageInstance.cs
+- SetupNewGarageInstance
+-- levelOwned: 6
+-- levelFitted: 6
+- FusingSlotProfileIndex: 3
+- GetTotalNumberPartsOwned: 10000 (try finally)
+
+CarInfo.cs
+- BuyPrice: 1
+- GoldPrice: 1
+- IsAvaliableToViewInShowroom: true
+
+CarStripping
+- CarStrippingFee: 0
+- GetFusionPartRemovalFee: 0 (try finally)
+
+CarUpgradeData.cs
+- CostInCash: 0
+- GoldPrice: 0
+- IsImportPart: false
+
+CurrencyDatabase.cs
+- GetCarDeliveryTime: 0
+
+CustomiseScreen.cs
+- ResetCarMakers
+-- Remove If CarCustomisation....
+-- Add Paint below Calipers
+
+EventPane.cs
+- OnBackgroundImageCallBack: Change last line to this.StartRace();
+- OnGoRaceButtonPressedWithWrongUpgrades.... : Change all to this.StartRace();
+
+GachaScreen.cs
+- OnJustWentOffline: (Nothing)
+
+GachaVariant.cs
+- KeyCost: 0
+
+GaragePopupHelper.cs
+- CanStripCurrentCar: true
+
+PlayerProfile.cs
+- CashSpent: 0
+- GoldSpent: 0
+- GetIsBanned: false
+- SpendFuel: Change -= to +=
+
+PricikgManager.cs
+- IsCustomizeable: true
+
+UpgradeStageFusePane.cs
+- RemovePart
+-- this.mActiveStage, true
+-- this.mActiveSlow: 1
+-- carUpgradePart, true
+- OnClickCancelButton2: this.RemovePart();
+- OnClickCancelButton: this.RemovePart();

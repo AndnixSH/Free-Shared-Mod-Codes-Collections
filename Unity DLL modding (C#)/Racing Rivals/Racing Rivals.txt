@@ -1,0 +1,122 @@
+Racing Rivals
+AbstractRace.cs
+- GotPerfectLaunch: True
+- NumOfPerfectShifts: True
+- UpdatePhysicsTime
+
+CampaignDifficulty.cs
+- PercentDifficultyAsFloat: 1f
+- PercentDifficultyWithRandom: 1f
+
+Car.cs
+- AllowUnderGlow: True
+- IsPurchaseablr: True
+- LockPaint: False
+
+CarColor.cs
+- IsPurchaseable: True
+
+CarDefinition.cs
+- CarHasUnderGlow: True
+
+CarPart.cs
+- IsDeprecated: False
+- IsPurchaseable: True
+
+CarSprite.cs
+- AdjustRideHeight: Change float value
+
+CarUnderglow.cs
+- IsPurchaseable: True
+
+CarWrap.cs
+- IsPurchaseable: True
+
+ComputerRaceCarRunGenerator
+-  PopulateResultsWithRaceCarData
+
+DriversChallengeInfo.cs
+- Complete: False
+- StageNumber: 1
+
+DriversChallengeReward.cs
+- CoinReward
+
+ExtraLoginInfo.cs
+- VideoAdLimits: 999999
+
+GameSettings.cs
+- EditUsernameCostPoints: 0
+- EngineStressActiveDamage: 0
+- EngineStressMaxHPLossPct: 0
+- EngineStressMinHPLossPct: 0
+- SellValudPercentForCars
+- TeamCreationCost: -400
+- VideoAdLimits
+- VideoAdLimitsFb
+
+PlayerRaceCarModel.cs
+- this.gravity: 1E+23
+- DamageEnabled: Flase
+- HasSuperCharger: True
+- HasTurboCharger: True
+- IgnoreLaunchStates: True
+- WasPerfectLaunch: True
+
+RaceCarData.cs (RRProtobufs)
+- boostHPIncrease
+- EngineDamage: 0
+- GripIncrease: 999...
+- HasSuperCharger: True
+- HasTurboCharger: True
+- hpIncrease
+
+RaceResults.cs
+- UserDisconnected: False
+- UserDNF: False
+- UserDQ: False
+- UserFouled: False
+- UserHadTractionLoss: False
+
+RaceSummary.cs
+- Nitrous
+- PLaunch
+- PShifts
+- Win
+
+RewardCar.cs
+- isUnique: False
+- lockAero: False
+- lockPaint: False
+- lockWheels: False
+- lockWrap: False
+
+RRDealershipManager.cs
+- CarClassToCampaign: 1
+
+User.cs
+- Banned: False
+- BoostLeft: 100
+- BoostToggleOn: True
+- HasBoughtBoost: True
+- StreetCredits
+
+UserCar.cs
+- AreWheelsLocked: False
+- IsAeroLocked: False
+- IsPaintLocked: False
+- IsUnique: False
+- IsWrapLocked
+
+UserEngine.cs
+- Damage: 0.0
+
+UserPart
+- IsInstalling: False
+- RemainingInstallTime: False
+
+VideoAdMagaer.cs
+- HasAdAvaliable: True
+
+Wheel.cs
+- IsPurchaseable: True
