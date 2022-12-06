@@ -29,7 +29,7 @@ void Remove(void* _this, monoString* item, int amount, monoString* reason, monoS
 void (*orig_Add)(void* _this, monoString* itemName, int amount, monoString* reason, bool allowMaxOverflow, monoString* description, bool shouldShow, void* economyTransactionStatsData, bool showNotifyDialog);
 void Add(void* _this, monoString* itemName, int amount, monoString* reason, bool allowMaxOverflow, monoString* description, bool shouldShow, void* economyTransactionStatsData, bool showNotifyDialog) {
     
-	//Sorry, no spoonfeed for string modding. Try learn programming instead waiting to be spoonfed
+	//Sorry leechers or noobs, no spoonfeed here. Try learn programming instead waiting to be spoonfed. NO question asked!
 	
 	return orig_Add(_this, itemName, amount, reason, allowMaxOverflow, description, shouldShow, economyTransactionStatsData, showNotifyDialog);
 }
