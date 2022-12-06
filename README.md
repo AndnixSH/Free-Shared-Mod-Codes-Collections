@@ -6,7 +6,7 @@ You can use them learn and see how I wrote the code, and get ideas. Most codes a
 
 Also, it's to stop leechers from leeching my offsets when it's impossible to stop them, due to shaddy scripts wide spread. Now they can just find this repo straight forward without leeching. I'll try to share more codes of my active mods when I can, considering if devs doesn't bother patching something
 
-**Please DON'T ask how to use. If I don't spoonfeed enough, just learn more programming. I have turned off issues for now**
+**Please DON'T ask how to use. If I don't spoonfeed enough, just learn more programming. This isn't 100% spoonfeeding. I have turned off issues for now**
 
 I'll appreciate if you can credit to me and others (if mentioned in the source) if you wanna use the sources
 
