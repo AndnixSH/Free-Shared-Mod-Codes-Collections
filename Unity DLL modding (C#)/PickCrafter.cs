@@ -1,7 +1,23 @@
 //Modify Assembly-Csharp.dll using dnSpy
-//AndnixSH#
+//AndnixSH
 
-	
+// Achievements
+using Steamworks;
+
+private static bool IsAchievementEarned(Achievements.AcIds? aCode)
+{
+	return true;
+}
+
+public static void InitPlatform()
+{
+	foreach (int i in Enum.GetValues(typeof(Achievements.AcIds)))
+	{
+		SteamUserStats.SetAchievement(Achievements.AcDict[(Achievements.AcIds)i]);
+	}
+	GameData.UserAchievementAuth = Social.localUser.authenticated;
+}
+
 //Ability.cs
 public bool IsUnlocked()
 {
