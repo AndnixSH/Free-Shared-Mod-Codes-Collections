@@ -1,6 +1,17 @@
 //UIRoot
 Put toast in it
 
+// DwellerExperience
+private float ExpForCurrentLevel()
+{
+	return 1E+17f;
+}
+
+public bool IsReadyToLevelUp()
+{
+	return true;
+}
+
 //EmergencyParameters.cs
 	public int AfterRaidersExperienceReward
 	{
