@@ -16,3 +16,8 @@
 			})
 		});
 	}
+	
+	public void Start()
+	{
+		ShowToastMessage("Modded by AndnixSH - Platinmods.com");
+	}
