@@ -1,5 +1,3 @@
--- Decrypt lua by yourself
-
 -- File: @Battle.game.common.logic.sprite.basic.sprite_hp_b_logic.lua
 function logic:skill_damage(fromobj, toobj, rate, cast_table, source_table)
 
