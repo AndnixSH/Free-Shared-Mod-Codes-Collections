@@ -1,0 +1,111 @@
+---------------------------------------------------
+Application::OnBannedVersion(int)
+_ZN11Application15OnBannedVersionEi
+
+.text:00AFA944                 BX              LR
+
+---------------------------------------------------
+Application::IsUserBanned(void)const
+_ZNK11Application12IsUserBannedEv
+
+.text:00B007E8                 MOV             R0, #0
+.text:00B007EC                 BX              LR
+
+---------------------------------------------------
+Application::OnBannedUser(std::string const&, std::string const&)
+EXPORT _ZN11Application12OnBannedUserERKSsS1_
+
+.text:00B16480                 BX              LR
+
+---------------------------------------------------
+dh::GamePortalResponse::IsBannedFromGame(void)const
+EXPORT _ZNK2dh18GamePortalResponse16IsBannedFromGameEv
+
+.text:00C63418                 MOV             R0, #0
+.text:00C6341C                 BX              LR
+
+---------------------------------------------------
+dh::GamePortalResponse::IsBanned(void)const
+EXPORT _ZNK2dh18GamePortalResponse8IsBannedEv
+
+.text:00C6349C                 MOV             R0, #0
+.text:00C634A0                 BX              LR
+
+---------------------------------------------------
+EnergyManager::ConsumeEnergy(CurrencyData const*, int)
+EXPORT _ZN13EnergyManager13ConsumeEnergyEPK12CurrencyDatai
+
+.text:00C6F230                 BX              LR
+
+---------------------------------------------------
+EnergyManager::ConsumeEnergy(LevelData const*, Difficulty const*)
+EXPORT _ZN13EnergyManager13ConsumeEnergyEPK9LevelDataPK10Difficulty
+
+.text:00C6F370                 BX              LR
+
+---------------------------------------------------
+dh::CurrencyProfile::SetCurrencyQty(rflb::Name const&, int)
+EXPORT _ZN2dh15CurrencyProfile14SetCurrencyQtyERKN4rflb4NameEi
+
+.text:00CAE37C                 STMFD           SP!, {R4-R9,LR}
+.text:00CAE380                 MOV             R4, #0xFFFFFF
+
+---------------------------------------------------
+GameObject::IsGodMP(void)const
+EXPORT _ZNK10GameObject7IsGodMPEv
+
+.text:00EA5A7C                 MOV             R0, #1
+.text:00EA5A80                 BX              LR
+
+---------------------------------------------------
+GameObject::GetAttackSpeedModifier(void)const
+EXPORT _ZNK10GameObject22GetAttackSpeedModifierEv
+
+.text:00EA5E04                 MOV             R0, #0x44000000
+.text:00EA5E08                 BX              LR
+
+---------------------------------------------------
+_DWORD GameObject::GetMoveSpeedModifier(GameObject *__hidden this)
+EXPORT _ZNK10GameObject20GetMoveSpeedModifierEv
+
+.text:00EA5E50                 MOV             R0, #0x40000000
+.text:00EA5E54                 BX              LR
+
+---------------------------------------------------
+_DWORD Skill::HasEnergy(Skill *__hidden this)
+EXPORT _ZNK5Skill9HasEnergyEv
+
+.text:010D7174                 MOV             R0, #1
+.text:010D7178                 BX              LR
+
+---------------------------------------------------
+_DWORD Skill::UseEnergy(Skill *__hidden this)
+EXPORT _ZN5Skill9UseEnergyEv
+
+.text:010D7308                 BX              LR
+
+---------------------------------------------------
+_DWORD SkillScript::UseEnergy(SkillScript *__hidden this)
+EXPORT _ZN11SkillScript9UseEnergyEv
+
+.text:010D7914                 BX              LR
+
+---------------------------------------------------
+_DWORD SkillEnergyInstance_Cooldown::IsReady(SkillEnergyInstance_Cooldown *__hidden this)
+WEAK _ZNK28SkillEnergyInstance_Cooldown7IsReadyEv
+
+.text:010EACEC                 MOV             R0, #1
+.text:010EACF0                 BX              LR
+
+---------------------------------------------------
+_DWORD SkillEnergyInstance_RandomCooldown::IsReady(SkillEnergyInstance_RandomCooldown *__hidden this)
+WEAK _ZNK34SkillEnergyInstance_RandomCooldown7IsReadyEv
+
+.text:010EADAC                 MOV             R0, #1
+.text:010EADB0                 BX              LR
+
+---------------------------------------------------
+_DWORD SkillEnergyInstance_RandomCooldown::Consume(SkillEnergyInstance_RandomCooldown *__hidden this)
+WEAK _ZN34SkillEnergyInstance_RandomCooldown7ConsumeEv
+
+.text:010EC1FC                 BX              LR

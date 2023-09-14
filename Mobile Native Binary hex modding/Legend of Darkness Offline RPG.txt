@@ -1,0 +1,20 @@
+int __fastcall MainMoreLayer::dialogCdKeyTouchEvent(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int (__cdecl *a9)(int))
+
+loverpgs
+loverpgs2
+
+MOV     R1, #0xffff
+
+Exchange::getCheat(void)const
+WEAK _ZNK8Exchange8getCheatEv
+
+1e ff 2f e1
+
+GameLogic::getIsCheat(void)const
+WEAK _ZNK9GameLogic10getIsCheatEv
+
+GameLogic::checkCheat(void)
+EXPORT _ZN9GameLogic10checkCheatEv
+
+GameLogic::checkBan(void)
+EXPORT _ZN9GameLogic8checkBanEv

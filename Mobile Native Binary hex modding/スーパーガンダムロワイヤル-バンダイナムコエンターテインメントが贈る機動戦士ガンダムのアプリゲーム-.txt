@@ -1,0 +1,21 @@
+Down	p	G2::BattleEnemyArmy::CanStartInvokeCustomSkill(void)+10	BL              sub_CAD40C
+.text:01E84454                 BL              j__ZN2G29BattleIns7GetGameEv ; G2::BattleIns::GetGame(void)
+.text:01E84458                 BL              sub_CAD40C
+
+Down	p	G2::BattleCustomSkillManager::ExistsUnitInvokeCustomSkill(void)+D4	BL              sub_CAD40C
+Down	p	G2::BattleRaidbossController::IsUnitOverKill(G2::BattleUnit const*)+4C	BL              sub_CAD40C
+
+.text:023579C4                 BL              j__ZN2G29BattleIns7GetGameEv ; G2::BattleIns::GetGame(void)
+.text:023579C8                 BL              sub_CAD40C
+
+Down	p	G2::BattleRaidbossController::CanChangeTurn(bool)+68	BL              sub_CAD40C
+
+.text:023BBC44                 BL              j__ZN2G29BattleIns7GetGameEv ; G2::BattleIns::GetGame(void)
+.text:023BBC48                 BL              sub_CAD40C
+
+Down	p	G2::BattleUnit::IsSelfTurn(void)+40	BL              sub_CAD40C
+
+.plt:00CAD40C sub_CAD40C                              ; CODE XREF: .text:0117EDCC↓p
+.plt:00CAD40C                                         ; .text:01260FA4↓p ...
+.plt:00CAD40C                 MOV             R0, #0
+.plt:00CAD410                 BX              LR

@@ -6,10 +6,6 @@ void hack_thread() {
         sleep(1);
     } while (!isLibraryLoaded(targetLibName));
 	
-	//LOGD("I have been loaded 2...");
-	
-	Il2Cpp::Init(targetLibName);
-	
 	sleep(4);
 	
 	//SharkStats			 
